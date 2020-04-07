@@ -6,7 +6,8 @@ const dotenv = require('dotenv');
 const usersRoute = require('./Routes/users');
 const postRoute = require('./Routes/posts');
 const favouritesRoute = require('./Routes/favouritesRoute');
-
+const playlistRoutes = require('./Routes/playlistsRoute');
+const songsRoutes = require('./Routes/songsRoute')
 dotenv.config();
 
 //Middleware
@@ -16,6 +17,8 @@ app.use(express.json());
 app.use('/user', usersRoute);
 app.use('/', postRoute);
 app.use('/', favouritesRoute);
+app.use('/', playlistRoutes);
+app.use('/', songsRoutes);
 
 
 module.exports = app;

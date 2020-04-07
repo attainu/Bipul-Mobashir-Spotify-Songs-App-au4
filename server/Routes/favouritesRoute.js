@@ -8,9 +8,9 @@ const verify = require('../verifyToken/verifyToken');
 router.post('/favourites',verify, favourites.create);
 
 //Get all favourites
-router.get('/getAllFavourites/:userId',verify, favourites.findAll);
+router.get('/getAllFavourites',verify, favourites.findAll); 
 
 //Remove favourites
-router.delete('/favourites/:trackId',verify, favourites.delete);
+router.delete('/favourites/:trackid',verify, favourites.delete);
 
 module.exports = router;

@@ -1,12 +1,13 @@
-const favourite = require('../Models/FavouritesModel');
+const song = require('../Models/SongsModel');
 
-//Add a favourite
+//Add a song
 exports.create = async (req, res) => {
     console.log(req.user,"jddjdj")
     try {
-        let favourites = await favourite.create({
-            isfavourite: true,
+        let songs = await song.create({
+           
             trackid: req.body.trackid,
+            playlistid: req.body.playlistid,
             trackname: req.body.trackname,
             artistname:req.body.artistname,
             albumname: req.body.albumname,
@@ -14,42 +15,41 @@ exports.create = async (req, res) => {
             duration: req.body.duration,
             userid: req.user.id
         })
-        res.status(200).send(favourites);  
+        res.status(200).send(songs);  
     } catch (error) {
         res.status(400).send(error);
     }
 }
 
-//Fetch all favourites
+//Fetch all songs for a particular user's playlist
 exports.findAll = async (req, res) => {
-    console.log("req.user>>",req.user.id)
-    console.log(req.params.userid);
     try {
-        let favourites = await favourite.findAll({
+        let songs = await song.findAll({
             where: {
-                isfavourite: true,
-                userid: req.user.id
+                userid: req.user.id,
+                playlistid: req.params.playlistid
             }
         })
-        res.status(200).send(favourites);  
+        res.status(200).send(songs);  
     } catch (error) {
         res.status(400).send(error);
     }
 }
 
-// Delete a favourite by  trackId
+// Delete a song from playlist for a particular user's playlist
 exports.delete = async (req, res) => {
     console.log("delete >>>",req.user.id);
     console.log(req.params.userid);
     try {
         const id = req.params.trackid;
-         let favourites = await favourite.destroy({
+         let songs = await song.destroy({
             where: {
                 trackid: id,
-                userid: req.user.id
+                userid: req.user.id,
+                playlistid: req.params.playlistid
             }
         })
-        res.status(200).send(favourites);  
+        res.status(200).send(songs);  
         
     } catch (error) {
         res.status(400).send(error);

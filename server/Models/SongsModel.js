@@ -1,15 +1,14 @@
 const db = require('../Database/connect');
 const Sequelize = require('sequelize');
 
-let favourite = db.define("favourites",{
+let song = db.define("songs",{
 
     userid: {
         type: Sequelize.INTEGER
     },
-    isfavourite : {
-      type: Sequelize.BOOLEAN,
-      allowNull : false,
-      defaultValue: false
+   
+    playlistid: {
+        type: Sequelize.INTEGER
     },
     trackid : {
       type: Sequelize.INTEGER
@@ -33,7 +32,7 @@ let favourite = db.define("favourites",{
     timestamps: false
   });
   db.sync().then(res=>{
-    console.log('favourites db has been created');
+    console.log('songs db has been created');
 });
 
-module.exports = favourite;
+module.exports = song;
