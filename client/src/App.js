@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component, Fragment } from 'react';
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import Header from './Components/Header/Header.js';
+import Content from './Components/Content/Content.js';
+import SideNav from './Components/SideNav/SideNav.js';
+import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
+import RadioNav from './Components/RadioNav/RadioNav.js';
+export default class App extends Component {
+  render() {
+    return (
+      <Fragment>
+        <Header/>
+        <SideNav/>
+        <MusicPlayer/>
+        <RadioNav/>
+        <Content/>
+        
+      </Fragment>
+    )
+  }
 }
-
-export default App;
