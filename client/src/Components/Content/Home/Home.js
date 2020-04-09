@@ -1,11 +1,20 @@
-import React, { Component } from 'react'
-
+import React, { Component, Fragment } from 'react'
+import RadioNav from './../../RadioNav/RadioNav.js';
+import Carousel from './Carousel.js';
 export default class Home extends Component {
     render() {
         return (
-            <div>
-                This is Home
-            </div>
+            <Fragment>
+                <div className="firstRowHOme">
+                    <div className="carousel">
+                        <Carousel/>
+                    </div>
+                    <div className="radioNav">
+                       <RadioNav/>
+                    </div>
+
+                </div>
+            </Fragment>
         )
     }
 }
