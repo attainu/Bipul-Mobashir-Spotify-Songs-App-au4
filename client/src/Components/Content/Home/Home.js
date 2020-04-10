@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import RadioNav from './../../RadioNav/RadioNav.js';
 import Carousel from './Carousel.js';
+import Trending from './Trending.js';
 export default class Home extends Component {
     render() {
         return (
@@ -13,6 +14,9 @@ export default class Home extends Component {
                        <RadioNav/>
                     </div>
 
+                </div>
+                <div className="trending">
+                    <Trending/>
                 </div>
             </Fragment>
         )

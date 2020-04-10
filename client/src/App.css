@@ -138,6 +138,9 @@ aside div:nth-child(1){
 .carousel{
  flex: 2;
 }
+.carousel img{
+  max-height: 200px;
+}
 .radioNav{
   width: 20vw;
   background-color: rgb(231, 38, 206);
