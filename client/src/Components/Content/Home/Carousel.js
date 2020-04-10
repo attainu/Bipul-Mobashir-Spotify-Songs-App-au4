@@ -4,7 +4,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default class Carouse extends Component {
     render() {
         return (
-                <Carousel centerMode centerSlidePercentage={50} showThumbs={false} showStatus={false} emulateTouch>
+                <Carousel centerMode centerSlidePercentage={50} showThumbs={false} showStatus={false} emulateTouch autoPlay interval={2000} infiniteLoop>
                 <div>
                     <img src="https://i.ytimg.com/vi/Ps4aVpIESkc/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBB9d6tpKF6j1y3SmHCIjbLaE0W1Q" />
                 </div>
