@@ -1,8 +1,18 @@
 import React, { Component } from 'react';
-import AudioPlayer from 'react-h5-audio-player';
-import 'react-h5-audio-player/lib/styles.css';
+import {connect} from 'react-redux';
+var getData = (store)=>{
+    console.log("music Player",store)
+    return {
+        all:store
+    }
+}
+var getFunction = (dispatch)=>{
+    return{
+        playSong:dispatch
+    }
+}
 
-export default class MusicPlayer extends Component {
+export default  connect(getData,getFunction)(class MusicPlayer extends Component {
     state={
         url: "mp3",
         song: new Audio()
@@ -28,6 +38,13 @@ export default class MusicPlayer extends Component {
         }
        
     }
+    componentDidMount = ()=>{
+        let action = {
+            type:"play_song",
+            payload:"kJQP7kiw5Fk"
+        }
+        this.props.playSong(action);
+    }
 
     render() {
         return (
@@ -39,4 +56,4 @@ export default class MusicPlayer extends Component {
             </div>
         )
     }
-}
+})

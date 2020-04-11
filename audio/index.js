@@ -32,10 +32,10 @@ app.use(cors({
 }));
 app.options("*", cors());
 
-const port = 3000;
+const port = 9000;
 
 app.get("/", (req, res) => {
-  res.send("Welcome to ylight api")
+  res.send("Welcome to musicMe")
 })
 
 

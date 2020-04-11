@@ -2,7 +2,10 @@ import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
-    console.log(store.search);
+   // console.log(store.search);
+   return {
+       searchList:store
+   }
 }
 let getFunction = (dispatch)=>{
 
