@@ -145,3 +145,13 @@ aside div:nth-child(1){
   width: 20vw;
   background-color: rgb(231, 38, 206);
 }
+.trending{
+  display: flex;
+  flex-wrap: wrap;
+}
+.trending div{
+  margin:3px;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid grey;
+}

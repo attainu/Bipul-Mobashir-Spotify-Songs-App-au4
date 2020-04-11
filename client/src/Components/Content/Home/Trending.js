@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux';
 import getTrending from './../../../API/getTrending';
+import Card from './Card';
 let getData = (store)=>{
     console.log("data here",store.popular)
     return {
@@ -10,7 +11,8 @@ let getData = (store)=>{
 let getFunction = (dispatch)=>{
 
     return{
-        setTrending:dispatch
+        setTrending:dispatch,
+        play:dispatch
     }
 }
 
@@ -35,7 +37,12 @@ export default connect(getData,getFunction)(class Trending extends Component {
     render() {
         return (
             <Fragment>
-                This is Trending
+                {this.props.trending && this.props.trending.map((items,key)=>{
+                    
+                    return(
+                        <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                    )
+                })}
             </Fragment>
         )
     }

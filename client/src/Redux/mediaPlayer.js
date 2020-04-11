@@ -7,8 +7,15 @@ function appReducerFunction(state=initialState,action){
     //let stateCopy = JSON.parse(JSON.stringify(state));
     switch(action.type){
         case "play_song":
+            console.log("Play song....song",action);
             playSong(state,action.payload)
             return state;
+        case "pause_current":
+            state.song.pause()
+            return state;
+        case "play_current":
+            state.song.play()
+            return state
     }
     return state;
 }
