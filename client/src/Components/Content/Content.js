@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import Home from './Home/Home.js';
+import SearchResult from './SearchResult';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 export default class Content extends Component {
@@ -12,11 +13,13 @@ export default class Content extends Component {
 
                     </div>
                     <div className="homeContent">
-                    <Router>
+                    
                         <Switch>
                             <Route path="/" exact component={Home}/>
+                            <Route path="/search/:value" exact component={SearchResult}/>
+                            
                         </Switch>
-                        </Router>
+                       
                         
                     </div>
                 </div>

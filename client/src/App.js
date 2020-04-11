@@ -7,16 +7,17 @@ import Content from './Components/Content/Content.js';
 import SideNav from './Components/SideNav/SideNav.js';
 import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
 import RadioNav from './Components/RadioNav/RadioNav.js';
+
 export default class App extends Component {
   render() {
     return (
       <Fragment>
+        <Router>
         <Header/>
         <SideNav/>
         <MusicPlayer/>
-        
         <Content/>
-        
+        </Router>
       </Fragment>
     )
   }

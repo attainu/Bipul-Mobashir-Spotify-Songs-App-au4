@@ -1,14 +1,16 @@
-import getTrending from './action/getTrending.js';
+import setTrending from './action/setTrending.js';
 let initialState = {
     trending:[],
     trendingPage:[]
 }
 
 function appReducerFunction(state=initialState,action){
-    
+    let stateCopy = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case "get_trending":
-            var newState = getTrending(state);
+        case "set_trending":
+            
+             var newState = setTrending(stateCopy,action.payload);
+            console.log("newstate" ,newState);
             return newState;
     }
     return state;

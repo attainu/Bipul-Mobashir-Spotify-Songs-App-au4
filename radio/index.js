@@ -35,7 +35,7 @@ app.options("*", cors());
 const port = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Welcome to musicMe")
+  res.send("Welcome to ylight api")
 })
 
 

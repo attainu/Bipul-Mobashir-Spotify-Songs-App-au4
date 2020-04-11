@@ -1,13 +1,13 @@
-import getSearch from './action/getSearch.js';
+import setSearch from './action/setSearch.js';
 let initialState = {
     searchResult:[],
 }
 
 function appReducerFunction(state=initialState,action){
-    
+    let stateCopy = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case "get_search":
-            var newState = getSearch(state);
+        case "set_search":
+            var newState = setSearch(stateCopy,action.payload);
             return newState;
     }
     return state;

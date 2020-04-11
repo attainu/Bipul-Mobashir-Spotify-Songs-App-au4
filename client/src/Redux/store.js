@@ -1,12 +1,14 @@
-import {combineReducers,createStore} from 'redux';
-
+import {combineReducers,createStore,applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import trending from './trending.js';
 import search from './search';
+import mediaPlayer from './mediaPlayer';
 
 
 const rootReducers=combineReducers({
     popular:trending,
-    search:search
+    search:search,
+    music:mediaPlayer
     
 });
 
