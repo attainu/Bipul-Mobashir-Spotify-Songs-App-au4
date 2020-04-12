@@ -30,9 +30,6 @@ export default connect(getData, getFunction)(class SearchResult extends Componen
         })
     }
     
-
-
-
     render() {
         return (
             <Fragment>
@@ -40,8 +37,7 @@ export default connect(getData, getFunction)(class SearchResult extends Componen
                     console.log(items)
                     return(
                     
-                              <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
-                        
+                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>   
                     )
                 })}
             
