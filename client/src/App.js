@@ -12,12 +12,14 @@ export default class App extends Component {
   render() {
     return (
       <Fragment>
-        <Router>
-        <Header/>
-        <SideNav/>
-        <MusicPlayer/>
-        <Content/>
-        </Router>
+        
+          <Router>
+              <Header/>
+              <SideNav/>
+              <MusicPlayer/>
+              <Content/>
+          </Router>
+          
       </Fragment>
     )
   }

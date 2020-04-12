@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from 'react';
-
+import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home/Home.js';
 import SearchResult from './SearchResult';
-import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 
 export default class Content extends Component {
     render() {

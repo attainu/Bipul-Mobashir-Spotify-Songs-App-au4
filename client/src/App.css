@@ -155,3 +155,23 @@ aside div:nth-child(1){
   padding: 5px;
   border: 2px solid grey;
 }
+.top-picks{
+  display: flex;
+  flex-wrap: wrap;
+}
+.top-picks div{
+  margin:3px;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid grey;
+}
+.english-songs{
+  display: flex;
+  flex-wrap: wrap;
+}
+.english-songs div{
+  margin:3px;
+  cursor: pointer;
+  padding: 5px;
+  border: 2px solid grey;
+}

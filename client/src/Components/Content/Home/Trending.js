@@ -23,6 +23,7 @@ export default connect(getData,getFunction)(class Trending extends Component {
         let data=getTrending()
         console.log("Data here...",data);
         data.then((res)=>{
+            console.log("Data here...",data);
             let action = {
                 type:"set_trending",
                 payload:res
@@ -36,6 +37,7 @@ export default connect(getData,getFunction)(class Trending extends Component {
     }
     render() {
         return (
+            
             <Fragment>
                 {this.props.trending && this.props.trending.map((items,key)=>{
                     
