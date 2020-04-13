@@ -33,6 +33,7 @@ export default connect(getData, getFunction)(class TopSongs extends Component {
         return (
             
             <Fragment>
+                 <h5>Top Picks</h5>
             
             {this.props.topPicks && this.props.topPicks.map((items, key) => {
                 return (

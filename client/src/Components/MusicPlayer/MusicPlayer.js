@@ -9,7 +9,8 @@ var getData = (store)=>{
 var getFunction = (dispatch)=>{
     return{
         play:dispatch,
-        pause:dispatch
+        pause:dispatch,
+        mute:dispatch
     }
 }
 
@@ -31,6 +32,12 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
             type: "pause_current"
         }
         this.props.pause(action)
+     }
+    handleMute = () => {
+        let action = {
+            type: "mute_current"
+        }
+        this.props.mute(action)
      }
     
    

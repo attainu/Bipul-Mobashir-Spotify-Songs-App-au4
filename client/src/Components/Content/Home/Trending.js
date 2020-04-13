@@ -39,6 +39,7 @@ export default connect(getData,getFunction)(class Trending extends Component {
         return (
             
             <Fragment>
+                <h5>Trending</h5>
                 {this.props.trending && this.props.trending.map((items,key)=>{
                     
                     return(

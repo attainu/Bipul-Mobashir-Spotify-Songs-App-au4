@@ -16,6 +16,13 @@ function appReducerFunction(state=initialState,action){
         case "play_current":
             state.song.play()
             return state
+        case "mute_current":
+            if(state.song.muted){
+                state.song.muted = false
+            }else{
+                state.song.muted = true
+            }
+            return state
     }
     return state;
 }

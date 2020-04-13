@@ -38,17 +38,20 @@ app.get("/", (req, res) => {
   res.send("Welcome to musicMe")
 })
 
-
+//app.use((req,res,next)=>{console.log(req.query.id); return next()})
 
 app.get('/song', async (req, res) =>
+  
   ytdl
     .getInfo(req.query.id)
     .then(info => {
+     // console.log("format here>>>>>",info.formats[0].url);
       const audioFormats = ytdl.filterFormats(info.formats, 'audioonly')
       res.set('Cache-Control', 'public, max-age=20000'); //6hrs aprox
+    //  console.log(audioFormats);
       res.json(audioFormats[1].url)
     })
-    .catch(err => res.status(400).json(err.message))
+    .catch(err => {res.status(400).json(err.message)})
 )
 
 let proxy = cors_proxy.createServer({
