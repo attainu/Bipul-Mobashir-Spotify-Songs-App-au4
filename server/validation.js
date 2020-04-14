@@ -6,6 +6,9 @@ const registerValidation = data => {
         name: Joi.string()
         .min(6)
         .required(),
+
+        username: Joi.string()
+        .required(),
     
         email: Joi.string()
         .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }),

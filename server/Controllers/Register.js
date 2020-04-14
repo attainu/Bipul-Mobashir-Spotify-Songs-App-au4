@@ -13,13 +13,17 @@ exports.register = async (req, res) => {
         const emailExist = await User.findOne({where: {email: req.body.email}});
         if(emailExist) return res.status(400).send('Email already exists!');
 
+        //Checking if the username is already taken or not
+        const usernameExist = await User.findOne({where: {username: req.body.username}});
+        if(usernameExist) return res.status(400).send('Username already taken!');
+
         //Hash password
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
 
         //Create a new user
         const {body} = req;
-        let user = await User.create({name: body.name, email: body.email, password: hashedPassword});
+        let user = await User.create({name: body.name, username: body.username, email: body.email, password: hashedPassword});
         res.send(user);
     } catch (error) {
         console.log(error);

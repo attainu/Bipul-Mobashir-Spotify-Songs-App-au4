@@ -6,7 +6,7 @@ let setTrending = (state,data)=>{
         state.trendingPage = data.data.items
         return state;
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
 }
 export default setTrending;

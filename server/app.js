@@ -9,6 +9,7 @@ const favouritesRoute = require('./Routes/favouritesRoute');
 const playlistRoutes = require('./Routes/playlistsRoute');
 const songsRoutes = require('./Routes/songsRoute');
 const communitiesRoute = require('./Routes/communityRoute');
+const artistsRoute = require('./Routes/artistsRoute');
 
 dotenv.config();
 
@@ -22,6 +23,6 @@ app.use('/', favouritesRoute);
 app.use('/', playlistRoutes);
 app.use('/', songsRoutes);
 app.use('/', communitiesRoute);
-
+app.use('/', artistsRoute);
 
 module.exports = app;

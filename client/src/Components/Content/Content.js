@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home/Home.js';
 import SearchResult from './SearchResult';
+import ArtistResult from './ArtistResult';
 
 export default class Content extends Component {
     render() {
@@ -16,7 +17,7 @@ export default class Content extends Component {
                         <Switch>
                             <Route path="/" exact component={Home}/>
                             <Route path="/search/:value" exact component={SearchResult}/>
-                            
+                            <Route path="/artist" exact component={ArtistResult}/>
                         </Switch>
                        
                         

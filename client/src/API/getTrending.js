@@ -7,7 +7,7 @@ let getTrending = async ()=>{
         //console.log(response);
         return response;
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
 }
 export default getTrending;

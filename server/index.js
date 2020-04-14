@@ -1,6 +1,6 @@
 const app = require('./app');
 const db = require('./Database/connect');
-const PORT = 3000;
+const PORT = 5555;
 
 db.authenticate().then(()=>{
     try {

@@ -6,6 +6,7 @@ import mediaPlayer from './mediaPlayer';
 import radio from './radio';
 import topPicks from './topPicks.js';
 import englishSongs from './englishSongs.js';
+import artists from './artists.js';
 
 
 const rootReducers=combineReducers({
@@ -14,7 +15,8 @@ const rootReducers=combineReducers({
     music:mediaPlayer,
     radio: radio,
     topPicks: topPicks,
-    englishSongs: englishSongs
+    englishSongs: englishSongs,
+    artists: artists
 });
 
 export default createStore(rootReducers);
