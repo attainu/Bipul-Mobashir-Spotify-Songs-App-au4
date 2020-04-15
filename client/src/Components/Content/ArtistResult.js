@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import getArtist from './../../API/getArtist.js';
 import Card from './Home/Card.js';
 
@@ -17,7 +18,7 @@ let getFunction = (dispatch) => {
 }
 
 export default connect(getData, getFunction)(class ArtistResult extends Component {
-
+    
     componentDidMount = () => {
         let data = getArtist();
         data.then(res => {
@@ -30,15 +31,17 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
         })
     }
 
+    
+
     render() {
         return (
             <Fragment>
                 this is artist
                 {this.props.artistResult && this.props.artistResult.map((items, key)=> {
                     return (
-                        <div>
+                        <div >
                         {items.artistname}
-                        <Card key={key} id={items.id} thumbnail={items.imgurl} name={items.artistname} />
+                        <Link to={`artist/search/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl}/></Link>
                         </div>
                     )
                 })}
