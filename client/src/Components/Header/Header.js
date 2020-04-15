@@ -1,8 +1,27 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import Search from './Search';
+import {connect} from 'react-redux';
 
-export default class Header extends Component {
+let getData = (store)=>{
+    console.log("login store",store)
+    return {
+        status:store.auth
+    }
+}
+let getFunction = (dispatch)=>{
+ return{
+    modal:dispatch
+ }
+}
+
+export default connect(getData,getFunction)(class Header extends Component {
+    handleLoginButton = ()=>{
+        let action = {
+            type:"set_status"
+        }
+        this.props.modal(action);
+    }
     render() {
         return (
             <header>
@@ -11,10 +30,10 @@ export default class Header extends Component {
                 </div>
                 <div className="search"><Search/></div>
                 
-                <div className="userAuth">login/signup</div>
+                <div className="userAuth" onClick={()=>{this.handleLoginButton()}}>login/signup</div>
 
                 
             </header>
         )
     }
-}
+})

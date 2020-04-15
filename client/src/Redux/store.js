@@ -7,6 +7,7 @@ import radio from './radio';
 import topPicks from './topPicks.js';
 import englishSongs from './englishSongs.js';
 import artists from './artists.js';
+import auth from './auth.js';
 
 
 const rootReducers=combineReducers({
@@ -16,7 +17,8 @@ const rootReducers=combineReducers({
     radio: radio,
     topPicks: topPicks,
     englishSongs: englishSongs,
-    artists: artists
+    artists: artists,
+    auth:auth
 });
 
 export default createStore(rootReducers);
