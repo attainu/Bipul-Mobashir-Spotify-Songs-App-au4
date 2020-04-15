@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux';
 import getTrending from './../../../API/getTrending';
 import Card from './Card';
+import {Link} from 'react-router-dom';
 let getData = (store)=>{
     console.log("data here",store.popular)
     return {
@@ -46,6 +47,7 @@ export default connect(getData,getFunction)(class Trending extends Component {
                         <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
                     )
                 })}
+                <Link to="/trending"><button>See All</button></Link>
             </Fragment>
         )
     }

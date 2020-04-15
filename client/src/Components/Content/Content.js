@@ -3,6 +3,8 @@ import { Route, Link, Switch, BrowserRouter as Router } from 'react-router-dom';
 import Home from './Home/Home.js';
 import SearchResult from './SearchResult';
 import ArtistResult from './ArtistResult';
+import ArtistSearchResult from './ArtistSearchResult';
+import TrendingAllResult from './TrendingAllResult';
 
 export default class Content extends Component {
     render() {
@@ -18,6 +20,8 @@ export default class Content extends Component {
                             <Route path="/" exact component={Home}/>
                             <Route path="/search/:value" exact component={SearchResult}/>
                             <Route path="/artist" exact component={ArtistResult}/>
+                            <Route path="/artist/search/:value" exact component={ArtistSearchResult} />
+                            <Route path="/trending" exact component= {TrendingAllResult}/>
                         </Switch>
                        
                         
