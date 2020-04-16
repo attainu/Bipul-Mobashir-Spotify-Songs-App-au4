@@ -1,17 +1,18 @@
 import React, { Component } from 'react'
-
+import {Link} from 'react-router-dom';
 export default class SideNav extends Component {
     render() {
         return (
-            <aside>
-               <div></div>
+            <aside className="sideNav">
+               <div className="hidden"></div>
                <div className="B">
+                   <div className="musicTab">Music</div>
                    <nav>
-                       <span>Home</span>
-                       <span>Songs</span>
-                       <span>Album</span>
-                       <span>Artist</span>
-                       <span>Liked</span>
+                       <Link to = "/"><div>Home</div></Link>
+                       <div>Songs</div>
+                       <div>Album</div>
+                       <div>Artist</div>
+                       <div>Favourite</div>
                    </nav>
                </div>
                <div>C</div>
