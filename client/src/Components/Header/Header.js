@@ -4,14 +4,15 @@ import Search from './Search';
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
-    console.log("login store",store)
+    console.log("login store",store.auth);
     return {
         status:store.auth
     }
 }
 let getFunction = (dispatch)=>{
  return{
-    modal:dispatch
+    modal:dispatch,
+    logout: dispatch
  }
 }
 
@@ -22,6 +23,15 @@ export default connect(getData,getFunction)(class Header extends Component {
         }
         this.props.modal(action);
     }
+
+    handleLogoutButton = () => {
+        let action = {
+            type: "set_logout"
+        }
+        this.props.logout(action);
+    }
+
+
     render() {
         return (
             <header>
@@ -30,7 +40,8 @@ export default connect(getData,getFunction)(class Header extends Component {
                 </div>
                 <div className="search"><Search/></div>
                 
-                <div className="userAuth" onClick={()=>{this.handleLoginButton()}}>login/signup</div>
+                {this.props.status.auth && <div className="userAuth" onClick={()=>{this.handleLogoutButton()}}>logout</div>}
+                {!this.props.status.auth && <div className="userAuth" onClick={()=>{this.handleLoginButton()}}>login/signup</div>}
 
                 
             </header>

@@ -204,3 +204,15 @@ aside div:nth-child(1){
 .loginHeader{
   display: flex;
 }
+
+.B nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.B nav span{
+  cursor: pointer;
+  
+}

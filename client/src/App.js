@@ -8,20 +8,55 @@ import SideNav from './Components/SideNav/SideNav.js';
 import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
 //import RadioNav from './Components/RadioNav/RadioNav.js';
 import AuthModal from'./Components/AuthModal/AuthModal.js';
-export default class App extends Component {
-  render() {
-    return (
-      <Fragment>
-        
-          <Router>
-              <AuthModal/>
-              <Header/>
-              <SideNav/>
-              <MusicPlayer/>
-              <Content/>
-          </Router>
-          
-      </Fragment>
-    )
+import {connect} from 'react-redux';
+import axios from 'axios';
+import getToken from './../src/Redux/Token/getToken';
+
+let getData = (store) => {
+  return {
+    store: store
   }
 }
+
+let getFunction = (dispatch) => {
+  return {
+    status : dispatch
+  }
+}
+export default connect(getData, getFunction)(class App extends Component {
+  
+  componentDidMount = () => {
+    var token = getToken();
+    console.log("dhhdhdhd?>>",token);
+    if(token){
+      axios.get('http://localhost:5555/status', {
+      headers: {
+        ["auth-token"]: token //the token is a variable which holds the token
+      }
+    }).then(res => {
+      console.log("get token>>>",res)
+      let action = {
+        type: "live_status"
+
+      }
+      this.props.status(action);
+    })
+  }
+}
+
+render() {
+  return (
+    <Fragment>
+    
+    <Router>
+    <AuthModal/>
+    <Header/>
+    <SideNav/>
+    <MusicPlayer/>
+    <Content/>
+    </Router>
+    
+    </Fragment>
+    )
+  }
+})

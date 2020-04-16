@@ -4,8 +4,16 @@ export default class SideNav extends Component {
     render() {
         return (
             <aside>
-               <div>A</div>
-               <div>B</div>
+               <div></div>
+               <div className="B">
+                   <nav>
+                       <span>Home</span>
+                       <span>Songs</span>
+                       <span>Album</span>
+                       <span>Artist</span>
+                       <span>Liked</span>
+                   </nav>
+               </div>
                <div>C</div>
                <div>D</div>
             </aside>
