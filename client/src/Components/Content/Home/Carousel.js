@@ -1,23 +1,52 @@
 import React, { Component } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
-export default class Carouse extends Component {
+import getCarousel from './../../../API/getCarousel';
+import {connect} from 'react-redux';
+import Card from './Card';
+
+let getData = (store) => {
+    console.log("reeceiving carousel data from store",store.carousel.carouselList)
+    return {
+        carousel : store.carousel.carouselList
+    }
+}
+
+let getFunction = (dispatch) => {
+    return {
+         setCarousel: dispatch
+    }
+}
+
+export default connect(getData, getFunction)(class Carouse extends Component {
+
+    componentDidMount = () => {
+        let data = getCarousel()
+        data.then(res => {
+            console.log("carousel songs>>",res);
+            let action = {
+                type : "set_carousel",
+                payload : res
+            }
+            this.props.setCarousel(action);
+        })
+    }
+    
+
+
+
     render() {
         return (
                 <Carousel centerMode centerSlidePercentage={50} showThumbs={false} showStatus={false} emulateTouch autoPlay interval={2000} infiniteLoop>
-                <div>
-                    <img src="https://i.ytimg.com/vi/Ps4aVpIESkc/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBB9d6tpKF6j1y3SmHCIjbLaE0W1Q" />
-                </div>
-                <div>
-                    <img src="https://i.ytimg.com/vi/_iktURk0X-A/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLA0VTBgvnXma3UIfCPVrt8lsk6bqA" />
-                </div>
-                <div>
-                    <img src="https://i.ytimg.com/vi/JsXw02JUrA4/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLC3vyEZDCgNBxVFlzOmNnHFxKU5pA" />
-                </div>
-                <div>
-                    <img src="https://i.ytimg.com/vi/8qovC498OIY/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBbF1moZI6xj7o2Owz2Fz90jpvnnA" />
-                </div>
+
+                    {this.props.carousel && this.props.carousel.map((items, key) => {
+                        return (
+                            <div>
+                                <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.high.url} title={"a"} duration={"a"}/>
+                            </div>
+                        )
+                    })}
             </Carousel>
         )
     }
-}
+})

@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom';
-export default class SideNav extends Component {
+import {connect} from 'react-redux';
+
+let getData = (store) => {
+    return {
+        status : store.auth
+    }
+}
+
+let getFunction = (dispatch) => {
+    return {
+         dispatch
+    }
+}
+
+export default connect(getData, getFunction)(class SideNav extends Component {
     render() {
         return (
             <aside className="sideNav">
@@ -12,7 +26,8 @@ export default class SideNav extends Component {
                        <Link to = "/songs"><div>Songs</div></Link>
                        <div>Album</div>
                        <Link to = "/artist"><div>Artist</div></Link>
-                       <div>Favourite</div>
+                       {this.props.status.auth && <Link to = "/favourite"><div>Favourite</div></Link>}
+
                    </nav>
                </div>
                <div>C</div>
@@ -20,4 +35,4 @@ export default class SideNav extends Component {
             </aside>
         )
     }
-}
+})

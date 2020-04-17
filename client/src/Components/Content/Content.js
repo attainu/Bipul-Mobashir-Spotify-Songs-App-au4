@@ -6,6 +6,7 @@ import ArtistResult from './ArtistResult';
 import ArtistSearchResult from './ArtistSearchResult';
 import TrendingAllResult from './TrendingAllResult';
 import SongsResult from './SongsResult';
+import Favourite from './Favourite';
 
 export default class Content extends Component {
     render() {
@@ -24,6 +25,7 @@ export default class Content extends Component {
                             <Route path="/artist/:value" exact component={ArtistSearchResult} />
                             <Route path="/trending" exact component= {TrendingAllResult}/>
                             <Route path="/songs" exact component={SongsResult}/>
+                            <Route path="/favourite" exact component={Favourite}/>
                         </Switch>
                        
                         
