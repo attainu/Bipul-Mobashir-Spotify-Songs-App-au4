@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
 let getData = (store)=>{
     console.log("login store",store)
     return {
@@ -8,10 +9,69 @@ let getData = (store)=>{
 }
 let getFunction = (dispatch)=>{
  return{
-    tab:dispatch
+    tab:dispatch,
+    setLogin: dispatch
  }
 }
 export default connect(getData,getFunction)(class Login extends Component {
+
+    state = {
+        email: "",
+        password: ""
+    }
+
+    handleEmailChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            email : e.target.value
+        })
+    }
+    handlePasswordChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            password : e.target.value
+        })
+    }
+
+    loginHandler = () =>{
+        console.log("submit call")
+        const { email, password } = this.state;
+
+        const user = {
+            email,
+            password,
+          };
+          console.log("user",user)
+
+          axios({
+            method: 'POST',
+            url: 'http://localhost:5555/user/login',
+            data: user
+            })
+            .then((response) => {
+                //handle success
+                console.log(response);
+                if(response.data.status === 200 && response.data.message=== "success"){
+                    let action = {
+                        type: "set_signup",
+                        payload : {
+                            name: response.data.name,
+                            auth: response.headers["auth-token"]
+                        }
+                        
+                    }
+                    // console.log(action.payload);
+
+                    this.props.setLogin(action);
+                }
+            })
+            
+            .catch((response) => {
+                //handle error
+                console.log(response);
+            });
+    }
+
     handleTab = ()=>{
         let action = {
             type:"set_tab"
@@ -19,6 +79,8 @@ export default connect(getData,getFunction)(class Login extends Component {
         this.props.tab(action);
 
     }
+
+
     render() {
         return (
             <Fragment>
@@ -28,11 +90,11 @@ export default connect(getData,getFunction)(class Login extends Component {
                     <div onClick={this.handleTab} className="signUpTab">SignUp</div>
                 </div>
                 <div className="authBody">
-                    <input type="text"></input>
-                    <input type="password"></input>
+                <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
+                <input onChange = {(e) => {this.handlePasswordChange(e)}} type="password" value={this.state.password} placeholder="Enter Password"></input>
                 </div>
                 <div className="authButton">
-                    <button>Sign In</button>
+                <button onClick={() => {this.loginHandler()}}>Login</button>
                 </div>
 
             </div> }

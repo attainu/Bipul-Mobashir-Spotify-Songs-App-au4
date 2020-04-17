@@ -1,17 +1,95 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
+import axios from 'axios';
+
 let getData = (store)=>{
-    console.log("login store",store)
+    console.log("signup store",store)
     return {
         status:store.auth
     }
 }
 let getFunction = (dispatch)=>{
  return{
-    tab:dispatch
+    tab:dispatch,
+    setSignup: dispatch
  }
 }
 export default connect(getData,getFunction)(class SignUp extends Component {
+    state = {
+        name: "",
+        username: "",
+        email: "",
+        password: ""
+    }
+
+    handleNameChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            name : e.target.value
+        })
+    }
+    handleUsernameChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            username : e.target.value
+        })
+    }
+    handleEmailChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            email : e.target.value
+        })
+    }
+    handlePasswordChange = (e) => {
+        console.log(e.target.value)
+        this.setState({
+            password : e.target.value
+        })
+    }
+
+    signupHandler = () => {
+        
+        console.log("submit call")
+        const { name, username, email, password } = this.state;
+
+        const user = {
+            name,
+            username,
+            email,
+            password,
+          };
+          console.log("user",user)
+
+          axios({
+            method: 'POST',
+            url: 'http://localhost:5555/user/register',
+            data: user
+            })
+            .then((response) => {
+                //handle success
+                console.log(response);
+                if(response.data.status === 200 && response.data.message=== "success"){
+                    let action = {
+                        type: "set_signup",
+                        payload : {
+                            name: response.data.name,
+                            auth: response.headers["auth-token"]
+                        }
+                        
+                    }
+                    // console.log(action.payload);
+
+                    this.props.setSignup(action);
+                }
+            })
+            
+            .catch((response) => {
+                //handle error
+                console.log(response);
+            });
+    }
+
+    
     handleTab = ()=>{
         let action = {
             type:"set_tab"
@@ -27,14 +105,17 @@ export default connect(getData,getFunction)(class SignUp extends Component {
                     <div onClick={this.handleTab} className="loginTab">SignIn</div>
                     <div onClick={this.handleTab} className="signUpTab">SignUp</div>
                 </div>
+                
                 <div className="authBody">
-                    <input type="text"></input>
-                    <input type="text"></input>
-                    <input type="password"></input>
+                    <input onChange = {(e) => {this.handleNameChange(e)}} type="text" value={this.state.name} placeholder="Enter Name"></input>
+                    <input onChange = {(e) => {this.handleUsernameChange(e)}} type="text" value={this.state.username} placeholder="Enter Username"></input>
+                    <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
+                    <input onChange = {(e) => {this.handlePasswordChange(e)}} type="password" value={this.state.password} placeholder="Enter Password"></input>
                 </div>
                 <div className="authButton">
-                    <button>Sign Up</button>
+                    <button onClick={() => {this.signupHandler()}}>Sign Up</button>
                 </div>
+            
 
             </div> }
             </Fragment>

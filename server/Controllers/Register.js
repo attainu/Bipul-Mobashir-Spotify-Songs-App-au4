@@ -1,8 +1,10 @@
 const User = require('../Models/User');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 const {registerValidation} = require('../validation');
 
 exports.register = async (req, res) => {
+    // console.log("server req>>",req.body)
     
     try {
         //Validate the data before create
@@ -24,7 +26,16 @@ exports.register = async (req, res) => {
         //Create a new user
         const {body} = req;
         let user = await User.create({name: body.name, username: body.username, email: body.email, password: hashedPassword});
-        res.send(user);
+        //CREATE and assign a token
+        const token = jwt.sign({id: user.id}, process.env.TOKEN_SECRET);
+        res.header('auth-token', token).json({
+            status: 200,
+            message: "success",
+            name: user.name
+        })
+        // res.send(user);
+
+        
     } catch (error) {
         console.log(error);
     }
