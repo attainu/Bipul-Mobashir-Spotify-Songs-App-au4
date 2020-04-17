@@ -22,7 +22,7 @@ export default connect(getData, getFunction)(class TrendingAllResult extends Com
         let data=getAllTrending()
         console.log("Data here...",data);
         data.then((res)=>{
-            console.log("Data here...",data);
+            console.log("trending Data here...",res);
             let action = {
                 type:"set_all_trending",
                 payload:res

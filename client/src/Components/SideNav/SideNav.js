@@ -9,9 +9,9 @@ export default class SideNav extends Component {
                    <div className="musicTab">Music</div>
                    <nav>
                        <Link to = "/"><div>Home</div></Link>
-                       <div>Songs</div>
+                       <Link to = "/songs"><div>Songs</div></Link>
                        <div>Album</div>
-                       <div>Artist</div>
+                       <Link to = "/artist"><div>Artist</div></Link>
                        <div>Favourite</div>
                    </nav>
                </div>

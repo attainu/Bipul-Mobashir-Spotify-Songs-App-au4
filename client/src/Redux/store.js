@@ -10,7 +10,7 @@ import artists from './artists.js';
 import auth from './auth.js';
 import artistSearchResult from './artistSearchResult.js';
 import allTrending from './allTrending.js';
-
+import songs from './songs.js';
 
 const rootReducers=combineReducers({
     popular:trending,
@@ -22,7 +22,8 @@ const rootReducers=combineReducers({
     artists: artists,
     auth:auth,
     artistSearchResult: artistSearchResult,
-    allTrending: allTrending
+    allTrending: allTrending,
+    songs: songs
 });
 
 export default createStore(rootReducers);

@@ -41,7 +41,7 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
                     return (
                         <div >
                         {items.artistname}
-                        <Link to={`artist/search/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl}/></Link>
+                        <Link to={`artist/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl}/></Link>
                         </div>
                     )
                 })}
