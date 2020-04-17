@@ -17,7 +17,9 @@ export default connect(getData,getFunction)(class Login extends Component {
 
     state = {
         email: "",
-        password: ""
+        password: "",
+        status: true,
+        type: "password"
     }
 
     handleEmailChange = (e) => {
@@ -30,6 +32,20 @@ export default connect(getData,getFunction)(class Login extends Component {
         console.log(e.target.value)
         this.setState({
             password : e.target.value
+        })
+    }
+
+    handleShowPassword = () => {
+        this.setState({
+            type: "text",
+            status : false
+        })
+    }
+
+    handleHidePassword = () => {
+        this.setState({
+            type: "password",
+            status : true
         })
     }
 
@@ -91,7 +107,9 @@ export default connect(getData,getFunction)(class Login extends Component {
                 </div>
                 <div className="authBody">
                 <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
-                <input onChange = {(e) => {this.handlePasswordChange(e)}} type="password" value={this.state.password} placeholder="Enter Password"></input>
+                <input onChange = {(e) => {this.handlePasswordChange(e)}} type={this.state.type} value={this.state.password} placeholder="Enter Password"></input>
+                {this.state.status && <button onClick = {() => {this.handleShowPassword()}}>Show</button>}
+                {!this.state.status && <button onClick = {() => {this.handleHidePassword()}}>Hide</button>}
                 </div>
                 <div className="authButton">
                 <button onClick={() => {this.loginHandler()}}>Login</button>
