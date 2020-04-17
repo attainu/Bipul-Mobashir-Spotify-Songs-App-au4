@@ -21,7 +21,7 @@ header{
   
 }
 .brand{
-  flex: 1;
+  flex: 1 1;
   
   
   padding-left: 5vw;
@@ -36,7 +36,7 @@ header{
 }
 .search{
   display: flex;
-  flex: 2;
+  flex: 2 1;
   justify-content: center;
   
 }
@@ -58,7 +58,7 @@ header{
 }
 .userAuth{
   display: flex;
-  flex: 1;
+  flex: 1 1;
   justify-content: flex-end;
   
   padding-right: 5vw;
@@ -136,7 +136,7 @@ header{
   flex-wrap: wrap;
 }
 .carousel{
- flex: 2;
+ flex: 2 1;
 }
 .carousel img{
   max-height: 200px;
@@ -187,7 +187,7 @@ header{
   justify-content: center;
   align-items: center;
   animation-name: open;
-  animation-duration: 1s;
+  animation-duration: 0.5s;
 }
 
 @keyframes open{
@@ -215,8 +215,15 @@ header{
 .loginHeader{
   display: flex;
 }
+.navActive{
+  background-color: hotpink;
+  color: white !important ;
+  background: linear-gradient(180deg, #C8013D 0%, #B8014F 100%);
+  border-radius: 59px;
+
+}
 .B{
-  height: 40vh;
+  height: 35vh;
   width: 100%;
 }
 .B nav {
@@ -228,8 +235,13 @@ header{
   align-items: center;
 }
 
-.B nav div{
+
+.navbarLink{
+  text-decoration: none;
+  width: 80%;
+  padding: 5px;
   text-align: center;
   cursor: pointer;
+  color: black;
   
 }
