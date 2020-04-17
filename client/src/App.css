@@ -186,6 +186,17 @@ aside div:nth-child(1){
   display: flex;
   justify-content: center;
   align-items: center;
+  animation-name: open;
+  animation-duration: 1s;
+}
+
+@keyframes open{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 .cross{
   position: absolute;
