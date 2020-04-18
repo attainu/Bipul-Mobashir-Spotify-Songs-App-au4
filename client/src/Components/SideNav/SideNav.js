@@ -69,10 +69,10 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                        
                    </nav>
                </div>
-               <div className="C">
+               {this.props.status.auth && <div className="C">
                <div className="playlist">Playlists</div>
                     <PlayList/>
-               </div>
+               </div>}
                <div>D</div>
             </aside>
         )
