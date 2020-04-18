@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
+import PlayList from './CreatePlayList';
 
 let getData = (store) => {
     return {
@@ -68,7 +69,10 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                        
                    </nav>
                </div>
-               <div>C</div>
+               <div className="C">
+               <div className="playlist">Playlists</div>
+                    <PlayList/>
+               </div>
                <div>D</div>
             </aside>
         )
