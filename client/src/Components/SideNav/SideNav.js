@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 let getData = (store) => {
@@ -16,18 +16,56 @@ let getFunction = (dispatch) => {
 
 export default connect(getData, getFunction)(class SideNav extends Component {
     render() {
+        
+        
         return (
             <aside className="sideNav">
                <div className="hidden"></div>
                <div className="B">
                    <div className="musicTab">Music</div>
                    <nav>
-                       <Link to = "/"><div>Home</div></Link>
-                       <Link to = "/songs"><div>Songs</div></Link>
-                       <div>Album</div>
-                       <Link to = "/artist"><div>Artist</div></Link>
-                       {this.props.status.auth && <Link to = "/favourite"><div>Favourite</div></Link>}
-
+                   <NavLink
+                    exact
+                    activeClassName="navActive"
+                    className="navbarLink"
+                    to="/"
+                    >
+                      Home
+                    </NavLink>
+                   <NavLink
+                    exact
+                    activeClassName="navActive"
+                    className="navbarLink"
+                    to="/songs"
+                    >
+                      Songs
+                    </NavLink>
+                   <NavLink
+                    exact
+                    activeClassName="navActive"
+                    className="navbarLink"
+                    to="/album"
+                    >
+                      Album
+                    </NavLink>
+                   <NavLink
+                    exact
+                    activeClassName="navActive"
+                    className="navbarLink"
+                    to="/artist"
+                    >
+                      Artist
+                    </NavLink>
+                   {this.props.status.auth && <NavLink
+                    exact
+                    activeClassName="navActive"
+                    className="navbarLink"
+                    to="/favourite"
+                    >
+                      Favourite
+                    </NavLink>}
+                     
+                       
                    </nav>
                </div>
                <div>C</div>
@@ -35,4 +73,5 @@ export default connect(getData, getFunction)(class SideNav extends Component {
             </aside>
         )
     }
-})
+}
+)
