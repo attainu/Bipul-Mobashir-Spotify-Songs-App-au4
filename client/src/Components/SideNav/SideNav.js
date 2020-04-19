@@ -2,45 +2,19 @@ import React, { Component } from 'react'
 import {Link,NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-
-let getData = (store)=>{
-    console.log("login store",store.auth);
+let getData = (store) => {
     return {
-        status:store.auth
+        status : store.auth
     }
 }
-let getFunction = (dispatch)=>{
- return{
-    modal:dispatch,
-    logout: dispatch
- }
-}
-export default connect(getData,getFunction)(class SideNav extends Component {
 
-    setStyle = (value)=>{
-        const style1 = {
-            color: "white",
-            backgroundColor: "DodgerBlue",
-            
-            fontFamily: "Arial"
-        }
-        const style2 = {
-            color: "white",
-            backgroundColor: "pink",
-            
-            fontFamily: "Arial"
-        }
-        console.log("style here",window.location.pathname);
-        if(window.location.pathname = value){
-            return style1
-        }
-        else return style2
+let getFunction = (dispatch) => {
+    return {
+         dispatch
     }
-    componentDidMount = ()=>{
-        console.log("cdm sidenav",this.props);
-        
-    }
-     
+}
+
+export default connect(getData, getFunction)(class SideNav extends Component {
     render() {
         
         
@@ -82,14 +56,14 @@ export default connect(getData,getFunction)(class SideNav extends Component {
                     >
                       Artist
                     </NavLink>
-                   <NavLink
+                   {this.props.status.auth && <NavLink
                     exact
                     activeClassName="navActive"
                     className="navbarLink"
                     to="/favourite"
                     >
                       Favourite
-                    </NavLink>
+                    </NavLink>}
                      
                        
                    </nav>

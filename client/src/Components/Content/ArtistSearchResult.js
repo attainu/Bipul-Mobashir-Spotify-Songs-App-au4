@@ -19,9 +19,6 @@ let getFunction = (dispatch) => {
 
 export default connect(getData, getFunction)(class ArtistSearchResult extends Component {
     componentWillReceiveProps = (newProps) => {
-        // console.log("This is testing props",newprops);
-        // console.log("receive>>", this.props.match.params.value)
-        // console.log("Compare props",newprops.match.params.value,this.props.match.params.value);
         if(newProps.match.params.value !== this.props.match.params.value){
             console.log("inside if");
         let inputValue = newProps.match.params.value;
