@@ -251,9 +251,11 @@ header{
   height: 35vh;
   width: 100%;
   background-color: aqua;
+  position: relative;
 }
 .createPlaylist{
-  margin-top: 29vh;
+  position: absolute;
+  bottom: 0;
 }
 
 .playlistModal{
@@ -263,10 +265,20 @@ header{
   top: 20%;
   bottom: 20%;
   z-index: 5;
-  background-color: rgb(190, 1, 71,0.8);
+  background: linear-gradient(180deg, #C8013D 0%, #B8014F 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   animation-name: open;
   animation-duration: 0.5s;
+}
+
+.playlistName{
+  max-height: 70%;
+  overflow-y: scroll;
+
+}
+
+.playlistName::-webkit-scrollbar {
+  width: 15px;
 }

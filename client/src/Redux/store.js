@@ -14,7 +14,7 @@ import songs from './songs.js';
 import carousel from './carousel.js';
 import allRadio from './allRadio';
 import playlistModal from './playlistModal';
-
+// import playlistData from './playlistData';
 const rootReducers=combineReducers({
     popular:trending,
     search:search,
@@ -29,7 +29,8 @@ const rootReducers=combineReducers({
     songs: songs,
     carousel: carousel,
     allRadio:allRadio,
-    playlistModal: playlistModal
+    playlistModal: playlistModal,
+    // playlistData: playlistData
 });
 
 export default createStore(rootReducers);
