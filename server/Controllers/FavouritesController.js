@@ -5,14 +5,10 @@ exports.create = async (req, res) => {
     console.log(req.user,"jddjdj")
     try {
         let favourites = await favourite.create({
-            isfavourite: true,
+            userid: req.user.id,
+            imgurl: req.body.imgurl,
             trackid: req.body.trackid,
-            trackname: req.body.trackname,
-            artistname:req.body.artistname,
-            albumname: req.body.albumname,
-            albumreleasedate: req.body.albumreleasedate,
-            duration: req.body.duration,
-            userid: req.user.id
+            trackname: req.body.trackname,            
         })
         res.status(200).send(favourites);  
     } catch (error) {
@@ -27,7 +23,7 @@ exports.findAll = async (req, res) => {
     try {
         let favourites = await favourite.findAll({
             where: {
-                isfavourite: true,
+                
                 userid: req.user.id
             }
         })
