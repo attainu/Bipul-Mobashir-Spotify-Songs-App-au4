@@ -40,14 +40,19 @@ export default connect(getData,getFunction)(class Trending extends Component {
         return (
             
             <Fragment>
-                <h5>Trending</h5>
+                <div className="rowHeader">
+                    <span>Trending</span>
+                    <Link to="/trending"><button>See All</button></Link>
+                </div>
+                <div className="rowBody">
                 {this.props.trending && this.props.trending.map((items,key)=>{
                     
                     return(
                         <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
                     )
                 })}
-                <Link to="/trending"><button>See All</button></Link>
+                </div>
+                
             </Fragment>
         )
     }

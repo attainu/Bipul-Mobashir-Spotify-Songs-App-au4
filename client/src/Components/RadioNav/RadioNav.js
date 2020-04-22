@@ -2,7 +2,7 @@ import React, { Component ,Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import getRadio from './../../API/getRadio.js';
-import Card from './../../Components/Content/Home/Card';
+import Card from './../../Components/Content/Home/CCard';
 
 let getData = (store) => {
     console.log("radio data receving from store", store.radio.radioResult)

@@ -1,20 +1,61 @@
 import React, { Component, Fragment } from 'react';
+import axios from 'axios';
+import getToken from './../../Redux/Token/getToken';
+import {connect} from 'react-redux';
 
-export default class PlaylistInput extends Component {
+let getData = (store) => {
+    console.log(">>>>playlist data receiving from store>>>",store)
+    return {
+        store
+    }
+}
+
+let getFunction = (dispatch) => {
+    return {
+        playlistData: dispatch
+    }
+}
+
+export default connect(getData, getFunction)(class PlaylistInput extends Component {
 
     state = {
-        input: ""
+        playlistname: ""
     }
 
     handleInput = (e) => {
         console.log(e.target.value)
         this.setState({
-            input:e.target.value
+            playlistname:e.target.value
         })
     }
 
     handleButton = () => {
-        console.log("calling")
+        var token = getToken();
+        console.log("calling");
+
+        const {playlistname} = this.state;
+        const data = {
+            playlistname
+        };
+        console.log("input playlist data>>", data)
+        if(token){ 
+        axios({
+            method: 'POST', 
+            url: 'http://localhost:5555/playlists',
+            data: data,
+            headers: {
+                ["auth-token"]: token //the token is a variable which holds the token
+              }
+        })
+        .then((response) => {
+            console.log("PLAYLIST RES>>>",response);
+            let action = {
+                type: "set_playlist_data",
+                payload: response.data
+            }
+            this.props.playlistData(action);
+        })
+    }
     }
     render() {
         return (
@@ -29,4 +70,4 @@ export default class PlaylistInput extends Component {
             </Fragment>
         )
     }
-}
+})

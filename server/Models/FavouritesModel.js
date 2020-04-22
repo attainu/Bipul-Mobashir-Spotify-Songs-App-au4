@@ -6,29 +6,19 @@ let favourite = db.define("favourites",{
     userid: {
         type: Sequelize.INTEGER
     },
-    isfavourite : {
-      type: Sequelize.BOOLEAN,
-      allowNull : false,
-      defaultValue: false
+    imgurl: {
+      type: Sequelize.TEXT,
+      alowNull: false
     },
     trackid : {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING,
+      alowNull: false
     },
     trackname: {
-      type: Sequelize.STRING
-     },
-    artistname: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      alowNull: false
     },
-    albumname: {
-      type: Sequelize.STRING
-    },
-    albumreleasedate: {
-      type: Sequelize.STRING
-    },
-    duration: {
-      type: Sequelize.STRING
-    }
+    
   }, {
     timestamps: false
   });

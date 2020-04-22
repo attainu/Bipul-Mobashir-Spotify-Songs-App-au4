@@ -3,7 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import getCarousel from './../../../API/getCarousel';
 import {connect} from 'react-redux';
-import Card from './Card';
+import Card from './CCard';
 
 let getData = (store) => {
     console.log("reeceiving carousel data from store",store.carousel.carouselList)

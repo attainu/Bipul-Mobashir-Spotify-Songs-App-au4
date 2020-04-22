@@ -43,6 +43,7 @@ export default connect(getData, getFunction)(class App extends Component {
       this.props.status(action);
     })
   }
+
 }
 
 render() {

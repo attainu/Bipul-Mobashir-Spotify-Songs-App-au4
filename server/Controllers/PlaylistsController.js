@@ -2,11 +2,11 @@ const playlist = require('../Models/PlaylistsModel');
 
 //Create playlist
 exports.create = async (req, res) => {
-    console.log(req.user);
+    console.log("REQUEST>>",req.body);
     try {
         let playlists = await playlist.create({
             playlistname: req.body.playlistname,
-            description: req.body.description,
+            // description: req.body.description,
             // playlistid: req.body.playlistid,
             userid: req.user.id
         })
