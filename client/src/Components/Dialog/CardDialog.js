@@ -1,7 +1,10 @@
 import React, { Component,Fragment } from 'react'
 import {connect} from 'react-redux';
+import axios from 'axios';
+import getToken from './../../Redux/Token/getToken';
+
 let getData = (store) => {
-    console.log("RECEVING DIALOG>>", store)
+    console.log("RECEVING DIALOG>>", store.cardDialog)
     return{
         dialog : store.cardDialog
     }
@@ -10,10 +13,28 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
     return {
-        dispatch
+        addToFavourite : dispatch
     }
 }
 export default connect(getData, getFunction)(class CardDialog extends Component {
+
+    handlefavourite = () => {
+        let token = getToken();
+        
+        if(token) {
+            axios({
+                method: 'POST',
+                url: 'http://localhost:5555/favourites',
+                data: this.props.dialog,
+                headers: {
+                    ["auth-token"]: token //the token is a variable which holds the token
+                  }
+            })
+            
+        }
+
+        
+    }
     
     render() {
         console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
@@ -32,7 +53,7 @@ export default connect(getData, getFunction)(class CardDialog extends Component 
                 {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
                     <ul>
-                        <li>Mark Favourite</li>
+                        <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>
                         <li>Save to Playlist</li>
                         <li>Add to Queue</li>
                     </ul>

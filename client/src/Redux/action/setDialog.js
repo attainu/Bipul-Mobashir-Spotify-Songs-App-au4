@@ -3,7 +3,7 @@ let setDialog = (state, data) => {
     try {
         state.x = data.x
         state.y = data.y
-        state.videoId = data.videoId
+        state.trackid = data.trackid
         state.imgurl = data.imgurl
         state.view = true
         return state;

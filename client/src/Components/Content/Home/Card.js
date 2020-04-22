@@ -29,7 +29,7 @@ export default connect(getData,getFunction)(class Card extends Component {
         let data = {
             x : x,
             y : y,
-            videoId: id,
+            trackid: id,
             imgurl: thumbnail
         }
         let action = {

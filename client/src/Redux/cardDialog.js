@@ -2,7 +2,7 @@ import setDialog from './action/setDialog';
 let initialState = {
    x: "",
    y: "",
-   videoId: "",
+   trackid: "",
    imgurl: "",
    view: false
 }
