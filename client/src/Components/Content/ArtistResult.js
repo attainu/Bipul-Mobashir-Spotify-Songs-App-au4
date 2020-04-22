@@ -40,8 +40,8 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
                 {this.props.artistResult && this.props.artistResult.map((items, key)=> {
                     return (
                         <div >
-                        {items.artistname}
-                        <Link to={`artist/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl}/></Link>
+                        
+                        <Link to={`artist/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl} title={items.artistname}/></Link>
                         </div>
                     )
                 })}

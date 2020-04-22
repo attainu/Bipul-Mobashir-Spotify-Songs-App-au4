@@ -45,7 +45,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">
                     <div className="cardTitle">
-                        <span>This is title</span>
+                        <span>{this.props.title}</span>
                     </div>
                     <div className="dotButton">
                         <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail)}}>l</button>
