@@ -17,6 +17,9 @@ import playlistModal from './playlistModal';
 // import playlistData from './playlistData';
 import allFavourites from './allFavourites';
 import cardDialog from './cardDialog';
+import allEnglish from './allEnglish';
+import allTopPicks from './allTopPicks';
+
 const rootReducers=combineReducers({
     popular:trending,
     search:search,
@@ -34,7 +37,10 @@ const rootReducers=combineReducers({
     playlistModal: playlistModal,
     // playlistData: playlistData
     allFavourites: allFavourites,
-    cardDialog: cardDialog
+    cardDialog: cardDialog,
+    allEnglish:allEnglish,
+    allTopPicks:allTopPicks
+
 });
 
 export default createStore(rootReducers,applyMiddleware(thunk));

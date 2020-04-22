@@ -38,7 +38,7 @@ export default connect(getData, getFunction)(class SongsResult extends Component
             {this.props.allSongs && this.props.allSongs.map((items, key)=> {
                     return (
 
-                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/>
                         
                     )
                 })}

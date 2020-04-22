@@ -40,7 +40,7 @@ export default connect(getData, getFunction)(class TrendingAllResult extends Com
                  {this.props.allTrending && this.props.allTrending.map((items,key)=>{
                     
                     return(
-                        <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/>
                     )
                 })}
            </Fragment>
