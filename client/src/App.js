@@ -12,6 +12,7 @@ import PlaylistModal from './Components/PlaylistModal/PlaylistModal.js';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import getToken from './../src/Redux/Token/getToken';
+import CardDialog from './../src/Components/Dialog/CardDialog';
 
 let getData = (store) => {
   return {
@@ -57,6 +58,7 @@ render() {
     <SideNav/>
     <MusicPlayer/>
     <Content/>
+    <CardDialog/>
     </Router>
     
     </Fragment>

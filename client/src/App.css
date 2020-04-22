@@ -316,3 +316,8 @@ header{
 .playlistName::-webkit-scrollbar {
   width: 15px;
 }
+
+.cardDialog{
+  z-index: 3;
+  position: absolute;
+}

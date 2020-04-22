@@ -1,21 +1,31 @@
 import React, { Component,Fragment } from 'react'
-
-export default class CardDialog extends Component {
-    state = {
-        x:0,
-        y:0,
-        view:false
+import {connect} from 'react-redux';
+let getData = (store) => {
+    console.log("RECEVING DIALOG>>", store)
+    return{
+        dialog : store.cardDialog
     }
+    
+}
+
+let getFunction = (dispatch) => {
+    return {
+        dispatch
+    }
+}
+export default connect(getData, getFunction)(class CardDialog extends Component {
+    
     render() {
-        let style = {
+        console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
+        const style = {
             backgroundColor:"red",
-            position:"absoulte",
-            left:`${this.state.x}`,
-            top:`${this.state.x}`
+            left:`${this.props.dialog.x}px`,
+            top:`${this.props.dialog.y}px`,
+            
         }
         return (
             <Fragment>
-                {this.state.view && 
+                {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
                     <ul>
                         <li>Mark Favourite</li>
@@ -27,4 +37,4 @@ export default class CardDialog extends Component {
             </Fragment>
         )
     }
-}
+})

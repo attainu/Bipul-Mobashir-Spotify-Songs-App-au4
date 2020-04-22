@@ -9,7 +9,8 @@ let getData = (store)=>{
 }
 let getFunction = (dispatch)=>{
     return{
-        play:dispatch
+        play:dispatch,
+        setDialog: dispatch
     }
 
 }
@@ -23,8 +24,19 @@ export default connect(getData,getFunction)(class Card extends Component {
         }
         this.props.play(action)
     }
-    handleDot = (e)=>{
-        console.log("hey this is e",e.screenX,e.screenY);
+    handleDot = (e,x,y,id,thumbnail)=>{
+        console.log("hey this is e",e.screenX,e.screenY,id, thumbnail);
+        let data = {
+            x : x,
+            y : y,
+            videoId: id,
+            imgurl: thumbnail
+        }
+        let action = {
+            type: "set_dialog",
+            payload: data
+        }
+        this.props.setDialog(action);
         e.stopPropagation()
     }
     render() {
@@ -36,7 +48,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                         <span>This is title</span>
                     </div>
                     <div className="dotButton">
-                        <button onClick={(e)=>{this.handleDot(e)}}>l</button>
+                        <button onClick={(e)=>{this.handleDot(e, e.screenX, e.screenY, this.props.id, this.props.thumbnail)}}>l</button>
                     </div>
                 </div>
             </div>
