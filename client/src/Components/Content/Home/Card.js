@@ -25,7 +25,7 @@ export default connect(getData,getFunction)(class Card extends Component {
         this.props.play(action)
     }
     handleDot = (e,x,y,id,thumbnail)=>{
-        console.log("hey this is e",e.screenX,e.screenY,id, thumbnail);
+        console.log("hey this is e",e.pageX,e.pageY,id, thumbnail);
         let data = {
             x : x,
             y : y,
@@ -48,7 +48,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                         <span>This is title</span>
                     </div>
                     <div className="dotButton">
-                        <button onClick={(e)=>{this.handleDot(e, e.screenX, e.screenY, this.props.id, this.props.thumbnail)}}>l</button>
+                        <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail)}}>l</button>
                     </div>
                 </div>
             </div>

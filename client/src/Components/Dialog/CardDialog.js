@@ -17,9 +17,13 @@ export default connect(getData, getFunction)(class CardDialog extends Component 
     
     render() {
         console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
+        let l = this.props.dialog.x
+        if((window.innerWidth - this.props.dialog.x) < 100){
+            l = l - 100;
+        }
         const style = {
             backgroundColor:"red",
-            left:`${this.props.dialog.x}px`,
+            left:`${l}px`,
             top:`${this.props.dialog.y}px`,
             
         }
