@@ -2,7 +2,7 @@ import React, { Component ,Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import getRadio from './../../API/getRadio.js';
-import Card from './../../Components/Content/Home/CCard';
+import List from './../Content/Home/List';
 
 let getData = (store) => {
     console.log("radio data receving from store", store.radio.radioResult)
@@ -36,7 +36,7 @@ export default connect(getData, getFunction)(class RadioNav extends Component {
                {this.props.radioResult && this.props.radioResult.map((items, key) => {
                    return (
                     
-                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <List key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
                    )
                })}
                <Link to="/radio"><button>See All</button></Link>

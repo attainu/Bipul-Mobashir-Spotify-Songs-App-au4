@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import getAllRadio from './../../API/getAllRadio';
-import Card from './Home/Card';
+import List from './Home/List';
 
 let getData = (store) => {
     console.log("RADIO all radio>>>>",store)
@@ -38,7 +38,7 @@ export default connect(getData, getFunction)(class RadioAllResult extends Compon
             {this.props.allRadio && this.props.allRadio.map((items,key)=>{
                     
                     return(
-                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <List key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
                     )
                 })}
             </Fragment>

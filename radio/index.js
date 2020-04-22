@@ -7,7 +7,7 @@ var app = express();
 
 
 app.get('/stream', function (req, res) {  
-  var videoUrl = "https://www.youtube.com/watch?v=to6xoVqKayA";   
+  var videoUrl = `https://www.youtube.com/watch?v=${req.query.id}`;   
   //var destDir = "./"; 
 
   var videoReadableStream = ytdl(videoUrl, { filter: 'audioonly'});

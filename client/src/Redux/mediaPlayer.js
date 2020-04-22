@@ -30,6 +30,7 @@ function appReducerFunction(state=initialState,action){
                 state.song.muted = true
             }
             return state
+
     }
     return state;
 }
