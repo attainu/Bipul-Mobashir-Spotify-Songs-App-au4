@@ -42,7 +42,7 @@ export default connect(getData, getFunction)(class Carouse extends Component {
                     {this.props.carousel && this.props.carousel.map((items, key) => {
                         return (
                             <div>
-                                <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.high.url} title={"a"} duration={"a"}/>
+                                <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.maxres.url} title={"a"} duration={"a"}/>
                             </div>
                         )
                     })}

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 var getData = (store)=>{
-    console.log("music Player",store)
+    console.log("music Player>>>>",store.music)
     return {
-        all:store
+        music:store.music
     }
 }
 var getFunction = (dispatch)=>{
@@ -16,8 +16,7 @@ var getFunction = (dispatch)=>{
 
 export default  connect(getData,getFunction)(class MusicPlayer extends Component {
     state={
-        url: "mp3",
-        song: new Audio()
+    
     }
     handlePlay = () => {
            let action = {
@@ -48,13 +47,17 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
         // }
         // this.props.playSong(action);
     }
+    componentDidUpdate = ()=>{
+        console.log("CDU here",this.props.music);
+    }
 
     render() {
         return (
             <div className="musicPlayer">
                 This is Music player
-                <button onClick={()=>this.handlePlay()}>Play</button>
-                <button onClick={()=>this.handlePause()}>Pause</button>
+                {!this.props.music.songStatus && <button onClick={()=>this.handlePlay()}>Play</button> }
+                {this.props.music.songStatus && <button onClick={()=>this.handlePause()}>Pause</button> }
+                
                 <button onClick={()=>this.handleMute()}>Mute</button>
             </div>
         )

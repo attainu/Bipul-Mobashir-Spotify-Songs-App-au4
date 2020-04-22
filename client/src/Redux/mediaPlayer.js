@@ -1,21 +1,28 @@
 import playSong from './action/playSong.js';
 let initialState = {
     song: new Audio(),
+    songStatus: false,
+    songId:"",
+    volume:1
 }
 
 function appReducerFunction(state=initialState,action){
-    //let stateCopy = JSON.parse(JSON.stringify(state));
+    let prevState = state.song
+    let stateCopy = JSON.parse(JSON.stringify(state));
+    stateCopy.song = prevState
     switch(action.type){
         case "play_song":
             console.log("Play song....song",action);
-            playSong(state,action.payload)
-            return state;
+            var newState = playSong(state,action.payload)
+            return newState;
         case "pause_current":
+            stateCopy.songStatus=false
             state.song.pause()
-            return state;
+            return stateCopy;
         case "play_current":
-            state.song.play()
-            return state
+            stateCopy.songStatus=true
+            stateCopy.song.play()
+            return stateCopy;
         case "mute_current":
             if(state.song.muted){
                 state.song.muted = false

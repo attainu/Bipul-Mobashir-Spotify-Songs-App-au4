@@ -1,4 +1,5 @@
-import React, { Component ,Fragment } from 'react'
+import React, { Component ,Fragment } from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import getRadio from './../../API/getRadio.js';
 import Card from './../../Components/Content/Home/Card';
@@ -35,9 +36,10 @@ export default connect(getData, getFunction)(class RadioNav extends Component {
                {this.props.radioResult && this.props.radioResult.map((items, key) => {
                    return (
                     
-                        <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
                    )
                })}
+               <Link to="/radio"><button>See All</button></Link>
             </Fragment>
         )
     }

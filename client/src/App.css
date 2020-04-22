@@ -247,9 +247,27 @@ header{
   
 }
 
+.C{
+  margin-top: 20px;
+  height: 35vh;
+  width: 100%;
+  background-color: aqua;
+}
+.createPlaylist{
+  margin-top: 29vh;
+}
 
-
-
-
-
-
+.playlistModal{
+  position: fixed;
+  left: 20%;
+  right: 20%;
+  top: 20%;
+  bottom: 20%;
+  z-index: 5;
+  background-color: rgb(190, 1, 71,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation-name: open;
+  animation-duration: 0.5s;
+}
