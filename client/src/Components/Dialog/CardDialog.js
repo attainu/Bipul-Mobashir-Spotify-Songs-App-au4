@@ -14,7 +14,8 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
     return {
-        removeFavourite: dispatch
+        removeFavourite: dispatch,
+        modal: dispatch
     }
 }
 export default withRouter(connect(getData, getFunction)(class CardDialog extends Component {
@@ -58,6 +59,13 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         }   
     }
 
+    handlePlaylistModal = () => {
+        let action = {
+            type: "set_playlistItems_modal"
+        }
+        this.props.modal(action);
+    }
+
     
 
     
@@ -82,7 +90,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                     <ul>
                         {this.props.location.pathname!=="/favourite" && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
                         {this.props.location.pathname==="/favourite" && <li onClick={() => {this.handleRemove()}}>Remove</li>}
-                        <li>Save to Playlist</li>
+                        <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>
                         <li>Add to Queue</li>
                     </ul>
                 </div> 

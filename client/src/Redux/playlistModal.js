@@ -1,9 +1,11 @@
 import setPlaylistModal from './action/setPlaylistModal';
 import setPlaylist from './action/setPlaylistData';
 import setPlaylistName from './action/setPlaylistName';
+import setPlaylistItemsModal from './action/setPlaylistItemsModal';
 
 let initialState = {
     playlistModal : false,
+    playlistItemsModal : false,
     playlistData: []
 }
 
@@ -19,6 +21,9 @@ function appReducerFunction(state = initialState, action){
          case "set_playlist_name":
              var newState = setPlaylistName(stateCopy, action.payload);
              return newState;
+         case "set_playlistItems_modal":
+             var newState = setPlaylistItemsModal(stateCopy, action.payload);
+             return newState;   
     }
     return state;
 

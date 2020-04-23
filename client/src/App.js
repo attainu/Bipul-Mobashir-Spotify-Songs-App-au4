@@ -9,6 +9,7 @@ import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
 //import RadioNav from './Components/RadioNav/RadioNav.js';
 import AuthModal from'./Components/AuthModal/AuthModal.js';
 import PlaylistModal from './Components/PlaylistModal/PlaylistModal.js';
+import PlaylistItemsModal from './Components/PlaylistItemsModal/PlaylistItemsModal';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import getToken from './../src/Redux/Token/getToken';
@@ -54,6 +55,7 @@ render() {
     <Router>
     <AuthModal/>
     <PlaylistModal/>
+    <PlaylistItemsModal/>
     <Header/>
     <SideNav/>
     <MusicPlayer/>
