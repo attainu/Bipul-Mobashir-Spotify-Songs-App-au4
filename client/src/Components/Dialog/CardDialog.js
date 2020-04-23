@@ -5,9 +5,10 @@ import {withRouter} from 'react-router';
 import getToken from './../../Redux/Token/getToken';
 
 let getData = (store) => {
-    console.log("RECEVING DIALOG>>", store.cardDialog)
+    console.log("RECEVING DIALOG>>", store)
     return{
-        dialog : store.cardDialog
+        dialog : store.cardDialog,
+        auth: store.auth
     }
     
 }
@@ -88,9 +89,9 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                 {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
                     <ul>
-                        {this.props.location.pathname!=="/favourite" && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
-                        {this.props.location.pathname==="/favourite" && <li onClick={() => {this.handleRemove()}}>Remove</li>}
-                        <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>
+                        {this.props.location.pathname!=="/favourite" && this.props.auth.auth && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
+                        {this.props.location.pathname==="/favourite" && this.props.auth.auth && <li onClick={() => {this.handleRemove()}}>Remove</li>}
+                        {this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
                         <li>Add to Queue</li>
                     </ul>
                 </div> 
