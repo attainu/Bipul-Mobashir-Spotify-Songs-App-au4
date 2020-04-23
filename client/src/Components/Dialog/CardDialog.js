@@ -1,6 +1,7 @@
 import React, { Component,Fragment } from 'react'
 import {connect} from 'react-redux';
 import axios from 'axios';
+import {withRouter} from 'react-router';
 import getToken from './../../Redux/Token/getToken';
 
 let getData = (store) => {
@@ -13,10 +14,10 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
     return {
-        addToFavourite : dispatch
+        removeFavourite: dispatch
     }
 }
-export default connect(getData, getFunction)(class CardDialog extends Component {
+export default withRouter(connect(getData, getFunction)(class CardDialog extends Component {
 
     handlefavourite = () => {
         let token = getToken();
@@ -31,21 +32,47 @@ export default connect(getData, getFunction)(class CardDialog extends Component 
                   }
             })
             
-        }
-
-        
+        }   
     }
+
+    handleRemove = () => {
+        let token = getToken();
+        
+        if(token) {
+            axios({
+                method: 'DELETE',
+                url: `http://localhost:5555/favourites/${this.props.dialog.trackid}`,
+                headers: {
+                    ["auth-token"]: token //the token is a variable which holds the token
+                  }
+            })
+            .then((response) => {
+                console.log("DELETe RESPONSE>>",response);
+                let action = {
+                    type: "remove_favourite",
+                    payload: this.props.dialog.trackid
+                }
+                this.props.removeFavourite(action);
+            })
+            
+        }   
+    }
+
+    
+
     
     render() {
         console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
         let l = this.props.dialog.x
+        let h = this.props.dialog.y - 100
         if((window.innerWidth - this.props.dialog.x) < 100){
             l = l - 100;
         }
+        
         const style = {
             backgroundColor:"red",
             left:`${l}px`,
-            top:`${this.props.dialog.y}px`,
+            top:`${h}px`,
             
         }
         return (
@@ -53,7 +80,8 @@ export default connect(getData, getFunction)(class CardDialog extends Component 
                 {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
                     <ul>
-                        <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>
+                        {this.props.location.pathname!=="/favourite" && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
+                        {this.props.location.pathname==="/favourite" && <li onClick={() => {this.handleRemove()}}>Remove</li>}
                         <li>Save to Playlist</li>
                         <li>Add to Queue</li>
                     </ul>
@@ -62,4 +90,4 @@ export default connect(getData, getFunction)(class CardDialog extends Component 
             </Fragment>
         )
     }
-})
+}))
