@@ -10,6 +10,8 @@ import Favourite from './Favourite';
 import RadioAllResult from './RadioAllResult';
 import EnglishAllResult from './EnglishAllResult';
 import TopPicksAllResult from './TopPicksAllResult.js';
+import AlbumResult from './AlbumResult';
+import AlbumData from './AlbumData';
 
 export default class Content extends Component {
     render() {
@@ -32,6 +34,9 @@ export default class Content extends Component {
                             <Route path="/radio" exact component={RadioAllResult}/>
                             <Route path="/english-song" exact component={EnglishAllResult}/>
                             <Route path="/top-picks" exact component={TopPicksAllResult}/>
+                            <Route path="/album" exact component={AlbumResult}/>
+                            <Route path="/album/:value" exact component={AlbumData}/>
+                            
 
                         </Switch>
                        

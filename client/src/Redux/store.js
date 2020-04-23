@@ -19,6 +19,8 @@ import allFavourites from './allFavourites';
 import cardDialog from './cardDialog';
 import allEnglish from './allEnglish';
 import allTopPicks from './allTopPicks';
+import album from './album';
+import albumData from './albumData';
 
 const rootReducers=combineReducers({
     popular:trending,
@@ -39,7 +41,9 @@ const rootReducers=combineReducers({
     allFavourites: allFavourites,
     cardDialog: cardDialog,
     allEnglish:allEnglish,
-    allTopPicks:allTopPicks
+    allTopPicks:allTopPicks,
+    album: album,
+    albumData: albumData
 
 });
 
