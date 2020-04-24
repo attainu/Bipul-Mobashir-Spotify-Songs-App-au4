@@ -11,23 +11,16 @@ let song = db.define("songs",{
         type: Sequelize.INTEGER
     },
     trackid : {
-      type: Sequelize.INTEGER
+      type: Sequelize.STRING
     },
     trackname: {
       type: Sequelize.STRING
      },
-    artistname: {
-      type: Sequelize.STRING
-    },
-    albumname: {
-      type: Sequelize.STRING
-    },
-    albumreleasedate: {
-      type: Sequelize.STRING
-    },
-    duration: {
-      type: Sequelize.STRING
+    imgurl: {
+      type: Sequelize.TEXT,
+      alowNull: false
     }
+    
   }, {
     timestamps: false
   });

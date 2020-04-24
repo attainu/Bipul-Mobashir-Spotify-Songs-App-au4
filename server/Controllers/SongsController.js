@@ -9,10 +9,7 @@ exports.create = async (req, res) => {
             trackid: req.body.trackid,
             playlistid: req.body.playlistid,
             trackname: req.body.trackname,
-            artistname:req.body.artistname,
-            albumname: req.body.albumname,
-            albumreleasedate: req.body.albumreleasedate,
-            duration: req.body.duration,
+            imgurl: req.body.imgurl,
             userid: req.user.id
         })
         res.status(200).send(songs);  

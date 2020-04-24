@@ -61,7 +61,10 @@ exports.delete = async (req, res) => {
                userid: req.user.id
            }
        })
-       res.status(200).send(playlists);  
+       res.status(200).json({
+           status: 200,
+           message: "success"
+       });  
     } catch (error) {
         res.status(400).send(error);
     }

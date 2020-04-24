@@ -36,8 +36,9 @@ exports.findAll = async (req, res) => {
 // Delete a favourite by  trackId
 exports.delete = async (req, res) => {
     console.log("delete >>>",req.user.id);
-    console.log(req.params.userid);
+    console.log(req.params.trackid);
     try {
+        
         const id = req.params.trackid;
          let favourites = await favourite.destroy({
             where: {
@@ -45,7 +46,10 @@ exports.delete = async (req, res) => {
                 userid: req.user.id
             }
         })
-        res.status(200).send(favourites);  
+        res.status(200).json({
+            status: 200,
+            message: "Success"
+        });  
         
     } catch (error) {
         res.status(400).send(error);
