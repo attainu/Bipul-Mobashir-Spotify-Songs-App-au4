@@ -12,7 +12,8 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
     return {
-        setPlaylistName :dispatch
+        setPlaylistName :dispatch,
+        removePlaylist :dispatch
     }
 }
 
@@ -40,13 +41,42 @@ export default connect(getData, getFunction)(class PlaylistName extends Componen
         }
 
     }
+
+    handleDeletePlaylist = (id) => {
+        let token = getToken();
+        
+        if(token) {
+            axios({
+                method: 'DELETE',
+                url: `http://localhost:5555/playlists/${id}`,
+                headers: {
+                    ["auth-token"]: token //the token is a variable which holds the token
+                  }
+            })
+            .then((response) => {
+                console.log("PLAYLIST DELETE RESPONSE>>",response);
+                let action = {
+                    type: "remove_playlist",
+                    payload: id
+                }
+                this.props.removePlaylist(action);
+               
+            })
+            
+        }   
+    }
+
+
     render() {
         return (
             <Fragment>
                 <ul className="playlistName">
                 {this.props.playlistName && this.props.playlistName.map((items, key) => {
                     return(
+                        <div>
                         <li key={key}>{items.playlistname}</li>
+                        <button onClick={() => {this.handleDeletePlaylist(items.id)}}>delete</button>
+                        </div>
                     )          
                     
                 })}
