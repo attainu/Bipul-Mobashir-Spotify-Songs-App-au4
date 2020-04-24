@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
   res.send("Welcome to musicMe")
 })
 
-//app.use((req,res,next)=>{console.log(req.query.id); return next()})
+// app.use((req,res,next)=>{console.log("HIT>>",req.query.id); return next()})
 
 app.get('/song', async (req, res) =>
   

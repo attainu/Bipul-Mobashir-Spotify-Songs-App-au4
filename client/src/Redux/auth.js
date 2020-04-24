@@ -27,6 +27,7 @@ function appReducerFunction(state = initialState, action){
         case "set_logout":
             stateCopy.auth = false;
             localStorage.removeItem("auth-token")
+            localStorage.removeItem("name")
             return stateCopy;    
     }
     return state;

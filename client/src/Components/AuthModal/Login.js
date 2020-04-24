@@ -66,7 +66,7 @@ export default connect(getData,getFunction)(class Login extends Component {
             })
             .then((response) => {
                 //handle success
-                console.log(response);
+                console.log("RESPONSE IN LOGIN>",response);
                 if(response.data.status === 200 && response.data.message=== "success"){
                     let action = {
                         type: "set_signup",
