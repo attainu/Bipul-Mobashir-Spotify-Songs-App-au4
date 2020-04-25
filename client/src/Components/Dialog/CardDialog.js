@@ -8,7 +8,7 @@ let getData = (store) => {
     console.log("RECEVING DIALOG>>", store)
     return{
         dialog : store.cardDialog,
-        auth: store.auth
+        auth: store.auth,
     }
     
 }
@@ -16,7 +16,8 @@ let getData = (store) => {
 let getFunction = (dispatch) => {
     return {
         removeFavourite: dispatch,
-        modal: dispatch
+        modal: dispatch,
+        hideCardDialog: dispatch
     }
 }
 export default withRouter(connect(getData, getFunction)(class CardDialog extends Component {
@@ -34,7 +35,8 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                   }
             })
             
-        }   
+        }
+        
     }
 
     handleRemove = () => {
@@ -67,6 +69,13 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         this.props.modal(action);
     }
 
+    handleHideCardDialog = () => {
+        let action = {
+            type: "hide_card_dialog"
+        }
+        this.props.hideCardDialog(action)   
+    }
+
     
 
     
@@ -88,7 +97,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
             <Fragment>
                 {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
-                    <ul>
+                    <ul onClick={this.handleHideCardDialog}>
                         {this.props.location.pathname!=="/favourite" && this.props.auth.auth && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
                         {this.props.location.pathname==="/favourite" && this.props.auth.auth && <li onClick={() => {this.handleRemove()}}>Remove</li>}
                         {this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
