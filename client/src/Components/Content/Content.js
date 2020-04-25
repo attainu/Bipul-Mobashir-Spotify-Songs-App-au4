@@ -12,6 +12,7 @@ import EnglishAllResult from './EnglishAllResult';
 import TopPicksAllResult from './TopPicksAllResult.js';
 import AlbumResult from './AlbumResult';
 import AlbumData from './AlbumData';
+import PlaylistDataResult from './../PlaylistItemsModal/PlaylistDataResult'
 
 export default class Content extends Component {
     render() {
@@ -36,6 +37,7 @@ export default class Content extends Component {
                             <Route path="/top-picks" exact component={TopPicksAllResult}/>
                             <Route path="/album" exact component={AlbumResult}/>
                             <Route path="/album/:value" exact component={AlbumData}/>
+                            <Route path="/playlist/:value" exact component={PlaylistDataResult}/>
                             
 
                         </Switch>
