@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import getToken from './../../Redux/Token/getToken';
+import {Link} from 'react-router-dom';
 
 let getData = (store) => {
     console.log("<<<PLAYLIST DATA NAME RECEIVING FROM STORE>>", store.playlistModal.playlistData)
@@ -74,7 +75,7 @@ export default connect(getData, getFunction)(class PlaylistName extends Componen
                 {this.props.playlistName && this.props.playlistName.map((items, key) => {
                     return(
                         <div>
-                        <li key={key}>{items.playlistname}</li>
+                        <Link to={`/playlist/${items.id}`}><li key={key}>{items.playlistname}</li></Link>
                         <button onClick={() => {this.handleDeletePlaylist(items.id)}}>delete</button>
                         </div>
                     )          

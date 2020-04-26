@@ -3,11 +3,13 @@ import setPlaylist from './action/setPlaylistData';
 import setPlaylistName from './action/setPlaylistName';
 import setPlaylistItemsModal from './action/setPlaylistItemsModal';
 import removePlaylist from './action/removePlaylist';
+import setSavePlaylistData from './action/setSavePlaylistData';
 
 let initialState = {
     playlistModal : false,
     playlistItemsModal : false,
-    playlistData: []
+    playlistData: [],
+    savePlaylistData: []
 }
 
 function appReducerFunction(state = initialState, action){
@@ -27,7 +29,10 @@ function appReducerFunction(state = initialState, action){
              return newState;
          case "remove_playlist":
              var newState = removePlaylist(stateCopy, action.payload);
-             return newState;       
+             return newState; 
+         case "save_playlist_data":
+            var newState = setSavePlaylistData(stateCopy, action.payload);
+            return newState;
     }
     return state;
 

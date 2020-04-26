@@ -24,13 +24,14 @@ export default connect(getData,getFunction)(class Card extends Component {
         }
         this.props.play(action)
     }
-    handleDot = (e,x,y,id,thumbnail)=>{
+    handleDot = (e,x,y,id,thumbnail, title)=>{
         console.log("hey this is e",e.pageX,e.pageY,id, thumbnail);
         let data = {
             x : x,
             y : y,
             trackid: id,
-            imgurl: thumbnail
+            imgurl: thumbnail,
+            trackname: title
         }
         let action = {
             type: "set_dialog",
@@ -48,7 +49,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                         <span>{this.props.title}</span>
                     </div>
                     <div className="dotButton">
-                        <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail)}}>l</button>
+                        <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}>l</button>
                     </div>
                 </div>
             </div>

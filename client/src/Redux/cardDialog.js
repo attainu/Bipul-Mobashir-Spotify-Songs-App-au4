@@ -5,6 +5,7 @@ let initialState = {
    y: "",
    trackid: "",
    imgurl: "",
+   trackname: "",
    view: false
 }
 

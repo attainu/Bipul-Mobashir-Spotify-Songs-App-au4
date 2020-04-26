@@ -12,7 +12,10 @@ exports.create = async (req, res) => {
             imgurl: req.body.imgurl,
             userid: req.user.id
         })
-        res.status(200).send(songs);  
+        res.json({
+            status:200,
+            message: "success"
+        });  
     } catch (error) {
         res.status(400).send(error);
     }
