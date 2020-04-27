@@ -9,6 +9,7 @@ let getData = (store) => {
     return{
         dialog : store.cardDialog,
         auth: store.auth,
+        playlistId: store.playlistModal.savePlaylistData[0]
     }
     
 }
@@ -17,7 +18,8 @@ let getFunction = (dispatch) => {
     return {
         removeFavourite: dispatch,
         modal: dispatch,
-        hideCardDialog: dispatch
+        hideCardDialog: dispatch,
+        removePlaylistItems: dispatch
     }
 }
 export default withRouter(connect(getData, getFunction)(class CardDialog extends Component {
@@ -76,10 +78,36 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         this.props.hideCardDialog(action)   
     }
 
+    handleRemovePlaylist = () => {
+        console.log("MY PROPS>>",this.props)
+        let token = getToken();
+        
+        if(token) {
+            axios({
+                method: 'DELETE',
+                url: `http://localhost:5555/songs/${this.props.dialog.trackid}/${this.props.playlistId.playlistid}`,
+                headers: {
+                    ["auth-token"]: token //the token is a variable which holds the token
+                  }
+            })
+            .then((response) => {
+                console.log("PLAYLIST DELETe RESPONSE>>",response);
+                let action = {
+                    type: "remove_playlist_items",
+                    payload: this.props.dialog.trackid
+                         
+                }
+                this.props.removePlaylistItems(action);
+            })
+            
+        }   
+    }
+
     
 
     
     render() {
+        console.log("Checking propsssss>>", this.props)
         console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
         let l = this.props.dialog.x
         let h = this.props.dialog.y - 100
@@ -100,7 +128,8 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                     <ul onClick={this.handleHideCardDialog}>
                         {this.props.location.pathname!=="/favourite" && this.props.auth.auth && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
                         {this.props.location.pathname==="/favourite" && this.props.auth.auth && <li onClick={() => {this.handleRemove()}}>Remove</li>}
-                        {this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
+                        {true !== this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
+                        {true === this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={()=> {this.handleRemovePlaylist()}}>Remove From Playlist</li>}
                         <li>Add to Queue</li>
                     </ul>
                 </div> 
