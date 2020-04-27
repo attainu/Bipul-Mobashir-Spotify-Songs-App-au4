@@ -6,7 +6,6 @@ export default class Search extends Component {
     }
     
     handleInput = (value) => {
-        console.log(value)
         this.setState({
             input: value
         })

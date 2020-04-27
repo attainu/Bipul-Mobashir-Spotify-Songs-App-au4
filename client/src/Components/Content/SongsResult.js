@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import getSongs from './../../API/getSongs';
 import Card from './Home/Card';
 let getData = (store) => {
-    console.log("receiving songs data from store>>",store.songs.songs)
     return {
         allSongs : store.songs.songs
     }
@@ -18,9 +17,7 @@ export default connect(getData, getFunction)(class SongsResult extends Component
 
     componentDidMount = () => {
         let data = getSongs();
-        console.log("upper songs data is here>>", data);
         data.then((res) => {
-            console.log("songs data is here>>>",res);
             let action = {
                 type: "set_songs",
                 payload: res

@@ -4,7 +4,6 @@ import getEnglish from './../../../API/getEnglish.js';
 import Card from './Card.js';
 import {Link} from 'react-router-dom';
 let getData = (store) => {
-    //console.log("english songs data received from store>>",store.englishSongs.englishResult)
     return {
         englishSongs: store.englishSongs.englishResult
     }
@@ -20,7 +19,6 @@ export default connect(getData, getFunction)(class EnglishSongs extends Componen
     componentDidMount = () => {
         let data = getEnglish()
         data.then(res => {
-            console.log("english songs>>",res);
             let action = {
                 type : "set_english",
                 payload : res

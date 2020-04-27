@@ -6,7 +6,6 @@ import {connect} from 'react-redux';
 import Card from './CCard';
 
 let getData = (store) => {
-  //  console.log("reeceiving carousel data from store",store.carousel.carouselList)
     return {
         carousel : store.carousel.carouselList
     }
@@ -23,7 +22,6 @@ export default connect(getData, getFunction)(class Carouse extends Component {
     componentDidMount = () => {
         let data = getCarousel()
         data.then(res => {
-            console.log("carousel songs>>",res);
             let action = {
                 type : "set_carousel",
                 payload : res
@@ -32,16 +30,13 @@ export default connect(getData, getFunction)(class Carouse extends Component {
         })
     }
     
-
-
-
     render() {
         return (
                 <Carousel centerMode centerSlidePercentage={50} showThumbs={false} showStatus={false} emulateTouch autoPlay interval={2000} infiniteLoop>
 
                     {this.props.carousel && this.props.carousel.map((items, key) => {
                         return (
-                            <div>
+                            <div key={key}>
                                 <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.maxres.url} title={"a"} duration={"a"}/>
                             </div>
                         )

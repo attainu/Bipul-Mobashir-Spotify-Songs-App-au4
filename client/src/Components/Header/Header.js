@@ -4,7 +4,6 @@ import Search from './Search';
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
-    console.log("login store",store.auth);
     return {
         status:store.auth
     }

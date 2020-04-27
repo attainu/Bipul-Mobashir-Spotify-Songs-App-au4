@@ -5,7 +5,6 @@ import getArtist from './../../API/getArtist.js';
 import Card from './Home/Card.js';
 
 let getData = (store) => {
-    console.log("artist data received from store>>",store.artists.artistResult)
     return {
         artistResult: store.artists.artistResult
     }
@@ -22,7 +21,6 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
     componentDidMount = () => {
         let data = getArtist();
         data.then(res => {
-            console.log("artist data>>",res)
             let action = {
                 type: "set_artist",
                 payload: res

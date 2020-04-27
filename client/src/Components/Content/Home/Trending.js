@@ -4,7 +4,6 @@ import getTrending from './../../../API/getTrending';
 import Card from './Card';
 import {Link} from 'react-router-dom';
 let getData = (store)=>{
-   // console.log("data here",store.popular)
     return {
         trending:store.popular.trending
     }
@@ -22,14 +21,10 @@ export default connect(getData,getFunction)(class Trending extends Component {
     
     componentDidMount = ()=>{
         let data=getTrending()
-        console.log("Data here...",data);
         data.then((res)=>{
-            console.log("Data here...",data);
             let action = {
                 type:"set_trending",
                 payload:res
-                
-    
             }
             this.props.setTrending(action);
         })

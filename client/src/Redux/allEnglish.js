@@ -9,7 +9,6 @@ function appReducerFunction(state = initialState, action){
     switch(action.type){
         case "set_all_english":
             var newState = setAllEnglish(stateCopy, action.payload);
-            console.log("ALL ENGLISH newstate" ,newState);
             return newState;
     }
     return state;

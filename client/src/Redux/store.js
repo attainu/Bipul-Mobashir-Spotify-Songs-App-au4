@@ -14,7 +14,6 @@ import songs from './songs.js';
 import carousel from './carousel.js';
 import allRadio from './allRadio';
 import playlistModal from './playlistModal';
-// import playlistData from './playlistData';
 import allFavourites from './allFavourites';
 import cardDialog from './cardDialog';
 import allEnglish from './allEnglish';
@@ -37,7 +36,6 @@ const rootReducers=combineReducers({
     carousel: carousel,
     allRadio:allRadio,
     playlistModal: playlistModal,
-    // playlistData: playlistData
     allFavourites: allFavourites,
     cardDialog: cardDialog,
     allEnglish:allEnglish,

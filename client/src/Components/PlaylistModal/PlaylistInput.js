@@ -4,7 +4,6 @@ import getToken from './../../Redux/Token/getToken';
 import {connect} from 'react-redux';
 
 let getData = (store) => {
-    console.log(">>>>playlist data receiving from store>>>",store)
     return {
         store
     }
@@ -23,7 +22,6 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
     }
 
     handleInput = (e) => {
-        console.log(e.target.value)
         this.setState({
             playlistname:e.target.value
         })
@@ -31,13 +29,10 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
 
     handleButton = () => {
         var token = getToken();
-        console.log("calling");
-
         const {playlistname} = this.state;
         const data = {
             playlistname
         };
-        console.log("input playlist data>>", data)
         if(token){ 
         axios({
             method: 'POST', 
@@ -48,7 +43,6 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
               }
         })
         .then((response) => {
-            console.log("PLAYLIST RES>>>",response);
             let action = {
                 type: "set_playlist_data",
                 payload: response.data

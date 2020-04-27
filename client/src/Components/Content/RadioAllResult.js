@@ -4,7 +4,6 @@ import getAllRadio from './../../API/getAllRadio';
 import List from './Home/List';
 
 let getData = (store) => {
-    console.log("RADIO all radio>>>>",store)
     return {
         allRadio: store.allRadio.allRadio
     }

@@ -5,7 +5,7 @@ let initialState = {
     songId:"",
     volume:1,
     duration:"",
-    currentTime : 0 ,
+    currentTime : 0,
     mode:false
 }
 
@@ -15,7 +15,6 @@ function appReducerFunction(state=initialState,action){
     stateCopy.song = prevState
     switch(action.type){
         case "play_song":
-            console.log("Play song....song",action);
             var newState = playSong(state,action.payload)
             return newState;
         case "pause_current":
@@ -45,6 +44,15 @@ function appReducerFunction(state=initialState,action){
         case "current_time":
             stateCopy.currentTime = stateCopy.song.currentTime 
             return stateCopy;
+        case "stop_current":
+            stateCopy.songStatus=false
+            stateCopy.duration=""
+            stateCopy.currentTime=0
+            state.song.pause()
+            return stateCopy;
+        case "change_duration":
+            stateCopy.song.currentTime = action.payload
+            return state;   
 
     }
     return state;

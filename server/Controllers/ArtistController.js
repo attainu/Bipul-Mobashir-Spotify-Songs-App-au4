@@ -2,7 +2,6 @@ const artist = require('./../Models/ArtistModel');
 const Sequelize = require('sequelize');
 //Create Artist
 exports.create = async (req, res) => {
-    // console.log("artist controller>>",req);
     try {
         let artists = await artist.create({
             artistname: req.body.artistname,
@@ -17,7 +16,6 @@ exports.create = async (req, res) => {
 //Fetch all artists 
 
 exports.findAll = async (req, res) => {
-    // console.log(req);
     try {
         let artists = await artist.findAll({
             attributes: ["id","artistname", "imgurl", "popularity"]

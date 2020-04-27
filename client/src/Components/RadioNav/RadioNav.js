@@ -5,7 +5,6 @@ import getRadio from './../../API/getRadio.js';
 import List from './../Content/Home/List';
 
 let getData = (store) => {
-    console.log("radio data receving from store", store.radio.radioResult)
     return {
         radioResult: store.radio.radioResult
     }
@@ -22,7 +21,6 @@ export default connect(getData, getFunction)(class RadioNav extends Component {
         let data = getRadio()
 
         data.then(res => {
-            console.log("data radio nav>>>",res)
             let action = {
                 type: "set_radio",
                 payload: res

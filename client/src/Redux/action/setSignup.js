@@ -1,6 +1,5 @@
 import setToken from './../Token/setToken';
 let setSignup = (state, data) => {
-    console.log("inside state>>",state, data)
     try {
         setToken(data.auth, data.name)
         state.auth = true;

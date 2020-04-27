@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import axios from 'axios';
 import getToken from './../../Redux/Token/getToken';
 let getData = (store) => {
-    console.log("<<<PLAYLIST DATA NAME RECEIVING FROM STORE>>", store.playlistModal.playlistData)
-
     return {
         playlistName: store.playlistModal.playlistData,
         playlistData: store.cardDialog
@@ -34,10 +32,6 @@ export default connect(getData, getFunction)(class PlaylistItems extends Compone
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
                   }
-            })
-            .then((response) => {
-                console.log("Playlist RESPONSE>>",response);
-               
             })
             
         }   

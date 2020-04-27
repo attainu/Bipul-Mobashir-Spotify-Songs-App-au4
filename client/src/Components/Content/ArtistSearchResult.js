@@ -5,7 +5,6 @@ import Card from './Home/Card';
 
 
 let getData = (store) => {
-    console.log("receiving artist search data from store>>>>", store.artistSearchResult.artistSearchResult)
     return {
         artistSearchResult: store.artistSearchResult.artistSearchResult
     }
@@ -20,7 +19,6 @@ let getFunction = (dispatch) => {
 export default connect(getData, getFunction)(class ArtistSearchResult extends Component {
     componentWillReceiveProps = (newProps) => {
         if(newProps.match.params.value !== this.props.match.params.value){
-            console.log("inside if");
         let inputValue = newProps.match.params.value;
         let data = getArtistSearchResult(inputValue);
         data.then(res => {
@@ -33,8 +31,6 @@ export default connect(getData, getFunction)(class ArtistSearchResult extends Co
         }
     }
     componentDidMount = ()=>{
-        console.log("Mounted");
-        console.log("receive>>", this.props.match.params.value)
         let inputValue = this.props.match.params.value;
         let data = getArtistSearchResult(inputValue)
         data.then(res => {
@@ -51,7 +47,6 @@ export default connect(getData, getFunction)(class ArtistSearchResult extends Co
             <Fragment>
                 <div className="trending">
                 {this.props.artistSearchResult && this.props.artistSearchResult.map((items, key)=> {
-                   // console.log(items)
                     return(
                        
                             <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/> 

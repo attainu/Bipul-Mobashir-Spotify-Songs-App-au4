@@ -1,5 +1,4 @@
 let setPlaylistData = (state, data) => {
-    console.log("PLAYLIST DATA>>",data)
     try {
         state.playlistData.push(data);
         state.playlistModal = false;

@@ -2,7 +2,6 @@ const favourite = require('../Models/FavouritesModel');
 
 //Add a favourite
 exports.create = async (req, res) => {
-    console.log(req.user,"jddjdj")
     try {
         let favourites = await favourite.create({
             userid: req.user.id,
@@ -18,8 +17,6 @@ exports.create = async (req, res) => {
 
 //Fetch all favourites
 exports.findAll = async (req, res) => {
-    console.log("req.user>>",req.user.id)
-    console.log(req.params.userid);
     try {
         let favourites = await favourite.findAll({
             where: {
@@ -35,10 +32,7 @@ exports.findAll = async (req, res) => {
 
 // Delete a favourite by  trackId
 exports.delete = async (req, res) => {
-    console.log("delete >>>",req.user.id);
-    console.log(req.params.trackid);
-    try {
-        
+    try { 
         const id = req.params.trackid;
          let favourites = await favourite.destroy({
             where: {

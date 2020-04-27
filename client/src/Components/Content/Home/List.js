@@ -16,9 +16,7 @@ let getFunction = (dispatch)=>{
 }
 export default connect(getData,getFunction)(class List extends Component {
     playSong = async (id)=>{
-        console.log("ID>>",id)
         let link = `http://localhost:9090/stream?id=${id}`
-        console.log("Playid",link);
         let action = {
             type:"play_song",
             payload:link

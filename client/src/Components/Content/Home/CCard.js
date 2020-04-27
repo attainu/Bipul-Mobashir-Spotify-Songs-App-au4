@@ -16,7 +16,6 @@ let getFunction = (dispatch)=>{
 export default connect(getData,getFunction)(class Card extends Component {
     playSong = async (id)=>{
         let link = await getAudioLink(id);
-        console.log("Playid",link);
         let action = {
             type:"play_song",
             payload:link.data

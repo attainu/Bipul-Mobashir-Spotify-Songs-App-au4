@@ -8,8 +8,7 @@ function appReducerFunction(state=initialState,action){
     switch(action.type){
         case "set_album_data":
              var newState = setAlbumData(stateCopy,action.payload);
-            console.log("newstate" ,newState);
-            return newState;
+             return newState;
     }
     return state;
 }

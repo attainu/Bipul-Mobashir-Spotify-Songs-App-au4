@@ -1,5 +1,4 @@
 let setRadio = (state, data) => {
-    console.log("action radio data>>",data)
     try {
         state.radioResult = data.data.items;
         return state;

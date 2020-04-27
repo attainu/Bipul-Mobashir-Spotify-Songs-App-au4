@@ -1,5 +1,4 @@
 let setAllFavourites = (state, data) => {
-    console.log("SET FAVOU>>", data)
     try {
         state.allFavourites = data.data;
         return state;

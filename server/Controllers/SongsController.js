@@ -2,7 +2,6 @@ const song = require('../Models/SongsModel');
 
 //Add a song
 exports.create = async (req, res) => {
-    console.log(req.user,"jddjdj")
     try {
         let songs = await song.create({
            
@@ -38,8 +37,6 @@ exports.findAll = async (req, res) => {
 
 // Delete a song from playlist for a particular user's playlist
 exports.delete = async (req, res) => {
-    console.log("delete >>>",req.user.id);
-    console.log(req.params.userid);
     try {
         const id = req.params.trackid;
          let songs = await song.destroy({

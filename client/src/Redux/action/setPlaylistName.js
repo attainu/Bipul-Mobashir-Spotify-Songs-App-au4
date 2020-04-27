@@ -1,5 +1,4 @@
 let setPlaylistName = (state, data) => {
-    console.log("<<<<PLAYLIST NAME>>>", data);
     try {
         state.playlistData = data.data;
         return state;

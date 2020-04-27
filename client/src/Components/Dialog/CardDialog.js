@@ -5,7 +5,6 @@ import {withRouter} from 'react-router';
 import getToken from './../../Redux/Token/getToken';
 
 let getData = (store) => {
-   // console.log("RECEVING DIALOG>>", store)
     return{
         dialog : store.cardDialog,
         auth: store.auth,
@@ -53,7 +52,6 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                   }
             })
             .then((response) => {
-                console.log("DELETe RESPONSE>>",response);
                 let action = {
                     type: "remove_favourite",
                     payload: this.props.dialog.trackid
@@ -79,7 +77,6 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
     }
 
     handleRemovePlaylist = () => {
-        console.log("MY PROPS>>",this.props)
         let token = getToken();
         
         if(token) {
@@ -91,7 +88,6 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                   }
             })
             .then((response) => {
-                console.log("PLAYLIST DELETe RESPONSE>>",response);
                 let action = {
                     type: "remove_playlist_items",
                     payload: this.props.dialog.trackid
@@ -107,8 +103,6 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
 
     
     render() {
-        console.log("Checking propsssss>>", this.props)
-        console.log("X AND  Y>>>",this.props.dialog.x, this.props.dialog.y)
         let l = this.props.dialog.x
         let h = this.props.dialog.y - 100
         if((window.innerWidth - this.props.dialog.x) < 100){

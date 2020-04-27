@@ -3,7 +3,6 @@ import PlaylistItems from './PlaylistItems';
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
-    console.log("STORE ITEMS RECEIVE>>",store)
     return {
         status:store.playlistModal
     }

@@ -4,8 +4,6 @@ const jwt = require('jsonwebtoken');
 const {registerValidation} = require('../validation');
 
 exports.register = async (req, res) => {
-    // console.log("server req>>",req.body)
-    
     try {
         //Validate the data before create
         const {error} = registerValidation(req.body);
@@ -32,10 +30,7 @@ exports.register = async (req, res) => {
             status: 200,
             message: "success",
             name: user.name
-        })
-        // res.send(user);
-
-        
+        })        
     } catch (error) {
         console.log(error);
     }

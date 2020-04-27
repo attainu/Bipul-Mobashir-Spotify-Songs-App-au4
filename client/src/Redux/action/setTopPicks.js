@@ -1,6 +1,4 @@
 let setTopPicks = (state, data) => {
-    console.log("action top picks>>", data);
-
     try {
         state.topPicksResult = data.data.items
         return state;

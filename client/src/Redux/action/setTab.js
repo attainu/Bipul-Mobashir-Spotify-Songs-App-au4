@@ -1,6 +1,4 @@
 let setTab = (state, data) => {
-    //console.log("action english songs>>", data.data.items);
-
     try {
         if(state.loginPage){
             state.loginPage = false

@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Volume from './Voulme';
 import Slider from './Slider';
 var getData = (store)=>{
-   // console.log("music Player>>>>",store.music)
     return {
         music:store.music
     }
@@ -17,9 +16,7 @@ var getFunction = (dispatch)=>{
 }
 
 export default  connect(getData,getFunction)(class MusicPlayer extends Component {
-    state={
     
-    }
     handlePlay = () => {
            let action = {
                type: "play_current"
@@ -41,17 +38,6 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
         this.props.mute(action)
      }
     
-   
-    componentDidMount = ()=>{
-        // let action = {
-        //     type:"play_song",
-        //     payload:"kJQP7kiw5Fk"
-        // }
-        // this.props.playSong(action);
-    }
-    componentDidUpdate = ()=>{
-       // console.log("CDU music here here",this.props.music);
-    }
 
     render() {
         return (

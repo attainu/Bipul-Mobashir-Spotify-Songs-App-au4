@@ -5,7 +5,6 @@ import getToken from './../../Redux/Token/getToken';
 import Card from './../Content/Home/Card';
 
 let getData = (store) => {
-    console.log("PlaylistDATA",store);
     return{
         playlistData: store.playlistModal.savePlaylistData
     }
@@ -30,7 +29,6 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
                 }
             })
             .then((response) => {
-                console.log("All Playlist RESPONSE>>",response);
                 let action = {
                     type: "save_playlist_data",
                     payload: response.data
@@ -42,8 +40,6 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
     }
     
     componentWillReceiveProps = (newprops) => {
-        console.log("NEWPROPS",newprops)
-        console.log("THIS.PROPS",this.props)
         if(newprops.match.params.value !== this.props.match.params.value){
             let value = newprops.match.params.value
             let token = getToken();
@@ -57,7 +53,6 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
                     }
                 })
                 .then((response) => {
-                    console.log("All Playlist RESPONSE>>",response);
                     let action = {
                         type: "save_playlist_data",
                         payload: response.data

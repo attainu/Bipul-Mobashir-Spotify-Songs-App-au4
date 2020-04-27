@@ -6,7 +6,6 @@ import Header from './Components/Header/Header.js';
 import Content from './Components/Content/Content.js';
 import SideNav from './Components/SideNav/SideNav.js';
 import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
-//import RadioNav from './Components/RadioNav/RadioNav.js';
 import AuthModal from'./Components/AuthModal/AuthModal.js';
 import PlaylistModal from './Components/PlaylistModal/PlaylistModal.js';
 import PlaylistItemsModal from './Components/PlaylistItemsModal/PlaylistItemsModal';
@@ -31,14 +30,12 @@ export default connect(getData, getFunction)(class App extends Component {
   
   componentDidMount = () => {
     var token = getToken();
-    console.log("dhhdhdhd?>>",token);
     if(token){
       axios.get('http://localhost:5555/status', {
       headers: {
         ["auth-token"]: token //the token is a variable which holds the token
       }
     }).then(res => {
-      console.log("get token>>>",res)
       let action = {
         type: "live_status"
 
@@ -49,7 +46,6 @@ export default connect(getData, getFunction)(class App extends Component {
 
 }
 handleCloseModal = ()=>{
-  console.log("ok");
   let action = {
     type: "hide_card_dialog"
   }

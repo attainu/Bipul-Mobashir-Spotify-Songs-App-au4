@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 import Login from './Login';
 import Signup from './Signup';
 let getData = (store)=>{
-    console.log("auth store",store)
     return {
         status:store.auth
     }

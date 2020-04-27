@@ -2,12 +2,9 @@ const playlist = require('../Models/PlaylistsModel');
 
 //Create playlist
 exports.create = async (req, res) => {
-    console.log("REQUEST>>",req.body);
     try {
         let playlists = await playlist.create({
             playlistname: req.body.playlistname,
-            // description: req.body.description,
-            // playlistid: req.body.playlistid,
             userid: req.user.id
         })
         res.status(200).send(playlists);  
@@ -18,7 +15,6 @@ exports.create = async (req, res) => {
 
 //Fetch All playlists
 exports.findAll = async (req, res) => {
-    console.log(req.user.id);
     try {
         let playlists = await playlist.findAll({
             where: {
@@ -33,7 +29,6 @@ exports.findAll = async (req, res) => {
 
 //Update a playlist 
 exports.update = async (req, res) => {
-    console.log(req.user.id)
     try {
         let playlists = await playlist.update({
              playlistname : req.body.playlistname,

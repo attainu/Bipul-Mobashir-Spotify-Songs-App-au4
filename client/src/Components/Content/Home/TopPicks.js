@@ -5,7 +5,6 @@ import Card from './Card.js';
 import {Link} from 'react-router-dom';
 
 let getData = (store) => {
-   // console.log("Top picks data received from store>>",store.topPicks.topPicksResult)
     return {
         topPicks: store.topPicks.topPicksResult
     }
@@ -22,7 +21,6 @@ export default connect(getData, getFunction)(class TopSongs extends Component {
     componentDidMount = () => {
         let data = getTopPicks()
         data.then(res => {
-            console.log("top picks data>>",res)
             let action = {
                 type: "set_top_picks",
                 payload: res

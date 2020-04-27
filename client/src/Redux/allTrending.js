@@ -8,8 +8,7 @@ function appReducerFunction(state=initialState,action){
     switch(action.type){
         case "set_all_trending":
              var newState = setAllTrending(stateCopy,action.payload);
-            console.log("newstate" ,newState);
-            return newState;
+             return newState;
     }
     return state;
 }

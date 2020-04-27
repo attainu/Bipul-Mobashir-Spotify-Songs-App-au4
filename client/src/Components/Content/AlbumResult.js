@@ -5,7 +5,6 @@ import getAlbum from './../../API/getAlbum';
 import Card from './Home/Card'
 
 let getData = (store) => {
-    console.log("receiving ALBUM data from store>>",store)
     return {
         album : store.album.album
     }
@@ -22,7 +21,6 @@ export default connect(getData, getFunction)(class AlbumResult extends Component
     componentDidMount = () => {
         let data = getAlbum();
         data.then((res) => {
-            console.log("ALBUM data is here>>>",res);
             let action = {
                 type: "set_album",
                 payload: res

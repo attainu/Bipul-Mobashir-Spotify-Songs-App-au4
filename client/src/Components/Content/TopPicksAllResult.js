@@ -20,7 +20,6 @@ export default connect(getdata, getFunction)(class TopPicksAllResult extends Com
     componentDidMount = () => {
         let data = getAllTopPicks();
         data.then(res => {
-            console.log("ALL TOP PICKS",res)
             let action = {
                 type: "set_all_top_picks",
                 payload: res

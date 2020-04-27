@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
-    console.log("playlist button store>>>",store);
     return {
         status:store.playlistModal
     }

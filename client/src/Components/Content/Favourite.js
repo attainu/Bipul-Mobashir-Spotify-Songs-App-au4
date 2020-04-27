@@ -5,7 +5,6 @@ import getToken from './../../Redux/Token/getToken';
 import Card from './Home/Card';
 
 let getData = (store) => {
-    console.log("RESC FAVOU DATA FROM STORE",store)
     return {
         status : store.auth,
         favouritesData: store.allFavourites.allFavourites
@@ -30,7 +29,6 @@ export default connect(getData, getFunction)(class Favourite extends Component {
                     ['auth-token']: token
                 }
             }).then((response) => {
-                console.log("RESPONSE IN FAVO>>", response)
                 let action = {
                     type: "set_all_favourites",
                     payload: response

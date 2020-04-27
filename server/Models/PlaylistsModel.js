@@ -9,9 +9,6 @@ let playlist = db.define("playlists",{
     playlistname: {
         type: Sequelize.STRING
     },
-    // description: {
-    //     type: Sequelize.TEXT
-    // },
    
 }, {
     timestamps: false

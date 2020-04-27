@@ -1,5 +1,4 @@
 let setAllTopPicks = (state, data) => {
-
     try {
         state.allTopPicks = data.data.items
         return state;

@@ -7,11 +7,9 @@ let initialState = {
 function appReducerFunction(state=initialState,action){
     let stateCopy = JSON.parse(JSON.stringify(state));
     switch(action.type){
-        case "set_trending":
-            
+        case "set_trending": 
              var newState = setTrending(stateCopy,action.payload);
-            console.log("newstate" ,newState);
-            return newState;
+             return newState;
     }
     return state;
 }

@@ -4,7 +4,6 @@ import getAllEnglish from './../../API/getAllEnglish';
 import Card from './Home/Card';
 
 let getData = (store) => {
-    console.log("ALL ENGLISH songs data received from store>>",store)
     return {
         allEnglishSongs: store.allEnglish.allEnglish
     }
@@ -20,7 +19,6 @@ export default connect(getData, getFunction)(class EnglishAllResult extends Comp
     componentDidMount = () => {
         let data = getAllEnglish()
         data.then(res => {
-            console.log("ENGLISH ALL>>", res)
             let action = {
                 type: "set_all_english",
                 payload: res
