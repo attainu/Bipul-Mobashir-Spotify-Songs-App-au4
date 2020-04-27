@@ -4,7 +4,7 @@ import getTrending from './../../../API/getTrending';
 import Card from './Card';
 import {Link} from 'react-router-dom';
 let getData = (store)=>{
-    console.log("data here",store.popular)
+   // console.log("data here",store.popular)
     return {
         trending:store.popular.trending
     }

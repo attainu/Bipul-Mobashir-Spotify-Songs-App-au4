@@ -23,7 +23,8 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
   return {
-    status : dispatch
+    status : dispatch,
+    closeModal:dispatch
   }
 }
 export default connect(getData, getFunction)(class App extends Component {
@@ -47,11 +48,18 @@ export default connect(getData, getFunction)(class App extends Component {
   }
 
 }
+handleCloseModal = ()=>{
+  console.log("ok");
+  let action = {
+    type: "hide_card_dialog"
+  }
+  this.props.closeModal(action)
+}
 
 render() {
   return (
     <Fragment>
-    
+    <div onClick={this.handleCloseModal}>
     <Router>
     <AuthModal/>
     <PlaylistModal/>
@@ -59,10 +67,10 @@ render() {
     <Header/>
     <SideNav/>
     <MusicPlayer/>
-    <Content/>
+    <Content />
     <CardDialog/>
     </Router>
-    
+    </div>
     </Fragment>
     )
   }

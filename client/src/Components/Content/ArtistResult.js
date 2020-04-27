@@ -36,7 +36,7 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
     render() {
         return (
             <Fragment>
-                this is artist
+               <div className="trending">
                 {this.props.artistResult && this.props.artistResult.map((items, key)=> {
                     return (
                         <div >
@@ -45,6 +45,7 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
                         </div>
                     )
                 })}
+                </div>
             </Fragment>
            
         )

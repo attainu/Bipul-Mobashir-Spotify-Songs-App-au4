@@ -32,9 +32,7 @@ export default connect(getData, getFunction)(class SongsResult extends Component
     render() {
         return (
             <Fragment>
-            <div>
-                This is songs
-            </div>
+            <div className="trending">
             {this.props.allSongs && this.props.allSongs.map((items, key)=> {
                     return (
 
@@ -42,6 +40,7 @@ export default connect(getData, getFunction)(class SongsResult extends Component
                         
                     )
                 })}
+                </div>
             </Fragment>
         )
     }

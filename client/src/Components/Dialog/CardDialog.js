@@ -5,7 +5,7 @@ import {withRouter} from 'react-router';
 import getToken from './../../Redux/Token/getToken';
 
 let getData = (store) => {
-    console.log("RECEVING DIALOG>>", store)
+   // console.log("RECEVING DIALOG>>", store)
     return{
         dialog : store.cardDialog,
         auth: store.auth,

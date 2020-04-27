@@ -3,7 +3,7 @@ import getAlbumData from './../../API/getAlbumData';
 import {connect} from 'react-redux';
 import Card from './Home/Card';
 let getData = (store) => {
-    console.log("ALBUM DATA>>", store.albumData.albumData)
+   // console.log("ALBUM DATA>>", store.albumData.albumData)
     return {
         data: store.albumData.albumData
     }

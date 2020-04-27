@@ -5,7 +5,7 @@ import Card from './Card.js';
 import {Link} from 'react-router-dom';
 
 let getData = (store) => {
-    console.log("Top picks data received from store>>",store.topPicks.topPicksResult)
+   // console.log("Top picks data received from store>>",store.topPicks.topPicksResult)
     return {
         topPicks: store.topPicks.topPicksResult
     }

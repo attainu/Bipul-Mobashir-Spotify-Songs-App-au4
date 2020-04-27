@@ -18,6 +18,7 @@ function appReducerFunction(state = initialState, action){
         case "hide_card_dialog":
             var newState = hideCardDialog(stateCopy, action.payload)
                 return newState;
+        
 
        
     }

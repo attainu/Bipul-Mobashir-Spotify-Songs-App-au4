@@ -156,7 +156,7 @@ header{
 .trending ,.top-picks , .english-songs {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  /* flex-direction: column; */
   max-width: 2000px;
   width: 76vw;
   margin-top: 2vw;

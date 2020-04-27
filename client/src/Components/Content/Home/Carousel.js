@@ -6,7 +6,7 @@ import {connect} from 'react-redux';
 import Card from './CCard';
 
 let getData = (store) => {
-    console.log("reeceiving carousel data from store",store.carousel.carouselList)
+  //  console.log("reeceiving carousel data from store",store.carousel.carouselList)
     return {
         carousel : store.carousel.carouselList
     }
