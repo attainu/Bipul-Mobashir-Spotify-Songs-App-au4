@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import Volume from './Voulme';
+import Slider from './Slider';
 var getData = (store)=>{
-    console.log("music Player>>>>",store.music)
+   // console.log("music Player>>>>",store.music)
     return {
         music:store.music
     }
@@ -48,7 +50,7 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
         // this.props.playSong(action);
     }
     componentDidUpdate = ()=>{
-        console.log("CDU here",this.props.music);
+       // console.log("CDU music here here",this.props.music);
     }
 
     render() {
@@ -59,6 +61,8 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
                 {this.props.music.songStatus && <button onClick={()=>this.handlePause()}>Pause</button> }
                 
                 <button onClick={()=>this.handleMute()}>Mute</button>
+                <Volume/>
+                <Slider/>
             </div>
         )
     }

@@ -4,7 +4,7 @@ import getEnglish from './../../../API/getEnglish.js';
 import Card from './Card.js';
 import {Link} from 'react-router-dom';
 let getData = (store) => {
-    console.log("english songs data received from store>>",store.englishSongs.englishResult)
+    //console.log("english songs data received from store>>",store.englishSongs.englishResult)
     return {
         englishSongs: store.englishSongs.englishResult
     }

@@ -12,8 +12,17 @@ let playSong =  (state,payload)=>{
           stateCopy.songStatus = true;
           
           
-            
+          state.song.addEventListener('loadedmetadata',()=>{
+            stateCopy.duration = state.song.duration;
+            console.log("duration >>>>>>>>>>>>>",parseInt(state.song.duration))
             state.song.play()
+            
+          })
+          
+          
+            
+            
+           
           
           
           // if (playPromise !== undefined) {
@@ -31,7 +40,17 @@ let playSong =  (state,payload)=>{
           //       console.log("playback prevented");
           //     });
           // }
-          return stateCopy;
+          console.log("a>>>>>>>>>>>>>sdcfv",stateCopy)
+          if(stateCopy.mode){
+            stateCopy.mode = false
+            console.log("setting false")
+            return stateCopy;
+          }else{
+            stateCopy.mode = true
+            console.log("setting true")
+            return stateCopy;
+          }
+          //return stateCopy;
         } catch (error) {
           console.error(error);
         }

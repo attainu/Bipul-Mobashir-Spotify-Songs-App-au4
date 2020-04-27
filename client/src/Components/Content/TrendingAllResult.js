@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import getAllTrending from './../../API/getAllTrending';
 import Card from './Home/Card';
 let getData = (store)=>{
-    console.log("receiving all trending data from store>>>",store.allTrending.allTrending)
+   // console.log("receiving all trending data from store>>>",store.allTrending.allTrending)
     return {
         allTrending:store.allTrending.allTrending
     }

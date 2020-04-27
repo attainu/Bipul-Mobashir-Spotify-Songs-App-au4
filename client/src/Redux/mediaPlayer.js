@@ -3,7 +3,10 @@ let initialState = {
     song: new Audio(),
     songStatus: false,
     songId:"",
-    volume:1
+    volume:1,
+    duration:"",
+    currentTime : 0 ,
+    mode:false
 }
 
 function appReducerFunction(state=initialState,action){
@@ -22,6 +25,11 @@ function appReducerFunction(state=initialState,action){
         case "play_current":
             stateCopy.songStatus=true
             stateCopy.song.play()
+            if(stateCopy.mode){
+                stateCopy.mode = false
+            }else{
+                stateCopy.mode = true
+            }
             return stateCopy;
         case "mute_current":
             if(state.song.muted){
@@ -30,6 +38,13 @@ function appReducerFunction(state=initialState,action){
                 state.song.muted = true
             }
             return state
+        case "volume":
+            stateCopy.volume = action.payload
+            stateCopy.song.volume = action.payload
+            return stateCopy
+        case "current_time":
+            stateCopy.currentTime = stateCopy.song.currentTime 
+            return stateCopy;
 
     }
     return state;
