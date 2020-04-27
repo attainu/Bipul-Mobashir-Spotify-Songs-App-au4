@@ -37,7 +37,7 @@ export default connect(getData, getFunction)(class ArtistResult extends Componen
                <div className="trending">
                 {this.props.artistResult && this.props.artistResult.map((items, key)=> {
                     return (
-                        <div >
+                        <div key={key}>
                         
                         <Link to={`/artist/${items.artistname}`}><Card key={key} id={items.id} thumbnail={items.imgurl} title={items.artistname}/></Link>
                         </div>
