@@ -42,13 +42,26 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
     render() {
         return (
             <div className="musicPlayer">
-                This is Music player
+                <div className="songPic">
+                        <img src="https://i.ytimg.com/vi/QiBeywmJoRY/mqdefault.jpg"/>
+                        <span>This is a title of is a title ofis a title ofis a title of song</span>
+                    </div>
+                <div className="middle">
+                <Slider/>
+                <div className="mediaActions">
                 {!this.props.music.songStatus && <button onClick={()=>this.handlePlay()}>Play</button> }
                 {this.props.music.songStatus && <button onClick={()=>this.handlePause()}>Pause</button> }
+                </div>
+                </div>
+                
+                <div className="media">
+                    
+                
                 
                 <button onClick={()=>this.handleMute()}>Mute</button>
+
                 <Volume/>
-                <Slider/>
+                </div>
             </div>
         )
     }

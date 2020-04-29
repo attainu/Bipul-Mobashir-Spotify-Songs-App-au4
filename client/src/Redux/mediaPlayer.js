@@ -42,7 +42,9 @@ function appReducerFunction(state=initialState,action){
             stateCopy.song.volume = action.payload
             return stateCopy
         case "current_time":
-            stateCopy.currentTime = stateCopy.song.currentTime 
+            stateCopy.currentTime = stateCopy.song.currentTime
+            
+            stateCopy.duration = stateCopy.song.duration 
             return stateCopy;
         case "stop_current":
             stateCopy.songStatus=false
@@ -52,6 +54,7 @@ function appReducerFunction(state=initialState,action){
             return stateCopy;
         case "change_duration":
             stateCopy.song.currentTime = action.payload
+            stateCopy.currentTime = state.song.currentTime
             return state;   
 
     }

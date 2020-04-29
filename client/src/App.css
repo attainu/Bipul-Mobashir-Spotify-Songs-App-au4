@@ -11,12 +11,12 @@ header{
   width: 100%;
   height: 20vh;
   min-height: 30px;
-  background-color: rgb(255, 255, 255);
+  background-color:black;
   max-height: 50px;
   display: flex;
   align-items: center;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   
   
 }
@@ -69,7 +69,8 @@ header{
   height: 100vh;
   min-height: 500px;
   width: 20vw;
-  background-color: yellow;
+  background:#030303;
+
   display: flex;
   flex-direction: column;
   z-index: 2;
@@ -89,16 +90,93 @@ header{
 }
 
 .musicPlayer{
-  background-color: teal;
+  background-color:#282828;
   position: fixed;
   z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   bottom: 0;
   right: 0vw;
-  height: 20vh;
+  height: 12vh;
   min-height: 30px;
-  max-height: 60px;
-  width: 80vw;
+  max-height: 10vw;
+  width: 80%;
+  border-top: 1px solid black;
  
+}
+.songPic{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.songPic img{
+ width: 4vw;
+ height: 4vw;
+ flex: 1;
+ padding: 0px 0 0 5px;
+ margin: 1px;
+ border-radius: 10%;
+ max-width: 200px;
+ max-height: 100px;
+}
+.songPic span{
+  padding: 0px 10px 0 10px;
+ margin: 1px;
+ flex:2;
+ font-size: 1vw;
+ word-break: break-all;
+}
+.middle{
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+ 
+  align-items: center;
+}
+.media{
+  flex: 1;
+}
+.media input::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  background: rgba(59,173,227,1);
+  background: -moz-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -webkit-gradient(left bottom, right top, color-stop(0%, rgba(59,173,227,1)), color-stop(25%, rgba(87,111,230,1)), color-stop(51%, rgba(152,68,183,1)), color-stop(100%, rgba(255,53,127,1)));
+  background: -webkit-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -o-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: -ms-linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3BADE3 ', endColorstr='#FF357F ', GradientType=1 );
+  height: 2px;
+}
+.media input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 2px solid;
+  border-radius: 50%;
+  height: 25px;
+  width: 25px;
+  max-width: 80px;
+  position: relative;
+  bottom: 11px;
+  background-color: #1D1C25;
+  cursor: -webkit-grab; 
+  -webkit-transition: border 1000ms ease;
+  transition: border 1000ms ease;
+}
+.mainBar{
+  
+  width: 96%;
+ 
+  display: flex;
+  flex-direction: column;
+}
+.progress{
+  display: flex;
+}
+.progress span:nth-child(2){
+  margin-left: auto;
 }
 
 
@@ -133,7 +211,7 @@ header{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color:rgb(239, 239, 239);
+  background-color:#121212
 }
 .firstRowHOme{
   max-height: 200px;
@@ -178,7 +256,7 @@ header{
  .itemCard{
   height: 15vw;
   width: 13vw;
-  background-color: rgb(250, 250, 250);
+  background-color:#282828;
   margin-top: 1vw;
   border-radius: 5px;
   margin-left: 2vw;

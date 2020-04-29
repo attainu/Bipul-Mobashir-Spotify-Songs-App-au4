@@ -12,11 +12,10 @@ let playSong =  (state,payload)=>{
           
           state.song.addEventListener('loadedmetadata',()=>{
             stateCopy.duration = state.song.duration;
-            if(stateCopy.duration !== ""){
-              console.log("hello")
+            
               state.song.play()
               console.log(stateCopy.duration)
-            }
+            
             
             
           })
