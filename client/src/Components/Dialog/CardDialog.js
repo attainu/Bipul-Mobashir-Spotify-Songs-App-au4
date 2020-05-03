@@ -124,7 +124,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                         {this.props.location.pathname==="/favourite" && this.props.auth.auth && <li onClick={() => {this.handleRemove()}}>Remove</li>}
                         {true !== this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
                         {true === this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={()=> {this.handleRemovePlaylist()}}>Remove From Playlist</li>}
-                        <li>Add to Queue</li>
+                        {this.props.auth.auth && <li>Add to Queue</li>}
                     </ul>
                 </div> 
     }

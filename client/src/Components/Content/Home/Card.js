@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 import getAudioLink from './../../../API/getAudioLink';
 let getData = (store)=>{
     return{
-        all:store
+        all:store,
+        auth: store.auth,
     }
 
 }
@@ -69,7 +70,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                         <span>{this.titleTrim(this.props.title)}</span>
                     </div>
                     <div className="dotButton">
-                        <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}>l</button>
+                        {this.props.auth.auth && <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}>l</button>}
                     </div>
                 </div>
             </div>
