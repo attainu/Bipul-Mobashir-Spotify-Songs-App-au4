@@ -12,7 +12,11 @@ let playSong =  (state,payload)=>{
           
           state.song.addEventListener('loadedmetadata',()=>{
             stateCopy.duration = state.song.duration;
-            state.song.play()
+            
+              state.song.play()
+              console.log(stateCopy.duration)
+            
+            
             
           })
           

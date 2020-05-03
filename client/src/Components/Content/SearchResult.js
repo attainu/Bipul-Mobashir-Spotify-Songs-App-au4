@@ -48,7 +48,7 @@ export default connect(getData, getFunction)(class SearchResult extends Componen
                 {this.props.searchResult && this.props.searchResult.map((items, key)=> {
                     return(
                     
-                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/>   
+                        <Card key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={items.snippet.title} duration={"a"}/>   
                     )
                 })}
             

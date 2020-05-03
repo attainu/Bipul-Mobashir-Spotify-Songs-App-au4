@@ -39,7 +39,7 @@ export default connect(getData, getFunction)(class TopSongs extends Component {
                 <div className="rowBody">
             {this.props.topPicks && this.props.topPicks.map((items, key) => {
                 return (
-                    <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/>
+                    <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={items.snippet.title} duration={"a"}/>
                 )
             })}
             </div>

@@ -20,7 +20,8 @@ var getFunction = (dispatch)=>{
 export default connect(getData,getFunction)(class Volume extends Component {
       
     state={
-        setTime:null
+        setTime:null,
+        setDuration:null
     }
     time = ()=>{
         setInterval(()=>{
@@ -32,15 +33,23 @@ export default connect(getData,getFunction)(class Volume extends Component {
     }
 
     handleDuration = (value) => {
+        if(this.props.duration>1200){
+            return false
+        }
+       
         let action = {
             type:"change_duration",
             payload: value
         }
         this.props.changeDuration(action);
+    
+    
     }
  
 
      componentDidUpdate = (prevProps)=>{
+         console.log(this.props);
+         
       
         if(this.props.duration === this.props.time && this.props.status && this.props.time > 1){
             let action = {
@@ -66,14 +75,29 @@ export default connect(getData,getFunction)(class Volume extends Component {
             }
          }
      }
+
+      formatTime = secs => {
+        let minutes = Math.floor(secs / 60);
+        let seconds = Math.ceil(secs - minutes * 60);
+      
+        if (seconds < 10) seconds = `0${seconds}`;
+      
+        return `${minutes}:${seconds}`;
+      };
     render() {
+        
        
         return (
-            <div>
+            <div className="mainBar">
             {
                 this.props.status  }
+                <div className="progress">
+                    <span>{this.formatTime(this.props.time)}</span>
+                    <span>{this.props.duration>0 && this.formatTime(this.props.duration)}</span>
+                </div>
            
-                <input step={`1`} onChange={(e)=>{this.handleDuration(e.target.value)}} type = "range" min={`0`} max={ this.props.duration } value={this.props.time}></input>
+                <input className="progressBar" step={`1`} onChange ={(e)=>{this.handleDuration(e.target.value)}} type = "range" min={`0`} max={ this.props.duration || 100} value={this.props.time}></input>
+                
     
             </div>
             

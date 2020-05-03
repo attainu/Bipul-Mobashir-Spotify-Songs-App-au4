@@ -22,7 +22,9 @@ export default connect(getData, getFunction)(class SideNav extends Component {
         
         return (
             <aside className="sideNav">
-               <div className="hidden"></div>
+               <div className="brand">
+                    <img src="https://res.cloudinary.com/dbbphbyf8/image/upload/v1586360806/Music_dpsg1v.svg"/>
+                </div>
                <div className="B">
                    <div className="musicTab">Music</div>
                    <nav>
@@ -70,12 +72,12 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                        
                    </nav>
                </div>
+               <hr className="Rootlist_divider"></hr>
                {this.props.status.auth && <div className="C">
                <div className="playlist">Playlists</div>
                     <PlaylistName/>
                     <PlayList/>
                </div>}
-               <div>D</div>
             </aside>
         )
     }

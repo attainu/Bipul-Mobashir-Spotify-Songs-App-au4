@@ -38,13 +38,35 @@ export default connect(getData,getFunction)(class Card extends Component {
         this.props.setDialog(action);
         e.stopPropagation()
     }
+
+    titleTrim = (title) => {
+        let name = title.split("|");
+        var str = name[0];
+
+        var mapp = {
+        "Video": "", "video": "","VIDEO": "", "Official": "", "OFFICIAL": "", "(": "", ")": "", "[": "", "]": "", "#": "", "&#": "", "Audio": "", "audio": "", "AUDIO": "", "full": "", "Full": "","Songs": "", "Song": "", "songs": "", "song": "", "SONG": "",  "&quot": "", "&amp": "", ";": "", "//": ""
+        };
+
+        function replaceAll(mapp, target) {
+            Object.keys(mapp).forEach((key) => {
+            str = str.replace(key, target)
+
+        })  
+    }
+
+    replaceAll(mapp, "");
+    return str;
+       
+}
+
+
     render() {
         return (
             <div  className="itemCard" onClick={()=>{this.playSong(this.props.id)}}>
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">
                     <div className="cardTitle">
-                        <span>{this.props.title}</span>
+                        <span>{this.titleTrim(this.props.title)}</span>
                     </div>
                     <div className="dotButton">
                         <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}>l</button>

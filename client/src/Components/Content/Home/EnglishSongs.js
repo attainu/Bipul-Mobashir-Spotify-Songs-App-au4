@@ -36,7 +36,7 @@ export default connect(getData, getFunction)(class EnglishSongs extends Componen
                 <div className="rowBody">
                 {this.props.englishSongs && this.props.englishSongs.map((items, key) => {
                     return(
-                        <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/>
+                        <Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.medium.url} title={items.snippet.title} duration={"a"}/>
                     )
                 })}
                 </div>

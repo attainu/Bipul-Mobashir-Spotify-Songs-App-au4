@@ -35,7 +35,7 @@ export default connect(getData, getFunction)(class AlbumResult extends Component
             {this.props.album && this.props.album.map((items, key)=> {
                     return (
                         <div key={key}>
-                        <Link to={`/album/${items.id}`}><Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.medium.url} title={"a"} duration={"a"}/></Link>
+                        <Link to={`/album/${items.id}`}><Card key={key} id={items.id} thumbnail={items.snippet.thumbnails.medium.url} title={items.snippet.title} duration={"a"}/></Link>
                         </div>
                     )
                 })}

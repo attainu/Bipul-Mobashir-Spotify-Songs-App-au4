@@ -4,6 +4,7 @@ import {Provider} from 'react-redux';
 import store from './Redux/store.js';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 ReactDOM.render(
   <React.StrictMode>

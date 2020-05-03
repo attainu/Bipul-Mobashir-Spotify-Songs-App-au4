@@ -23,7 +23,11 @@ export default connect(getData, getFunction)(class CreatePlayList extends Compon
     render() {
         return (
             <div className="createPlaylist">
-                <button className="playlist_button" onClick={() => {this.handlePlaylistButton()}}>Create Playlist</button>
+                <hr className="Rootlist_divider"></hr>
+                <div className="parent_playlist_div" onClick={() => {this.handlePlaylistButton()}}>
+                <button className="playlist_button" ><i class="fas fa-plus"></i></button>
+                <span className="create_playlist_button_text">Create Playlist</span>
+                </div>
             </div>
         )
     }

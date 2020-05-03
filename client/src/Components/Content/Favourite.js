@@ -45,7 +45,7 @@ export default connect(getData, getFunction)(class Favourite extends Component {
                 <Fragment>
                    {this.props.favouritesData && this.props.favouritesData.map((items, key) => {
                        return (
-                        <Card key={key} id={items.trackid} thumbnail={items.imgurl} title={"a"} duration={"a"}/>
+                        <Card key={key} id={items.trackid} thumbnail={items.imgurl} title={items.trackname} duration={"a"}/>
                        )
                    })}
                 </Fragment>}
