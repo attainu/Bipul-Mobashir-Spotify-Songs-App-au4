@@ -234,7 +234,7 @@ header{
 }
 .radioNav{
   width: 20vw;
-  background-color: rgb(231, 38, 206);
+  background-color: rgb(0, 0, 0);
 }
 .trending ,.top-picks , .english-songs {
   display: flex;
@@ -464,8 +464,8 @@ header{
 }
 
 .play{
-  width: 12px;
-  height: 16px;
+  width: 1vw;
+  
   border-top: 8px solid transparent;
   border-left: 12px solid #b3b3b3;
   border-bottom: 8px solid transparent;
@@ -483,8 +483,16 @@ header{
   border: 1px solid hsla(0,0%,100%,.6);
   
 } */
+.mediaActions{
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10px;
+    height: 10px;
+}
+
 .pause{
-  width: 12px;
+  width: 9px;
   height: 16px;
   border-top: none;
   border-bottom: none;
@@ -492,4 +500,35 @@ header{
   border-left: 4px solid #b3b3b3;
   background: none;
   outline: none;
+}
+
+.progressBar{
+  display: block;
+  appearance: none;
+  width: 100%;
+  margin-bottom: 15px;
+  height: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  
+  
+}
+.progressBar:focus{
+  outline: none;
+}
+.progressBar::-webkit-slider-runnable-track{
+  width: 100%;
+  height: 10px;
+  background-color: violet;
+}
+.progressBar::-webkit-slider-thumb{
+  position: relative;
+  top: 50%;
+  margin-top: 10px;
+  box-shadow: 0 0 0 black;
+  height: 20px;
+  width: 20px;
+  appearance: none;
+  border-radius: 100%;
+  color: #030303;
 }

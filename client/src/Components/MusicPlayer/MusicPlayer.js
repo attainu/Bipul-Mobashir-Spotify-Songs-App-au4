@@ -50,9 +50,9 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
                 <Slider/>
                 <div className="mediaActions">
                 <span className="circle" ></span>
-                {!this.props.music.songStatus && <button className="play" onClick={()=>this.handlePlay()}></button> }
+                {!this.props.music.songStatus && <div className="play" onClick={()=>this.handlePlay()}></div> }
                 
-                {this.props.music.songStatus && <button className="pause" onClick={()=>this.handlePause()}></button> }
+                {this.props.music.songStatus && <div className="pause" onClick={()=>this.handlePause()}></div> }
                 </div>
                 </div>
                 
