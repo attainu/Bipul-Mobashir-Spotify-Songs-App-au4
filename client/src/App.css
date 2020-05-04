@@ -266,7 +266,7 @@ header{
   margin: 10px;
   border-radius: 10px;
 }
-.trending ,.top-picks , .english-songs, .favourite, .playlistData, .allEnglish, .radioAll, .album{
+.trending ,.top-picks , .english-songs, .favourite, .playlistData, .allEnglish, .radioAll, .album, .searchResult{
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */

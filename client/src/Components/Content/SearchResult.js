@@ -44,6 +44,7 @@ export default connect(getData, getFunction)(class SearchResult extends Componen
     
     render() {
         return (
+            <div className="searchResult">
             <Fragment>
                 {this.props.searchResult && this.props.searchResult.map((items, key)=> {
                     return(
@@ -53,6 +54,7 @@ export default connect(getData, getFunction)(class SearchResult extends Componen
                 })}
             
             </Fragment>
+            </div>
         )
     }
 })
