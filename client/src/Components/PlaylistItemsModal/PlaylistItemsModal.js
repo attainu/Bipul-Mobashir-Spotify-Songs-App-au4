@@ -24,7 +24,8 @@ export default connect(getData, getFunction)(class PlaylistModal extends Compone
         return (
             <Fragment>
             {this.props.status.playlistItemsModal && <div className="playlistModal">
-            <div onClick={()=>{this.handleCross()}} className="cross">X</div>
+            {/* <div onClick={()=>{this.handleCross()}} className="cross">x</div> */}
+            <i onClick={()=>{this.handleCross()}} class="fas fa-times cross"></i>
                 <PlaylistItems/>
             </div>}
             </Fragment>

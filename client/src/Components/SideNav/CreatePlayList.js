@@ -25,7 +25,7 @@ export default connect(getData, getFunction)(class CreatePlayList extends Compon
             <div className="createPlaylist">
                 <hr className="Rootlist_divider"></hr>
                 <div className="parent_playlist_div" onClick={() => {this.handlePlaylistButton()}}>
-                <button className="playlist_button" ><i class="fas fa-plus"></i></button>
+                <i className="fas fa-plus playlist_button"></i>
                 <span className="create_playlist_button_text">Create Playlist</span>
                 </div>
             </div>

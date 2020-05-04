@@ -30,10 +30,8 @@ export default connect(getData, getFunction)(class RadioAllResult extends Compon
 
     render() {
         return (
+            <div className="radioAll">
             <Fragment>
-            <div>
-                this is all radio
-            </div>
             {this.props.allRadio && this.props.allRadio.map((items,key)=>{
                     
                     return(
@@ -41,6 +39,7 @@ export default connect(getData, getFunction)(class RadioAllResult extends Compon
                     )
                 })}
             </Fragment>
+            </div>
         )
     }
 })

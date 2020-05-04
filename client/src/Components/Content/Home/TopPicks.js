@@ -34,7 +34,7 @@ export default connect(getData, getFunction)(class TopSongs extends Component {
             <Fragment>
                <div className="rowHeader">
                     <span>Top Picks</span>
-                    <Link to="/top-picks"><button>See All</button></Link>
+                    <Link to="/top-picks"><div>See All</div></Link>
                 </div>
                 <div className="rowBody">
             {this.props.topPicks && this.props.topPicks.map((items, key) => {

@@ -67,6 +67,7 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
     
     render() {
         return (
+            <div className="playlistData">
             <Fragment>
             {this.props.playlistData && this.props.playlistData.map((items, key)=> {
                 return(
@@ -74,6 +75,7 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
                     )
                 })}
                 </Fragment>
+                </div>
                 )
             }
         })

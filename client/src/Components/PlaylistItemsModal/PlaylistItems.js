@@ -45,7 +45,7 @@ export default connect(getData, getFunction)(class PlaylistItems extends Compone
     render() {
         return (
             <Fragment>
-                <ul className="playlistName">
+                <ul className="playlistNameBox">
                 {this.props.playlistName && this.props.playlistName.map((items, key) => {
                     return(
                         <li onClick={()=> {this.handlePlaylistItems(items.id)}} key={key}>{items.playlistname}</li>

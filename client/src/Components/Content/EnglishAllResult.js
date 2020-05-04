@@ -28,8 +28,8 @@ export default connect(getData, getFunction)(class EnglishAllResult extends Comp
     }
     render() {
         return (
+            <div className="allEnglish">
             <Fragment>
-                 <h3>All English</h3>
                  {this.props.allEnglishSongs && this.props.allEnglishSongs.map((items,key)=>{
                     
                     return(
@@ -37,6 +37,7 @@ export default connect(getData, getFunction)(class EnglishAllResult extends Comp
                     )
                 })}
            </Fragment>
+           </div>
         )
     }
 })

@@ -29,14 +29,15 @@ export default connect(getdata, getFunction)(class TopPicksAllResult extends Com
     }
     render() {
         return (
+            <div className="top-picks">
             <Fragment>
-                 <h3>All Top Picks</h3>
                  {this.props.allTopPicks && this.props.allTopPicks.map((items,key)=>{
                     return(
                         <Card key={key} id={items.snippet.resourceId.videoId} thumbnail={items.snippet.thumbnails.medium.url} title={items.snippet.title} duration={"a"}/>
                     )
                 })}
            </Fragment>
+           </div>
         )
     }
 })

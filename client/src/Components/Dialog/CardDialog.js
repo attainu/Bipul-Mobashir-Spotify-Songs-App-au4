@@ -103,7 +103,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
 
     
     render() {
-        let l = this.props.dialog.x
+        let l = this.props.dialog.x + 10
         let h = this.props.dialog.y
         console.log(l,h);
         if((window.innerWidth - this.props.dialog.x) < 100){
@@ -114,7 +114,6 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         }
         
         const style = {
-            backgroundColor:"red",
             left:`${l}px`,
             top:`${h}px`,
             
@@ -124,9 +123,9 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
                 {this.props.dialog.view && 
                 <div style={style} className="cardDialog">
                     <ul onClick={this.handleHideCardDialog}>
-                        {this.props.location.pathname!=="/favourite" && this.props.auth.auth && <li onClick={() => {this.handlefavourite()}}>Mark Favourite</li>}
+                        {this.props.location.pathname!=="/favourite" && this.props.auth.auth && <li onClick={() => {this.handlefavourite()}}>Mark as Favourite</li>}
                         {this.props.location.pathname==="/favourite" && this.props.auth.auth && <li onClick={() => {this.handleRemove()}}>Remove</li>}
-                        {true !== this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Save to Playlist</li>}
+                        {true !== this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={() => {this.handlePlaylistModal()}}>Add to Playlist</li>}
                         {true === this.props.location.pathname.includes('/playlist') && this.props.auth.auth && <li onClick={()=> {this.handleRemovePlaylist()}}>Remove From Playlist</li>}
                         {this.props.auth.auth && <li>Add to Queue</li>}
                     </ul>

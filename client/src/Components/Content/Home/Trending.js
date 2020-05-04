@@ -37,7 +37,7 @@ export default connect(getData,getFunction)(class Trending extends Component {
             <Fragment>
                 <div className="rowHeader">
                     <span>Trending</span>
-                    <Link to="/trending"><button>See All</button></Link>
+                    <Link to="/trending"><div>See All</div></Link>
                 </div>
                 <div className="rowBody">
                 {this.props.trending && this.props.trending.map((items,key)=>{

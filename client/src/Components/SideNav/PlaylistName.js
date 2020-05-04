@@ -72,7 +72,7 @@ export default connect(getData, getFunction)(class PlaylistName extends Componen
                     return(
                         <div key={key}>
                         <Link to={`/playlist/${items.id}`}><li key={key}>{items.playlistname}</li></Link>
-                        <button className="playlist_remove_item_buttton" onClick={() => {this.handleDeletePlaylist(items.id)}}>delete</button>
+                        <div className="playlist_remove_item_buttton" onClick={() => {this.handleDeletePlaylist(items.id)}}>x</div>
                         </div>
                     )          
                     

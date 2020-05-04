@@ -31,7 +31,7 @@ export default connect(getData, getFunction)(class EnglishSongs extends Componen
             <Fragment>
                  <div className="rowHeader">
                     <span>Popular in English</span>
-                    <Link to="/english-song"><button>See All</button></Link>
+                    <Link to="/english-song"><div>See All</div></Link>
                 </div>
                 <div className="rowBody">
                 {this.props.englishSongs && this.props.englishSongs.map((items, key) => {

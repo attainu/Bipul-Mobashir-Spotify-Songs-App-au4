@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@200;300;400;500;700&display=swap');
 
 body{
   font-family: 'Roboto', sans-serif;
@@ -184,6 +184,13 @@ header{
   margin-left: auto;
 }
 
+.progress span {
+  font-size: small;
+  font-weight: 300;
+  position: relative;
+  bottom: 5px;
+}
+
 
 
 .upperSpace{
@@ -235,8 +242,10 @@ header{
 .radioNav{
   width: 20vw;
   background-color: rgb(0, 0, 0);
+  margin: 10px;
+  border-radius: 10px;
 }
-.trending ,.top-picks , .english-songs {
+.trending ,.top-picks , .english-songs, .favourite, .playlistData, .allEnglish, .radioAll, .album{
   display: flex;
   flex-wrap: wrap;
   /* flex-direction: column; */
@@ -258,7 +267,21 @@ header{
   margin-left: auto;
 }
 
- .itemCard{
+.rowHeader span{
+  font-size: large;
+  font-weight: 700;
+  font-family: 'Roboto', sans-serif;
+}
+.rowHeader div {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 15px;
+  color: #b3b3b3;
+}
+.rowHeader div:hover{
+  color: white;
+}
+.itemCard{
   height: 15vw;
   width: 13vw;
   background-color:#282828;
@@ -269,13 +292,17 @@ header{
   
 }
 .cardTitle span {
+  display: block;
   font-size: 1vw;
   text-align: center;
   padding: 1px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
   
 }
 .itemCard:hover{
-  box-shadow: 1px 3px 13px 0px #c1c1c1;
+  box-shadow: 1px -1px 12px 3px #4d4b4b;
+
 }
  .itemCard img{
   z-index: -2;
@@ -316,11 +343,62 @@ header{
     opacity: 1;
   }
 }
-.cross{
-  position: absolute;
-  right: 10px;
-  top: 10px;
+.playlistInputBox{
+  opacity: 1;
+  position: relative;
+  background-color: #282828;
+  padding: 32px 0;
+}
+.playlistInputBox input{
+  
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: .015em;
+  color: #fff;
+  text-transform: none;
+  width: 50vw;
+  background-color: transparent;
+  outline: none;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: hidden;
+  display: flex;
+  margin-left: 50px;
+  caret-color: #9b1992;
+  
+}
+
+
+.playlistHeader h1{
+  font-size: 3vw;
+}
+.playlistInputButton{
+  margin-top: 2vw;
+}
+.playlistInputButton button{
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
+  border-radius: 50px;
+  color: white;
+  border: none;
+  font-size: 1vw;
+  padding: 10px;
+  width: 10vw;
   cursor: pointer;
+  outline: none;
+
+}
+.cross{
+  color: rgb(139, 139, 139);
+  font-size: 6vw;
+  align-items: center;
+  top: 25%;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+.cross:hover{
+  color: #cfcfcf;
 }
 .login{
   display: flex;
@@ -353,10 +431,20 @@ header{
   align-items: center;
   font-size: 1vw;
 }
+
+.musicTab {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-left: 7px;
+  letter-spacing: 1px;
+}
+
 .Rootlist_divider{
+  background-color: #282828;
   position: relative;
   top: 21px;
-  background-color: #282828;
   border: none;
   height: 1px;
   width: 16vw;
@@ -370,6 +458,7 @@ header{
   text-align: center;
   cursor: pointer;
   color: #b3b3b3;
+  font-weight: 500;
   
 }
 
@@ -378,36 +467,49 @@ header{
 }
 
 .C{
-  height: 35vh;
   width: 100%;
   background-color: #030303;
-  position: relative;
-  top: 7vh;
+}
+
+.C .playlist {
+  margin-top: 24px;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-left: 7px;
+  letter-spacing: 1px;
 }
 .createPlaylist{
-  text-align: center;
-  position: absolute;
-  bottom: 0;
+  text-align: center;         
+
 }
 .createPlaylist .Rootlist_divider{
-  display: inline-block;
-  position: relative;
-  top: 21px;
   background-color: #282828;
   border: none;
   height: 1px;
   width: 16vw;
 }
 
+.create_playlist_button_text{
+  font-size: large;
+  font-weight: 500;
+  color: #b3b3b3;
+  cursor: pointer;
+}
+.create_playlist_button_text:hover{
+  color: white;
+}
+
 .playlistModal{
   position: fixed;
-  left: 20%;
-  right: 20%;
-  top: 20%;
-  bottom: 20%;
+  height: 100%;
+  width: 100%;
   z-index: 5;
-  background: linear-gradient(180deg, #C8013D 0%, #B8014F 100%);
+  background: black;
+  opacity: 0.9;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   animation-name: open;
@@ -415,52 +517,123 @@ header{
 }
 
 .C .playlistName{
-  display: inline-block;
+  max-height: 20vh;
   position: relative;
   margin: 10px auto 0;
   line-height: 5vh;
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  max-height: 73%;
   overflow-y: scroll;
+  list-style-type: none;
+  max-width: 50%;
 
 }
+
 .playlist_remove_item_buttton{
-  text-align-last: justify;
-  margin:1em;
+  font-size: large;
+  font-weight: 500;
+  margin-left: auto;
+  opacity: 0;
 }
+.playlistName div:hover .playlist_remove_item_buttton{
+  opacity: 1;
+  cursor: pointer;
+}
+
 .playlistName div{
-  display: inline-flex;
+    display: flex;
 }
+
+.playlistName a{
+  text-decoration: none;
+  color: #b3b3b3;
+  font-weight: 500;
+  font-size: 1vw;
+  letter-spacing: 1px;
+}
+.playlistName div:hover a{
+  color: white;
+}
+
 
 .playlistName::-webkit-scrollbar {
   width: 15px;
 }
 
 .playlist_button{
-  /* position: relative;
-  top: 43px; */
+  cursor: pointer;
+  color: #b3b3b3;
   width: 25px;
   height: 25px;
   padding: 4px;
-  background-color: #b3b3b3;
   border: none;
   outline: none;
-  float: left;
   margin-left: 12px;
 
+}
+.playlist_button:hover{
+  color: white;
 }
 
 .parent_playlist_div{
   position: relative;
   top: 43px;
+  display: flex;
+}
+
+
+.playlistNameBox {
+  display: flex;
+  list-style-type: none;
+  max-width: 50vw;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.playlistNameBox li {
+  font-weight: 500;
+  letter-spacing: 1px;
+  width: 37%;
+  margin: 8px;
+  padding: 10px;
+  border: 1px solid #e3e3e3;
+  text-align: center;
+  border-radius: 30px;
+}
+
+.playlistNameBox li:hover{
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);;
 }
 
 .cardDialog{
   z-index: 3;
   position: absolute;
+  background-color: #282828;
+  height: 170px;
+  width: 150px;
+  border-radius: 5px;
+  display: flex;
+}
+
+.cardDialog ul{
+  color: #b3b3b3;
+  font-weight: 500;
+  font-size: smaller;
+  line-height: 40px;
+  padding: 2px;
+  width: 100%;
+  display: flex;
+  list-style-type: none;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardDialog li:hover {
+  cursor: pointer;
+  background-color: #393838;
+  color: white;
 }
 
 .play{
@@ -507,28 +680,42 @@ header{
   appearance: none;
   width: 100%;
   margin-bottom: 15px;
-  height: 12px;
-  overflow: hidden;
+  height: 2px;
   cursor: pointer;
-  
-  
 }
+
 .progressBar:focus{
   outline: none;
 }
 .progressBar::-webkit-slider-runnable-track{
-  width: 100%;
-  height: 10px;
-  background-color: violet;
-}
-.progressBar::-webkit-slider-thumb{
   position: relative;
-  top: 50%;
-  margin-top: 10px;
-  box-shadow: 0 0 0 black;
-  height: 20px;
-  width: 20px;
-  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(144, 144, 144);
+}
+
+.progressBar::-webkit-slider-thumb {
+  width: 12px;
+  -webkit-appearance: none;
+  height: 12px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
   border-radius: 100%;
-  color: #030303;
+  position: relative;
+  bottom: 5px;
+}
+
+.progressBar::-webkit-progress-value { 
+  background: blue; 
+  width: 100%;
+}
+
+.fa-ellipsis-v{
+  color: #b3b3b3;
+  cursor: pointer;
+}
+.fa-ellipsis-v:hover{
+  color: #eeeeee;
+  font-size: large;
 }

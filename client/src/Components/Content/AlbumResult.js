@@ -31,7 +31,7 @@ export default connect(getData, getFunction)(class AlbumResult extends Component
     render() {
         return (
             <Fragment>
-            <div className="trending">
+            <div className="album">
             {this.props.album && this.props.album.map((items, key)=> {
                     return (
                         <div key={key}>

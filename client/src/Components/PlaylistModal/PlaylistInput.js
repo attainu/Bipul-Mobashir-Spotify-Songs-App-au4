@@ -54,10 +54,13 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
     render() {
         return (
             <Fragment>
-                <div>
-                    <input onChange = {(e) => {this.handleInput(e)}} type="text" value={this.state.input} placeholder="Playlist Name"></input>
+                <div className="playlistHeader">
+                    <h1>Create New Playlist</h1>
                 </div>
-                <div>
+                <div className="playlistInputBox">
+                    <input onChange = {(e) => {this.handleInput(e)}} type="text" value={this.state.input} placeholder="New Playlist" autofocus="autofocus"></input>
+                </div>
+                <div className="playlistInputButton">
                     <button onClick = {() => {this.handleButton()}} >Create</button>
                 </div>
 

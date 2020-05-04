@@ -32,8 +32,8 @@ export default connect(getData, getFunction)(class TrendingAllResult extends Com
     }
     render() {
         return (
+            <div className="trending">
             <Fragment>
-                 <h3>ALL Trending</h3>
                  {this.props.allTrending && this.props.allTrending.map((items,key)=>{
                     
                     return(
@@ -41,6 +41,7 @@ export default connect(getData, getFunction)(class TrendingAllResult extends Com
                     )
                 })}
            </Fragment>
+           </div>
         )
     }
 })

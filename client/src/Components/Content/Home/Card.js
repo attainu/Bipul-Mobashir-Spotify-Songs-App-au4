@@ -45,7 +45,7 @@ export default connect(getData,getFunction)(class Card extends Component {
         var str = name[0];
 
         var mapp = {
-        "Video": "", "video": "","VIDEO": "", "Official": "", "OFFICIAL": "", "(": "", ")": "", "[": "", "]": "", "#": "", "&#": "", "Audio": "", "audio": "", "AUDIO": "", "full": "", "Full": "","Songs": "", "Song": "", "songs": "", "song": "", "SONG": "",  "&quot": "", "&amp": "", ";": "", "//": ""
+        "Video": "", "video": "","VIDEO": "", "Official": "", "OFFICIAL": "", "(": "", ")": "", "[": "", "]": "", "#": "", "&#": "", "Audio": "", "audio": "", "AUDIO": "", "full": "", "Full": "", "SONGS": "", "Songs": "", "Song": "", "songs": "", "song": "", "SONG": "",  "&quot": "", "&amp": "", ";": "", "//": "", "Jukebox": "", "Music": "", "HINDI": "", "Hindi": "", "Mirchi": "", "Awards": "", "HD": "", "LINK": "", "Mp3": "", "Bollywood": "", "Hits": "", "2020": ""
         };
 
         function replaceAll(mapp, target) {
@@ -69,9 +69,9 @@ export default connect(getData,getFunction)(class Card extends Component {
                     <div className="cardTitle">
                         <span>{this.titleTrim(this.props.title)}</span>
                     </div>
-                    <div className="dotButton">
-                        {this.props.auth.auth && <button onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}>l</button>}
-                    </div>
+                    {this.props.auth.auth && <div className="dotButton">
+                        <i class="fa fa-ellipsis-v" aria-hidden="true" onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}></i>
+                    </div>}
                 </div>
             </div>
         )

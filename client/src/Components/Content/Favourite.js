@@ -40,7 +40,7 @@ export default connect(getData, getFunction)(class Favourite extends Component {
     }
     render() {
         return (
-            <div>
+            <div className="favourite">
             {this.props.status.auth && 
                 <Fragment>
                    {this.props.favouritesData && this.props.favouritesData.map((items, key) => {

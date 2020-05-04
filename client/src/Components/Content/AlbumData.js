@@ -30,7 +30,7 @@ export default connect(getData, getFunction)(class AlbumData extends Component {
     
     render() {
         return (
-            
+            <div className="album">
             <Fragment>
                 {this.props.data && this.props.data.map((items, key)=> {
                     console.log("album data",items)
@@ -42,6 +42,7 @@ export default connect(getData, getFunction)(class AlbumData extends Component {
                 })}
     
             </Fragment>
+            </div>
         )
     }
 })

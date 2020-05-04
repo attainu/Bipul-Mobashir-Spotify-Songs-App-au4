@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom';
+import {NavLink, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import PlayList from './CreatePlayList';
 import PlaylistName from './PlaylistName';
@@ -22,9 +22,11 @@ export default connect(getData, getFunction)(class SideNav extends Component {
         
         return (
             <aside className="sideNav">
+              <Link to="/">
                <div className="brand">
                     <img src="https://res.cloudinary.com/dbbphbyf8/image/upload/v1586360806/Music_dpsg1v.svg"/>
                 </div>
+                </Link>
                <div className="B">
                    <div className="musicTab">Music</div>
                    <nav>
