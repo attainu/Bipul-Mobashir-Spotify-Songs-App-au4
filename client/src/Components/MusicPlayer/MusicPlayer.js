@@ -16,6 +16,10 @@ var getFunction = (dispatch)=>{
 }
 
 export default  connect(getData,getFunction)(class MusicPlayer extends Component {
+
+    state={
+        status: true
+    }
     
     handlePlay = () => {
            let action = {
@@ -32,6 +36,16 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
         this.props.pause(action)
      }
     handleMute = () => {
+        if(this.state.status){
+            this.setState({
+                status: false
+            })
+        }else{
+            this.setState({
+                status: true
+            })
+        }
+        
         let action = {
             type: "mute_current"
         }
@@ -57,11 +71,8 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
                 </div>
                 
                 <div className="media">
-                    
-                
-                
-                <button onClick={()=>this.handleMute()}>Mute</button>
-
+                    {!this.state.status && <i class="fas fa-volume-mute volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
+                    {this.state.status && <i class="fas fa-volume-down volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
                 <Volume/>
                 </div>
             </div>

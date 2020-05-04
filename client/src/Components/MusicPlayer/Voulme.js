@@ -24,7 +24,7 @@ export default connect(getData,getFunction)(class Volume extends Component {
       }
     render() {
         return (
-        <input step={`1`} onChange={(e)=>{this.volumeChange(e)}} type = "range"  value={this.props.volume*100}></input>
+        <input className="volumeBar" step={`1`} onChange={(e)=>{this.volumeChange(e)}} type = "range"  value={this.props.volume*100}></input>
         )
     }
 })
