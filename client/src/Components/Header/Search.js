@@ -16,7 +16,7 @@ export default class Search extends Component {
             <Fragment>
                 <div className="oneIn">
                 <input onChange={(e)=>{this.handleInput(e.target.value)}} className="searchSong" value={this.state.input} type="text" placeholder="Type here to search song"/>
-                <Link to={`/search/${this.state.input}`}><i class="fas fa-search"><span>Search</span></i></Link>
+                <Link to={`/search/${this.state.input}`}><i className="fas fa-search"><span>Search</span></i></Link>
                 </div>
             </Fragment>
         )

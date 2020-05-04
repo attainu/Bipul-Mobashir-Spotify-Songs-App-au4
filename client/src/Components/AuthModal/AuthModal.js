@@ -24,7 +24,7 @@ export default connect(getData,getFunction)(class AuthModal extends Component {
             <Fragment>
             {this.props.status.login && 
             <div className="authModal">
-               <div onClick={()=>{this.handleCross()}} className="cross">X</div>
+               <i onClick={()=>{this.handleCross()}} className="fas fa-times cross"></i>
                 <div className="auth">
                 <Login/>
                 <Signup/>

@@ -38,7 +38,7 @@ export default connect(getData,getFunction)(class Header extends Component {
                     <img src="https://res.cloudinary.com/dbbphbyf8/image/upload/v1586360806/Music_dpsg1v.svg"/>
                 </div> */}
                 <div className="search"><Search/></div>
-                {this.props.status.auth && <span>Welcome, {localStorage.getItem('name')}</span>}
+                {/* {this.props.status.auth && <span>Welcome, {localStorage.getItem('name')}</span>} */}
                 {this.props.status.auth && <div className="userAuth" onClick={()=>{this.handleLogoutButton()}}>Logout</div>}
                 <div className="loginButton">
                 {!this.props.status.auth && <div className="userAuth" onClick={()=>{this.handleLoginButton()}}>SignIn</div>}</div>

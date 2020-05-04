@@ -63,10 +63,17 @@ header{
 }
 .userAuth{
   display: flex;
-  flex: 1 1;
   justify-content: flex-end;
-  
   padding-right: 5vw;
+  font-size: 1vw;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #b3b3b3;
+  cursor: context-menu;
+
+}
+.userAuth:hover{
+  color: white;
 }
 
 .sideNav{
@@ -129,10 +136,12 @@ header{
 }
 .songPic span{
   padding: 0px 10px 0 10px;
- margin: 1px;
- flex:2;
- font-size: 1vw;
- word-break: break-all;
+  flex:2;
+  font-size: 1vw;
+  word-break: break-all;
+  margin: 1px;
+  font-weight: 400;
+  font-size: 0.8vw;
 }
 .middle{
   flex: 2;
@@ -185,7 +194,7 @@ header{
   width: 12px;
   max-width: 80px;
   position: relative;
-  bottom: 6px;
+  bottom: 5px;
   background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
   cursor: -webkit-grab; 
   -webkit-transition: border 1000ms ease;
@@ -319,11 +328,12 @@ header{
 }
 .cardTitle span {
   display: block;
-  font-size: 1vw;
+  font-size: 0.9vw;
   text-align: center;
   padding: 1px;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
+  cursor: context-menu;
   
 }
 .itemCard:hover{
@@ -380,9 +390,12 @@ header{
 }
 .loginHeader div{
   margin:10px;
+  color: #b3b3b3;
+  font-size: 1.5vw;
+  font-weight: 500;
 }
 .loginHeader div:hover{
-  color:pink;
+  color:white;
   cursor: pointer;
 }
 .authBody input{

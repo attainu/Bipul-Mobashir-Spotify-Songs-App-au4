@@ -99,13 +99,9 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         }   
     }
 
-    
-
-    
     render() {
         let l = this.props.dialog.x + 10
         let h = this.props.dialog.y
-        console.log(l,h);
         if((window.innerWidth - this.props.dialog.x) < 100){
             l = l - 100;
         }

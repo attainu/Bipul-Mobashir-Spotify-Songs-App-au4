@@ -19,7 +19,6 @@ export default connect(getData,getFunction)(class Card extends Component {
     playSong = async (id,image,title)=>{
         
         let heading = this.titleTrim(title)
-        console.log(heading);
         let link = await getAudioLink(id);
         let action = {
             type:"play_song",
@@ -77,7 +76,7 @@ export default connect(getData,getFunction)(class Card extends Component {
                         <span>{this.titleTrim(this.props.title)}</span>
                     </div>
                     {this.props.auth.auth && <div className="dotButton">
-                        <i class="fa fa-ellipsis-v" aria-hidden="true" onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}></i>
+                        <i className="fa fa-ellipsis-v" aria-hidden="true" onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}></i>
                     </div>}
                 </div>
             </div>

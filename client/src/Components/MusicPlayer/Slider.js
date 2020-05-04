@@ -48,9 +48,6 @@ export default connect(getData,getFunction)(class Volume extends Component {
  
 
      componentDidUpdate = (prevProps)=>{
-         console.log(this.props);
-         
-      
         if(this.props.duration === this.props.time && this.props.status && this.props.time > 1){
             let action = {
                 type: "stop_current"

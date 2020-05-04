@@ -71,8 +71,8 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
                 </div>
                 
                 <div className="media">
-                    {!this.state.status && <i class="fas fa-volume-mute volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
-                    {this.state.status && <i class="fas fa-volume-down volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
+                    {!this.state.status && <i className="fas fa-volume-mute volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
+                    {this.state.status && <i className="fas fa-volume-down volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
                 <Volume/>
                 </div>
             </div>
