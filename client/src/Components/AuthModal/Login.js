@@ -98,8 +98,8 @@ export default connect(getData,getFunction)(class Login extends Component {
             <div className="authBody">
             <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
             <input onChange = {(e) => {this.handlePasswordChange(e)}} type={this.state.type} value={this.state.password} placeholder="Enter Password"></input>
-            {this.state.status && <button onClick = {() => {this.handleShowPassword()}}>Show</button>}
-            {!this.state.status && <button onClick = {() => {this.handleHidePassword()}}>Hide</button>}
+            {this.state.status && <i className="far fa-eye-slash" onClick = {() => {this.handleShowPassword()}}></i>}
+            {!this.state.status && <i className="far fa-eye" onClick = {() => {this.handleHidePassword()}}></i>}
             </div>
             <div className="authButton">
             <button onClick={() => {this.loginHandler()}}>Login</button>

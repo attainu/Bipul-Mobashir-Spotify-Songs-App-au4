@@ -408,6 +408,17 @@ header{
 .authBody input:focus{
   outline: none;
 }
+
+.authBody i{
+  opacity: 0.8;
+  color: black;
+  display: block;
+  width: 46px;
+  margin-right: -17px;
+  top: -26px;
+  position: relative;
+  margin-inline-start: auto
+}
 .authButton button{
   border:none;
   width: 10vw;
