@@ -57,8 +57,8 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
         return (
             <div className="musicPlayer">
                 <div className="songPic">
-                        <img src="https://i.ytimg.com/vi/QiBeywmJoRY/mqdefault.jpg"/>
-                        <span>This is a title of is a title ofis a title ofis a title of song</span>
+                        <img src={`${this.props.music.image}`}/>
+                        <span>{this.props.music.title}</span>
                     </div>
                 <div className="middle">
                 <Slider/>

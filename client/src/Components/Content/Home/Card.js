@@ -16,11 +16,18 @@ let getFunction = (dispatch)=>{
 
 }
 export default connect(getData,getFunction)(class Card extends Component {
-    playSong = async (id)=>{
+    playSong = async (id,image,title)=>{
+        
+        let heading = this.titleTrim(title)
+        console.log(heading);
         let link = await getAudioLink(id);
         let action = {
             type:"play_song",
-            payload:link.data
+            payload:link.data,
+            extra:{
+                image:image,
+                title:heading
+            }
         }
         this.props.play(action)
     }
@@ -63,7 +70,7 @@ export default connect(getData,getFunction)(class Card extends Component {
 
     render() {
         return (
-            <div  className="itemCard" onClick={()=>{this.playSong(this.props.id)}}>
+            <div  className="itemCard" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">
                     <div className="cardTitle">

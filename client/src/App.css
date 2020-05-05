@@ -46,12 +46,12 @@ header{
   
 }
 .searchSong{
-  width: 30vw;
+  width: 20vw;
   max-width: 1000px;
   min-width: 180px;
-  background-color: rgb(228, 228, 228);
+  background-color: rgb(255, 255, 255);
   border: none;
-  border-radius: 10px;
+  border-radius: 20px;
   height: 25px;
   padding: 4px;
   box-shadow: none;
@@ -59,7 +59,7 @@ header{
 .searchSong:focus{
   outline: none;
   background-color: white;
-  border: 2px solid rgb(255, 49, 245);
+  
 }
 .userAuth{
   display: flex;
@@ -239,6 +239,7 @@ header{
 }
 .homeContent{
   width: 80vw;
+  padding-bottom: 90px;
   
   text-align: center;
   display: flex;
@@ -274,6 +275,9 @@ header{
   width: 76vw;
   margin-top: 2vw;
 }
+.album a{
+  text-decoration: none;
+}
 .rowHeader{
   display: flex;
   width: 100%;
@@ -286,6 +290,7 @@ header{
 }
 .rowHeader a{
   margin-left: auto;
+  text-decoration: none;
 }
 
 .rowHeader span{
@@ -322,7 +327,7 @@ header{
   
 }
 .itemCard:hover{
-  box-shadow: 1px -1px 12px 3px #4d4b4b;
+  box-shadow: 2px 2px 9px 0px #110f0f
 
 }
  .itemCard img{
@@ -339,6 +344,13 @@ header{
   margin-left: auto;
   
 }
+.auth{
+  border: 1px solid rgb(32, 32, 32);
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 1);
+  padding: 10px;
+
+}
 
 
 .authModal{
@@ -348,12 +360,52 @@ header{
   top: 0;
   bottom: 0;
   z-index: 5;
-  background-color: rgba(194, 194, 194,0.4);
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   animation-name: open;
   animation-duration: 0.5s;
+}
+.login{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loginHeader{
+  display: flex;
+  justify-content: stretch;
+}
+.loginHeader div{
+  margin:10px;
+}
+.loginHeader div:hover{
+  color:pink;
+  cursor: pointer;
+}
+.authBody input{
+  width: 20vw;
+  border-radius: 10px;
+  border: none;
+  margin:5px;
+  padding: 5px;
+}
+.authBody input:focus{
+  outline: none;
+}
+.authButton button{
+  border:none;
+  width: 10vw;
+  height: 25px;
+  border-radius: 10px;
+  margin: 15px;
+  color: white;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
+}
+.authButton button:focus{
+  outline: none;
 }
 
 @keyframes open{
@@ -624,7 +676,7 @@ header{
 }
 
 .playlistNameBox li:hover{
-  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
 }
 
 .cardDialog{
@@ -739,4 +791,28 @@ header{
 .fa-ellipsis-v:hover{
   color: #eeeeee;
   font-size: large;
+}
+.oneIn{
+  background: #ffffff;
+  border-radius: 20px;
+}
+.oneIn:hover{
+  border: 1px solid rgb(255, 49, 245);
+}
+.oneIn a{
+  color: #ffffff;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
+  /* height: 10px; */
+  /* width: 22%; */
+  border-radius: 20px;
+  position: relative;
+  top: 1px;
+  right: 1px;
+  padding: 6px;
+}
+.oneIn span{
+  letter-spacing: 1px;
+  font-weight: 300;
+  margin-left: 10px;
+  font-family: 'Roboto', sans-serif;
 }

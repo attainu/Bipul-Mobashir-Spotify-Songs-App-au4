@@ -3,6 +3,8 @@ let initialState = {
     song: new Audio(),
     songStatus: false,
     songId:"",
+    image:"",
+    title:"",
     volume:1,
     duration:"",
     currentTime : 0,
@@ -15,7 +17,7 @@ function appReducerFunction(state=initialState,action){
     stateCopy.song = prevState
     switch(action.type){
         case "play_song":
-            var newState = playSong(state,action.payload)
+            var newState = playSong(state,action.payload,action.extra)
             return newState;
         case "pause_current":
             stateCopy.songStatus=false

@@ -1,5 +1,5 @@
 import axios from 'axios';
-let playSong =  (state,payload)=>{
+let playSong =  (state,payload,data)=>{
     
         try {
           state.song.src =payload;
@@ -8,6 +8,9 @@ let playSong =  (state,payload)=>{
           stateCopy.song = prevState;
           stateCopy.song.volume = stateCopy.volume;
           stateCopy.songStatus = true;
+          stateCopy.image = data.image
+          stateCopy.title = data.title
+          console.log(stateCopy);
           
           
           state.song.addEventListener('loadedmetadata',()=>{
