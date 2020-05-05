@@ -284,6 +284,9 @@ header{
   width: 76vw;
   margin-top: 2vw;
 }
+.trending a{
+  text-decoration: none;
+}
 .album a{
   text-decoration: none;
 }
