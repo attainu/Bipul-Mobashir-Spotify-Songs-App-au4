@@ -32,10 +32,9 @@ export default connect(getData, getFunction)(class RadioAllResult extends Compon
         return (
             <div className="radioAll">
             <Fragment>
-            {this.props.allRadio && this.props.allRadio.map((items,key)=>{
-                    
+            {this.props.allRadio && this.props.allRadio.map((items,key)=>{            
                     return(
-                        <List key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={"a"} duration={"a"}/>
+                        <List key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={items.snippet.title} duration={"a"}/>
                     )
                 })}
             </Fragment>
