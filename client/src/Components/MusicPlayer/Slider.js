@@ -72,6 +72,13 @@ export default connect(getData,getFunction)(class Volume extends Component {
             }
          }
      }
+     color = (el)=>{            
+        var valPercent = (el.valueAsNumber  - parseInt(el.min)) / 
+                            (parseInt(el.max) - parseInt(el.min));
+          var style = 'background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop('+ valPercent+', #29907f), color-stop('+ valPercent+', #f5f6f8));';
+          el.style = style;
+          return el.style;
+        }
 
       formatTime = secs => {
         let minutes = Math.floor(secs / 60);
@@ -82,6 +89,11 @@ export default connect(getData,getFunction)(class Volume extends Component {
         return `${minutes}:${seconds}`;
       };
     render() {
+        console.log(this.props);
+        console.log("playing");
+        var style = {
+            'backgroundImage':`linear-gradient(90deg, #fa2399,#990071 ${(this.props.time/this.props.duration)*100}%,rgb(179, 179, 179) ${(this.props.time/this.props.duration)*100+1}%)`
+        }
         
        
         return (
@@ -93,7 +105,7 @@ export default connect(getData,getFunction)(class Volume extends Component {
                     <span>{this.props.duration>0 && this.formatTime(this.props.duration)}</span>
                 </div>
            
-                <input className="progressBar" step={`1`} onChange ={(e)=>{this.handleDuration(e.target.value)}} type = "range" min={`0`} max={ this.props.duration || 100} value={this.props.time}></input>
+                <input style={style} className="progressBar" step={`1`} onChange ={(e)=>{this.handleDuration(e.target.value)}} type = "range" min={`0`} max={ this.props.duration || 100} value={this.props.time}></input>
                 
     
             </div>

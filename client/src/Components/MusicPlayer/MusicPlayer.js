@@ -54,6 +54,7 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
     
 
     render() {
+        
         return (
             <div className="musicPlayer">
                 <div className="songPic">
