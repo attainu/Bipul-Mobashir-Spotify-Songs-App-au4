@@ -32,7 +32,8 @@ export default connect(getData,getFunction)(class List extends Component {
             payload:link,
             extra:{
                 image:image,
-                title:heading
+                title:heading,
+                id:id
             }
         }
         this.props.play(action)
