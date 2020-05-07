@@ -89,10 +89,22 @@ export default connect(getData,getFunction)(class Volume extends Component {
         }
 
       formatTime = secs => {
+          console.log(secs)
         let minutes = Math.floor(secs / 60);
         let seconds = Math.ceil(secs - minutes * 60);
+
+        if(minutes >= 60 ) {
+            let hours = Math.floor(minutes / 60);
+            let mins = Math.ceil(minutes - hours * 60);
+            if (seconds < 10){
+                seconds = `0${seconds}`;
+            }
+            return `${hours}:${mins}:${seconds}` 
+        }
       
-        if (seconds < 10) seconds = `0${seconds}`;
+        if (seconds < 10){
+            seconds = `0${seconds}`;
+        }
       
         return `${minutes}:${seconds}`;
       };
