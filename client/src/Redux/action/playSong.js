@@ -7,10 +7,10 @@ let playSong =  (state,payload,data)=>{
           let prevState = state.song
           let stateCopy = JSON.parse(JSON.stringify(state));
           stateCopy.song = prevState;
-          console.log("XXXX>>",stateCopy.songId, data.id);
+      
           if(stateCopy.songId === data.id){
-            console.log("inside if>>")
-            stateCopy.songStatus=false
+    
+            stateCopy.songStatus = false
             state.song.pause()
             stateCopy.songId = ""
             return stateCopy;
@@ -18,7 +18,6 @@ let playSong =  (state,payload,data)=>{
           else{
 
           state.song.src =payload;
-          console.log("outside if>>")
           stateCopy.song.volume = stateCopy.volume;
           stateCopy.songStatus = true;
           stateCopy.image = data.image

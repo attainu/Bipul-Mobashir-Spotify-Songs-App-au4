@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import getAudioLink from './../../../API/getAudioLink';
+import {withRouter} from 'react-router';
 import PlayPause from './PlayPause';
 let getData = (store)=>{
     return{
@@ -18,13 +19,12 @@ let getFunction = (dispatch)=>{
     }
 
 }
-export default connect(getData,getFunction)(class Card extends Component {
+export default withRouter(connect(getData,getFunction)(class Card extends Component {
 
     state = {
         effect : false
     }
-    componentDidUpdate  = ()=>{
-        console.log("cdu here")    };
+
     playSong = async (id,image,title)=>{
         
         let heading = this.titleTrim(title)
@@ -84,10 +84,11 @@ export default connect(getData,getFunction)(class Card extends Component {
 
     render() {
         return (
+            
             <div  className="itemCard" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
                 {/* <PlayPause id={this.props.id}/> */}
                 
-                 { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" class="video-pause-button" >
+                 { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" className="video-pause-button" >
                 <span></span>
                 <span></span>
                 
@@ -103,11 +104,11 @@ export default connect(getData,getFunction)(class Card extends Component {
                     <div className="cardTitle">
                         <span>{this.titleTrim(this.props.title)}</span>
                     </div>
-                    {this.props.auth.auth && <div className="dotButton">
+                    {this.props.auth.auth && this.props.location.pathname !== "/album" && this.props.location.pathname !== "/artist" && <div className="dotButton">
                         <i className="fa fa-ellipsis-v" aria-hidden="true" onClick={(e)=>{this.handleDot(e, e.pageX, e.pageY, this.props.id, this.props.thumbnail, this.props.title)}}></i>
                     </div>}
                 </div>
             </div>
         )
     }
-})
+}))

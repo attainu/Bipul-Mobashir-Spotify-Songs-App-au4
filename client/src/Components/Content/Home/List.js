@@ -20,8 +20,6 @@ export default connect(getData,getFunction)(class List extends Component {
     state = {
         effect : false
     }
-    componentDidUpdate  = ()=>{
-        console.log("cdu here")    };
 
     playSong = async (id,image,title)=>{
          console.log("ID",id)
