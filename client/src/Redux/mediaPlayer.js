@@ -1,6 +1,7 @@
 import playSong from './action/playSong.js';
 let initialState = {
     song: new Audio(),
+    showPlayer:false,
     songStatus: false,
     songId:"",
     image:"",

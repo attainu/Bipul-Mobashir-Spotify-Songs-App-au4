@@ -70,6 +70,9 @@ export default connect(getData,getFunction)(class Card extends Component {
     render() {
         return (
             <div  className="itemCard" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
+                <div id="play-video" class="video-play-button" >
+  <span></span>
+</div>
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">
                     <div className="cardTitle">
