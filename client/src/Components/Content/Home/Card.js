@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
 import getAudioLink from './../../../API/getAudioLink';
+import PlayPause from './PlayPause';
 let getData = (store)=>{
     return{
-        all:store,
+        currentId : store.music.songId,
         auth: store.auth,
+        
     }
 
 }
@@ -16,6 +18,12 @@ let getFunction = (dispatch)=>{
 
 }
 export default connect(getData,getFunction)(class Card extends Component {
+
+    state = {
+        effect : false
+    }
+    componentDidUpdate  = ()=>{
+        console.log("cdu here")    };
     playSong = async (id,image,title)=>{
         
         let heading = this.titleTrim(title)
@@ -25,7 +33,8 @@ export default connect(getData,getFunction)(class Card extends Component {
             payload:link.data,
             extra:{
                 image:image,
-                title:heading
+                title:heading,
+                id:id
             }
         }
         this.props.play(action)
@@ -44,6 +53,11 @@ export default connect(getData,getFunction)(class Card extends Component {
         }
         this.props.setDialog(action);
         e.stopPropagation()
+    }
+    hover = ()=>{
+        this.setState({
+            effect:true
+        })
     }
 
     titleTrim = (title) => {
@@ -68,11 +82,24 @@ export default connect(getData,getFunction)(class Card extends Component {
 
 
     render() {
+        console.log(this.props.currentId);
         return (
             <div  className="itemCard" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
-                <div id="play-video" class="video-play-button" >
-  <span></span>
-</div>
+                {/* <PlayPause id={this.props.id}/> */}
+                
+                 { this.props.currentId &&this.props.currentId === this.props.id ? <div id="play-video" class="video-pause-button" >
+                <span></span>
+                <span></span>
+                
+                </div>: 
+                 <div id="play-video" class="video-play-button" >
+                 <span></span>
+                 
+                 
+                 </div>}
+                
+                }
+                
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">
                     <div className="cardTitle">

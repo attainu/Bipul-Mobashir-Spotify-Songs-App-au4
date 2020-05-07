@@ -338,6 +338,9 @@ header{
 .itemCard:hover .video-play-button{
   display: block;
 }
+.itemCard:hover .video-pause-button{
+  display: flex;
+}
 .cardTitle span {
   display: block;
   font-size: 0.9vw;
@@ -939,3 +942,71 @@ header{
   }
 }
 
+.video-pause-button {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  box-sizing: content-box;
+  display: none;
+  
+  
+  width: 32px;
+  height: 44px;
+  /* background: #fa183d; */
+  border-radius: 50%;
+  padding: 18px 20px 18px 28px;
+}
+
+.video-pause-button:before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #ba1f24;
+  border-radius: 50%;
+  animation: pulse-border 1500ms ease-out infinite;
+}
+
+.video-pause-button:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #fa183d;
+  border-radius: 50%;
+  transition: all 200ms;
+}
+
+.video-pause-button:hover:after {
+  background-color: darken(#fa183d, 10%);
+}
+
+
+
+.video-pause-button span {
+  display: block;
+  position: relative;
+  top:4px;
+  right:4px;
+  background:white;
+  z-index: 3;
+  width: 10px;
+  height: 30px;
+  border :1px solid white;
+  
+  margin-left:3px;
+  margin-right:3px;
+  
+}
