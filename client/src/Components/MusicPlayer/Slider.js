@@ -97,8 +97,6 @@ export default connect(getData,getFunction)(class Volume extends Component {
         return `${minutes}:${seconds}`;
       };
     render() {
-        console.log(this.props);
-        console.log("playing");
         var style = {
             'backgroundImage':`linear-gradient(90deg, #fa2399,#990071 ${(this.props.time/this.props.duration)*100}%,rgb(179, 179, 179) ${(this.props.time/this.props.duration)*100+1}%)`
         }

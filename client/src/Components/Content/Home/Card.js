@@ -6,6 +6,7 @@ let getData = (store)=>{
     return{
         currentId : store.music.songId,
         auth: store.auth,
+        songStatus: store.music.songStatus
         
     }
 
@@ -82,23 +83,20 @@ export default connect(getData,getFunction)(class Card extends Component {
 
 
     render() {
-        console.log(this.props.currentId);
         return (
             <div  className="itemCard" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
                 {/* <PlayPause id={this.props.id}/> */}
                 
-                 { this.props.currentId &&this.props.currentId === this.props.id ? <div id="play-video" class="video-pause-button" >
+                 { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" class="video-pause-button" >
                 <span></span>
                 <span></span>
                 
                 </div>: 
-                 <div id="play-video" class="video-play-button" >
+                 <div id="play-video" className="video-play-button" >
                  <span></span>
                  
                  
                  </div>}
-                
-                }
                 
                 <img className="itemCardImage" src={this.props.thumbnail}/>
                 <div className="cardFooter">

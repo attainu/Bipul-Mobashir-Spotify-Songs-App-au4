@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 
 let getData = (store)=>{
     return{
-        all:store
+        currentId : store.music.songId,
+        songStatus: store.music.songStatus
     }
 
 }
@@ -15,7 +16,15 @@ let getFunction = (dispatch)=>{
 
 }
 export default connect(getData,getFunction)(class List extends Component {
+
+    state = {
+        effect : false
+    }
+    componentDidUpdate  = ()=>{
+        console.log("cdu here")    };
+
     playSong = async (id,image,title)=>{
+         console.log("ID",id)
         let heading = this.titleTrim(title)
         let link = `http://localhost:9090/stream?id=${id}`
         let action = {
@@ -51,11 +60,25 @@ export default connect(getData,getFunction)(class List extends Component {
     
     render() {
         return (
+
             <div  className="itemList" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.title)}}>
-                <img className="itemListImage" src={this.props.thumbnail}/>
+                {/* <img className="itemListImage" src={this.props.thumbnail}/> */}
+                <div className="radioPlayButton">
+                    { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" class="radio-pause-button" >
+                    <span></span>
+                    <span></span>
+                    
+                    </div>: 
+                    <div id="play-video" className="radio-play-button" >
+                    <span></span>
+                    
+                    
+                    </div>}
+                 </div>
+
                 <div className="listFooter">
                     <div className="listTitle">
-                      <span>{this.titleTrim(this.props.title)}</span>
+                        <span>{`Radio 10.${this.props.number}`}</span>
                     </div>
                     
                 </div>

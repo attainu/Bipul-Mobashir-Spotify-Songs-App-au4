@@ -34,7 +34,7 @@ export default connect(getData, getFunction)(class RadioNav extends Component {
                {this.props.radioResult && this.props.radioResult.map((items, key) => {
                    return (
                     
-                        <List key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={items.snippet.title} duration={"a"}/>
+                        <List number={key} key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={items.snippet.title} duration={"a"}/>
                    )
                })}
                <Link to="/radio"><button>See All</button></Link>
