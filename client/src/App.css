@@ -104,7 +104,7 @@ header{
 .musicPlayer{
   background-color:#282828;
   position: fixed;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -864,7 +864,7 @@ header{
 
 .video-play-button {
   position: absolute;
-  z-index: 10;
+  z-index: 2;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -885,9 +885,9 @@ header{
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   display: block;
-  width: 80px;
-  height: 80px;
-  background: #ba1f24;
+  width: 3vw;
+  height: 3vw;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
   border-radius: 50%;
   animation: pulse-border 1500ms ease-out infinite;
 }
@@ -900,17 +900,17 @@ header{
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
   display: block;
-  width: 80px;
-  height: 80px;
-  background: #fa183d;
+  width: 3vw;
+  height: 3vw;
+  background: linear-gradient(180deg, #c5003f 0%, #8b0082 100%);
   border-radius: 50%;
   transition: all 200ms;
 }
 
-.video-play-button:hover:after {
-  background-color: darken(#fa183d, 10%);
+/* .video-play-button:hover:after {
+  background-color: darken(#fa183d, 1%);
   
-}
+} */
 
 
 
@@ -920,9 +920,12 @@ header{
   z-index: 3;
   width: 0;
   height: 0;
-  border-left: 32px solid #fff;
-	border-top: 22px solid transparent;
-	border-bottom: 22px solid transparent;
+  left: 43%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  border-left: 12px solid #fff;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
 }
 
 @keyframes pulse-border {
