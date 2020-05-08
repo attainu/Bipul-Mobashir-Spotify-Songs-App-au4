@@ -3,6 +3,7 @@ let playSong =  (state,payload,data)=>{
     
         try {
           state.song.src =payload;
+          
           let prevState = state.song
           let stateCopy = JSON.parse(JSON.stringify(state));
           stateCopy.song = prevState;
@@ -11,6 +12,7 @@ let playSong =  (state,payload,data)=>{
           stateCopy.image = data.image
           stateCopy.title = data.title
           stateCopy.showPlayer = true
+          stateCopy.songId = data.id
           state.song.addEventListener('loadedmetadata',()=>{
             stateCopy.duration = state.song.duration;
               state.song.play()
