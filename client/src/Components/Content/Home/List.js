@@ -22,8 +22,7 @@ export default connect(getData,getFunction)(class List extends Component {
     }
 
     playSong = async (id,image,title)=>{
-         console.log("ID",id)
-        
+
         let link = `http://radioserver-musicme.herokuapp.com/stream?id=${id}`
         let action = {
             type:"play_song",

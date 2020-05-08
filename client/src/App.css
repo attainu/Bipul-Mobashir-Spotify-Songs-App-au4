@@ -272,7 +272,7 @@ header{
   align-items: center;
 }
 .carousel{
-
+  cursor: pointer;
   flex: 2;
   border-radius: 5px;
   margin: 7px;
