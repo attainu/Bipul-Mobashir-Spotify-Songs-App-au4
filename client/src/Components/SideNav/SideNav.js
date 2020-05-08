@@ -19,7 +19,6 @@ let getFunction = (dispatch) => {
 export default connect(getData, getFunction)(class SideNav extends Component {
     render() {
         
-        
         return (
             <aside className="sideNav">
               <Link to="/">
@@ -36,7 +35,8 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/"
                     >
-                      Home
+                      <i class="fas fa-home"></i>
+                      <span>Home</span>
                     </NavLink>
                    <NavLink
                     exact
@@ -44,7 +44,8 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/songs"
                     >
-                      Songs
+                      <i class="fas fa-music"></i>
+                      <span>Songs</span>
                     </NavLink>
                    <NavLink
                     exact
@@ -52,7 +53,8 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/album"
                     >
-                      Album
+                      <i class="fas fa-compact-disc"></i>
+                      <span>Album</span>
                     </NavLink>
                    <NavLink
                     exact
@@ -60,7 +62,8 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/artist"
                     >
-                      Artist
+                      <i class="far fa-address-book"></i>
+                      <span>Artist</span>
                     </NavLink>
                    {this.props.status.auth && <NavLink
                     exact
@@ -68,7 +71,8 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/favourite"
                     >
-                      Favourite
+                      <i class="fas fa-heart"></i>
+                      <span>Favourite</span>
                     </NavLink>}
                      
                        

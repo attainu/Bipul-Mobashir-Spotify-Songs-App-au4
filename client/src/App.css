@@ -292,8 +292,9 @@ header{
   align-items: center;
 }
 .radioNav button{
+    outline: none;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: 700;
     background: none;
     border: none;
     font-size: 1vw;
@@ -610,6 +611,8 @@ cursor: pointer;
 
 
 .navbarLink{
+  align-items: center;
+  display: flex;
   text-decoration: none;
   width: 80%;
   padding: 5px;
@@ -622,6 +625,14 @@ cursor: pointer;
 
 .navbarLink:hover{
   color: white;
+}
+
+.navbarLink i{
+  margin-left: 25%;
+}
+
+.navbarLink span{
+  margin-left: 10%;
 }
 
 .C{
@@ -650,10 +661,11 @@ cursor: pointer;
 }
 
 .create_playlist_button_text{
-  font-size: large;
-  font-weight: 500;
+  font-size: 1vw;
   color: #b3b3b3;
   cursor: pointer;
+  margin-left: 6%;
+  font-weight: 500;
 }
 .create_playlist_button_text:hover{
   color: white;
@@ -721,12 +733,9 @@ cursor: pointer;
 .playlist_button{
   cursor: pointer;
   color: #b3b3b3;
-  width: 25px;
-  height: 25px;
-  padding: 4px;
   border: none;
   outline: none;
-  margin-left: 12px;
+  margin-left: 10%;
 
 }
 .playlist_button:hover{
@@ -734,9 +743,11 @@ cursor: pointer;
 }
 
 .parent_playlist_div{
+  align-items: center;
   position: relative;
   top: 43px;
   display: flex;
+  text-align: center;
 }
 
 
@@ -878,12 +889,13 @@ cursor: pointer;
 }
 
 .fa-ellipsis-v{
+  font-size: 1.2vw;
   color: #b3b3b3;
   cursor: pointer;
 }
 .fa-ellipsis-v:hover{
   color: #eeeeee;
-  font-size: large;
+  
 }
 .oneIn{
   background: #ffffff;
