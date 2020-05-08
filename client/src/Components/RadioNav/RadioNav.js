@@ -37,7 +37,7 @@ export default connect(getData, getFunction)(class RadioNav extends Component {
                         <List number={key} key={key} id={items.id.videoId} thumbnail={items.snippet.thumbnails.default.url} title={items.snippet.title} duration={"a"}/>
                    )
                })}
-               <Link to="/radio"><button>See All</button></Link>
+               <Link to="/radio"><div>See All</div></Link>
             </Fragment>
         )
     }
