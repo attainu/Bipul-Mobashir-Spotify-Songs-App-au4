@@ -5,7 +5,7 @@ import './App.css';
 import Header from './Components/Header/Header.js';
 import Content from './Components/Content/Content.js';
 import SideNav from './Components/SideNav/SideNav.js';
-import MusicPlayer from './Components/MusicPlayer/MusicPlayer.js';
+import MusicPlayer from './Components/MusicPlayer/MusicNav';
 import AuthModal from'./Components/AuthModal/AuthModal.js';
 import PlaylistModal from './Components/PlaylistModal/PlaylistModal.js';
 import PlaylistItemsModal from './Components/PlaylistItemsModal/PlaylistItemsModal';

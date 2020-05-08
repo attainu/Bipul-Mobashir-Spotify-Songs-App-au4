@@ -10,7 +10,7 @@ let playSong =  (state,payload,data)=>{
           stateCopy.songStatus = true;
           stateCopy.image = data.image
           stateCopy.title = data.title
-          
+          stateCopy.showPlayer = true
           state.song.addEventListener('loadedmetadata',()=>{
             stateCopy.duration = state.song.duration;
               state.song.play()

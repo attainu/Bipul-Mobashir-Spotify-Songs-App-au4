@@ -45,6 +45,14 @@ export default connect(getData,getFunction)(class Volume extends Component {
     
     
     }
+    componentDidMount = ()=>{
+        this.state.setTime = setInterval(()=>{
+            let action = {
+                type:"current_time"
+            }
+            this.props.timer(action);
+        },1000)
+    }
  
 
      componentDidUpdate = (prevProps)=>{

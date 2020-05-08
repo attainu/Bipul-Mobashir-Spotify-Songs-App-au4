@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import Volume from './Voulme';
 import Slider from './Slider';
@@ -56,20 +56,22 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
     render() {
         
         return (
+        <Fragment>
+            
             <div className="musicPlayer">
                 <div className="songPic">
                         <img src={`${this.props.music.image}`}/>
                         <span>{this.props.music.title}</span>
                     </div>
                 <div className="middle">
-                <Slider/>
-                <div className="mediaActions">
+            <Slider/>
+            <div className="mediaActions">
                 <span className="circle" ></span>
                 {!this.props.music.songStatus && <div className="play" onClick={()=>this.handlePlay()}></div> }
                 
                 {this.props.music.songStatus && <div className="pause" onClick={()=>this.handlePause()}></div> }
                 </div>
-                </div>
+            </div>
                 
                 <div className="media">
                     {!this.state.status && <i className="fas fa-volume-mute volumeMuteUnmute" onClick={()=>this.handleMute()}></i>}
@@ -77,6 +79,8 @@ export default  connect(getData,getFunction)(class MusicPlayer extends Component
                 <Volume/>
                 </div>
             </div>
+    
+            </Fragment>
         )
     }
 })
