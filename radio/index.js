@@ -3,7 +3,7 @@ var express = require('express');
 var ytdl = require('ytdl-core');
 //var ffmpeg = require('ffmpeg');
 //var fs = require('fs');
-var port = 9090;
+var port = process.env.PORT || 9090;
 
 var app = express();
 

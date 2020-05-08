@@ -22,7 +22,7 @@ export default connect(getData, getFunction)(class PlaylistItems extends Compone
         if(token) {
             axios({
                 method: 'POST',
-                url: `http://localhost:5555/songs`,
+                url: `https://server-musicme.herokuapp.com/songs`,
                 data: {
                     trackid: this.props.playlistData.trackid,
                     playlistid: playlistid,

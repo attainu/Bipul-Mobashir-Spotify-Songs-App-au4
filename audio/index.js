@@ -15,7 +15,7 @@ const limiter = rateLimit({
 //  apply to all requests
 app.use(limiter);
 
-var allowedOrigins = ['http://localhost:3000'];
+var allowedOrigins = ['http://localhost:3000','https://musicme-live.herokuapp.com'];
 
 app.use(cors({
   origin: function (origin, callback) {
@@ -32,7 +32,7 @@ app.use(cors({
 }));
 app.options("*", cors());
 
-const port = 9000;
+const port =  process.env.PORT || 9000;
 
 app.get("/", (req, res) => {
   res.send("Welcome to musicMe")

@@ -36,7 +36,7 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
         if(token){ 
         axios({
             method: 'POST', 
-            url: 'http://localhost:5555/playlists',
+            url: 'https://server-musicme.herokuapp.com/playlists',
             data: data,
             headers: {
                 ["auth-token"]: token //the token is a variable which holds the token

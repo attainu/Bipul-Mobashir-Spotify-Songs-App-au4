@@ -53,7 +53,7 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         };
         axios({
             method: 'POST',
-            url: 'http://localhost:5555/user/register',
+            url: 'https://server-musicme.herokuapp.com/user/register',
             data: user
         })
         .then((response) => {

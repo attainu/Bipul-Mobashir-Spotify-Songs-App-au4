@@ -265,11 +265,17 @@ header{
   max-height: 200px;
   max-width: 2000px;
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   margin: 2vw;
+  font-size: 1vw;
+  justify-content: center;
+  align-items: center;
 }
 .carousel{
- flex: 2 1;
+
+  flex: 2;
+  border-radius: 5px;
+  margin: 7px;
 }
 .carousel img{
   max-height: 200px;
@@ -280,16 +286,34 @@ header{
   display: flex;
   flex-direction: column;
   width: 20vw;
-  background-color: rgb(0, 0, 0);
-  margin: 10px;
-  border-radius: 10px;
+  background-color: #252525;
+  /* margin: 10px; */
+  border-radius: 8px;
   align-items: center;
 }
-
+.radioNav button{
+    text-transform: uppercase;
+    font-weight: 500;
+    background: none;
+    border: none;
+    font-size: 1vw;
+    color: #b3b3b3;
+    cursor: pointer;
+    text-decoration: none;
+    margin-bottom: 5px;
+}
+.radioNav button:hover{
+  color: white;
+}
 .itemList{
   display: flex;
-  margin: 10%;
-  max-width: 75%;
+cursor: pointer;
+    padding: 8%;
+    margin: 5%;
+    width: 82%;
+    border-radius: 11px;
+    max-width: 80%;
+    background: black;
 }
 .radioPlayButton{
   position: relative;
@@ -297,9 +321,9 @@ header{
 
 }
 .listFooter{
-  margin-left: 50%;
+  margin-left: 0%;
   width: 100px;
-  flex: 3;
+  flex: 3 ;
 }
 
 .trending ,.top-picks , .english-songs, .favourite, .playlistData, .allEnglish, .radioAll, .album, .searchResult{
@@ -332,14 +356,14 @@ header{
 }
 
 .rowHeader span{
-  font-size: large;
+  font-size: 1vw;
   font-weight: 700;
   font-family: 'Roboto', sans-serif;
 }
 .rowHeader div {
   text-transform: uppercase;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 1vw;
   color: #b3b3b3;
 }
 .rowHeader div:hover{
@@ -348,6 +372,7 @@ header{
 .itemCard{
   height: 15vw;
   width: 13vw;
+  cursor: pointer;
   position: relative;
   background-color:#282828;
   margin-top: 1vw;
@@ -880,6 +905,7 @@ header{
 }
 .oneIn span{
   letter-spacing: 1px;
+  font-size: 1vw;
   font-weight: 300;
   margin-left: 10px;
   font-family: 'Roboto', sans-serif;

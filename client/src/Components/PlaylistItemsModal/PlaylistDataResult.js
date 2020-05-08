@@ -22,7 +22,7 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
         if(token) {
             axios({
                 method: 'GET',
-                url: `http://localhost:5555/getAllSongs/${this.props.match.params.value}`,
+                url: `https://server-musicme.herokuapp.com/getAllSongs/${this.props.match.params.value}`,
                 
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
@@ -46,7 +46,7 @@ export default connect(getData, getFunction)(class PlaylistDataResult extends Co
             if(token) {
                 axios({
                     method: 'GET',
-                    url: `http://localhost:5555/getAllSongs/${value}`,
+                    url: `https://server-musicme.herokuapp.com/getAllSongs/${value}`,
                     
                     headers: {
                         ["auth-token"]: token //the token is a variable which holds the token

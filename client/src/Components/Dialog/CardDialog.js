@@ -29,7 +29,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         if(token) {
             axios({
                 method: 'POST',
-                url: 'http://localhost:5555/favourites',
+                url: 'https://server-musicme.herokuapp.com/favourites',
                 data: this.props.dialog,
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
@@ -46,7 +46,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         if(token) {
             axios({
                 method: 'DELETE',
-                url: `http://localhost:5555/favourites/${this.props.dialog.trackid}`,
+                url: `https://server-musicme.herokuapp.com/favourites/${this.props.dialog.trackid}`,
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
                   }
@@ -82,7 +82,7 @@ export default withRouter(connect(getData, getFunction)(class CardDialog extends
         if(token) {
             axios({
                 method: 'DELETE',
-                url: `http://localhost:5555/songs/${this.props.dialog.trackid}/${this.props.playlistId.playlistid}`,
+                url: `https://server-musicme.herokuapp.com/songs/${this.props.dialog.trackid}/${this.props.playlistId.playlistid}`,
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
                   }
