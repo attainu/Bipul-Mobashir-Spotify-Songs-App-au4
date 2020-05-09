@@ -31,7 +31,7 @@ export default connect(getData, getFunction)(class App extends Component {
   componentDidMount = () => {
     var token = getToken();
     if(token){
-      axios.get('http://localhost:5555/status', {
+      axios.get('https://server-musicme.herokuapp.com/status', {
       headers: {
         ["auth-token"]: token //the token is a variable which holds the token
       }

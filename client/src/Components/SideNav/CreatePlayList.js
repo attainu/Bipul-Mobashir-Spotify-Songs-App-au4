@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import {connect} from 'react-redux';
 
 let getData = (store)=>{
+    
     return {
-        status:store.playlistModal
+        status:store.playlistModal,
+        
     }
 }
 let getFunction = (dispatch)=>{
@@ -23,7 +25,7 @@ export default connect(getData, getFunction)(class CreatePlayList extends Compon
     render() {
         return (
             <div className="createPlaylist">
-                <hr className="Rootlist_divider"></hr>
+                {this.props.status.playlistData.length>0 &&<hr className="Rootlist_divider"></hr>}
                 <div className="parent_playlist_div" onClick={() => {this.handlePlaylistButton()}}>
                 <i className="fas fa-plus playlist_button"></i>
                 <span className="create_playlist_button_text">Create Playlist</span>

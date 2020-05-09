@@ -24,7 +24,7 @@ export default connect(getData, getFunction)(class Favourite extends Component {
         if(token){
             axios({
                 method: 'GET',
-                url: 'http://localhost:5555/getAllFavourites',
+                url: 'https://server-musicme.herokuapp.com/getAllFavourites',
                 headers: {
                     ['auth-token']: token
                 }

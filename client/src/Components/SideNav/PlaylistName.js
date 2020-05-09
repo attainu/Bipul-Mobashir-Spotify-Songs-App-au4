@@ -24,7 +24,7 @@ export default connect(getData, getFunction)(class PlaylistName extends Componen
         if(token){
             axios({
                 method: 'GET', 
-                url: 'http://localhost:5555/getAllPlaylists',
+                url: 'https://server-musicme.herokuapp.com/getAllPlaylists',
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
                   }
@@ -46,7 +46,7 @@ export default connect(getData, getFunction)(class PlaylistName extends Componen
         if(token) {
             axios({
                 method: 'DELETE',
-                url: `http://localhost:5555/playlists/${id}`,
+                url: `https://server-musicme.herokuapp.com/playlists/${id}`,
                 headers: {
                     ["auth-token"]: token //the token is a variable which holds the token
                   }

@@ -55,7 +55,7 @@ export default connect(getData,getFunction)(class Login extends Component {
         };
         axios({
             method: 'POST',
-            url: 'http://localhost:5555/user/login',
+            url: 'https://server-musicme.herokuapp.com/user/login',
             data: user
         })
         .then((response) => {
