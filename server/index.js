@@ -12,5 +12,3 @@ db.authenticate().then(()=>{
         console.log(error);
     }
 });
-
-

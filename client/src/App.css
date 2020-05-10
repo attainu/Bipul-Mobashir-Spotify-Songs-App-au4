@@ -440,6 +440,32 @@ cursor: pointer;
   animation-name: open;
   animation-duration: 0.5s;
 }
+
+.errorModalPopup{
+  margin: 10px 18px 0px;
+  width: 21vw;
+  justify-content: center;
+  background: #E87C03;
+  flex-direction: column;
+  border-radius: 5px;
+  position: absolute;
+  /* left: 37%; */
+  z-index: 2;
+  animation-name: open;
+  animation-duration: 0.5s;
+  display: flex;
+  padding: 14px 0 14px 0;
+  transform: translateX(-6%) translateY(500%);
+}
+
+.errorMessage{
+  letter-spacing: 1px;
+  font-size: 0.9vw;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
+
 .login{
   display: flex;
   flex-direction: column;
@@ -1233,4 +1259,5 @@ cursor: pointer;
 .radioPlayButton {
   position: relative;
 }
+
 

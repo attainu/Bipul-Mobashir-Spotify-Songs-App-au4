@@ -10,7 +10,9 @@ let getData = (store)=>{
 let getFunction = (dispatch)=>{
     return{
         tab:dispatch,
-        setSignup: dispatch
+        setSignup: dispatch,
+        errorMessage: dispatch,
+        hideMessage: dispatch
     }
 }
 export default connect(getData,getFunction)(class SignUp extends Component {
@@ -18,7 +20,8 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         name: "",
         username: "",
         email: "",
-        password: ""
+        password: "",
+        errorStatus: true
     }
     
     handleNameChange = (e) => {
@@ -53,10 +56,11 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         };
         axios({
             method: 'POST',
-            url: 'https://server-musicme.herokuapp.com/user/register',
+            url: 'http://localhost:5555/user/register',
             data: user
         })
         .then((response) => {
+            console.log(response)
             //handle success
             if(response.data.status === 200 && response.data.message=== "success"){
                 let action = {
@@ -67,6 +71,20 @@ export default connect(getData,getFunction)(class SignUp extends Component {
                     }   
                 }
                 this.props.setSignup(action);
+            }
+            if(response.data.status === 400){    
+                let action = {
+                    type: "set_error_message",
+                    payload: response.data.message 
+                }
+                this.props.errorMessage(action)
+
+                setTimeout(() => {
+                    let action = {
+                        type: "set_hide_error_message",
+                    }
+                    this.props.hideMessage(action)
+                }, 2000);
             }
         })
         
@@ -84,7 +102,9 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         this.props.tab(action);
         
     }
+    
     render() {
+        
         return (
             <Fragment>
             {this.props.status.signUpPage && <div className="login">
@@ -102,9 +122,7 @@ export default connect(getData,getFunction)(class SignUp extends Component {
             <div className="authButton">
             <button onClick={() => {this.signupHandler()}}>Sign Up</button>
             </div>
-            
-            
-            </div> }
+            </div>}
             </Fragment>
             
             )

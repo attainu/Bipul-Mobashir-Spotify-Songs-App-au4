@@ -12,11 +12,17 @@ exports.login = async (req, res) => {
 
         //Checking if the user exist or not in database
         const user = await User.findOne({where: {email: req.body.email}});
-        if(!user) return res.status(400).send('Email is not found');
+        if(!user) return res.json({
+            status: 400,
+            message: "Email is not found"
+        });
 
         //PASSWORD IS CORRECT OR NOT
         const validPassword = await bcrypt.compare(req.body.password, user.password)
-        if(!validPassword) return res.status(400).send("Invalid Password");
+        if(!validPassword) return res.json({
+            status: 400,
+            message: "Invalid Password"
+        });
 
         //CREATE and assign a token
         const token = jwt.sign({id: user.id}, process.env.TOKEN_SECRET);
