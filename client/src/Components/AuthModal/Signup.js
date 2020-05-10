@@ -60,7 +60,6 @@ export default connect(getData,getFunction)(class SignUp extends Component {
             data: user
         })
         .then((response) => {
-            console.log(response)
             //handle success
             if(response.data.status === 200 && response.data.message=== "success"){
                 let action = {
