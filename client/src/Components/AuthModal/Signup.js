@@ -46,6 +46,22 @@ export default connect(getData,getFunction)(class SignUp extends Component {
     }
     
     signupHandler = () => {
+
+        if(this.state.name === "" || this.state.name.trim() == "" || this.state.username === "" || this.state.username.trim() == "" || this.state.email === "" || this.state.email.trim() == "" || this.state.password === "" || this.state.password.trim() == ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Field is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
         const { name, username, email, password } = this.state;
         
         const user = {
@@ -56,7 +72,7 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         };
         axios({
             method: 'POST',
-            url: 'https://server-musicme.herokuapp.com/user/register',
+            url: 'http://localhost:5555/user/register',
             data: user
         })
         .then((response) => {
@@ -66,7 +82,7 @@ export default connect(getData,getFunction)(class SignUp extends Component {
                     type: "set_signup",
                     payload : {
                         name: response.data.name,
-                        auth: response.headers["auth-token"]
+                        auth: response.headers["auth-token"],
                     }   
                 }
                 this.props.setSignup(action);

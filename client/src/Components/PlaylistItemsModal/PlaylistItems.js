@@ -2,10 +2,13 @@ import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 import getToken from './../../Redux/Token/getToken';
+import PlaylistInput from './../PlaylistModal/PlaylistInput'
+
 let getData = (store) => {
     return {
         playlistName: store.playlistModal.playlistData,
-        playlistData: store.cardDialog
+        playlistData: store.cardDialog,
+        message: store.errorHandler
     }
 }
 
@@ -45,13 +48,21 @@ export default connect(getData, getFunction)(class PlaylistItems extends Compone
     render() {
         return (
             <Fragment>
-                <ul className="playlistNameBox">
+                {this.props.playlistName.length > 0 && <ul className="playlistNameBox">
                 {this.props.playlistName && this.props.playlistName.map((items, key) => {
                     return(
                         <li onClick={()=> {this.handlePlaylistItems(items.id)}} key={key}>{items.playlistname}</li>
                     )          
                 })}
-                </ul>
+                </ul>}
+                {this.props.playlistName.length < 1 &&
+                <PlaylistInput/>
+                }
+                {this.props.message.status && <div className="errorModalPopup">
+                    <div className="error">
+                    <span className="errorMessage">{this.props.message.message}</span>
+                    </div>
+                </div>}       
             </Fragment>
 
         )

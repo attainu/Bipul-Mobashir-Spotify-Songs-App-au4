@@ -12,7 +12,7 @@ let getFunction = (dispatch)=>{
         tab:dispatch,
         setLogin: dispatch,
         errorMessage: dispatch,
-        hideMessage: dispatch
+        hideMessage: dispatch,
     }
 }
 export default connect(getData,getFunction)(class Login extends Component {
@@ -50,6 +50,55 @@ export default connect(getData,getFunction)(class Login extends Component {
     }
     
     loginHandler = () =>{
+        
+        if(this.state.email === "" || this.state.email.trim() == ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Email is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+        if(this.state.password === "" || this.state.password.trim() == ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Password is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+        
+        if(this.state.email === "" && this.state.password === ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Field is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+
+        
         const { email, password } = this.state;
         
         const user = {
@@ -58,7 +107,7 @@ export default connect(getData,getFunction)(class Login extends Component {
         };
         axios({
             method: 'POST',
-            url: 'https://server-musicme.herokuapp.com/user/login',
+            url: 'http://localhost:5555/user/login',
             data: user
         })
         .then((response) => {

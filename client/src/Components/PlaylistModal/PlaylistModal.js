@@ -4,7 +4,8 @@ import {connect} from 'react-redux';
 
 let getData = (store)=>{
     return {
-        status:store.playlistModal
+        status:store.playlistModal,
+        message: store.errorHandler,
     }
 }
 let getFunction = (dispatch)=>{
@@ -24,8 +25,13 @@ export default connect(getData, getFunction)(class PlaylistModal extends Compone
         return (
             <Fragment>
             {this.props.status.playlistModal && <div className="playlistModal">
-            <i onClick={()=>{this.handleCross()}} class="fas fa-times cross"></i>
+            <i onClick={()=>{this.handleCross()}} className="fas fa-times cross"></i>
                 <PlaylistInput/>
+                {this.props.message.status && <div className="errorModalPopup">
+                    <div className="error">
+                    <span className="errorMessage">{this.props.message.message}</span>
+                    </div>
+                </div>}
             </div>}
             </Fragment>
         )
