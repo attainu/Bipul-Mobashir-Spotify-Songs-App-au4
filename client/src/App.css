@@ -85,7 +85,7 @@ header{
 
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 4;
   align-items: flex-start;
 
 }
@@ -802,7 +802,7 @@ cursor: pointer;
 }
 
 .cardDialog{
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   background-color: #282828;
   height: 170px;
