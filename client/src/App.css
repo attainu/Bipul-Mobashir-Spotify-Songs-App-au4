@@ -9,6 +9,16 @@ body{
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  -webkit-box-shadow: inset 0px 0px 5px 20px rgba(0, 0, 0, 0.6);
+
+}
+
 div{
   color: rgb(255, 255, 255);
 }
@@ -320,6 +330,10 @@ cursor: pointer;
   position: relative;
   flex: 1;
 
+}
+.listTitle{
+  font-weight: 500;
+  font-size: 1vw;
 }
 .listFooter{
   margin-left: 0%;
