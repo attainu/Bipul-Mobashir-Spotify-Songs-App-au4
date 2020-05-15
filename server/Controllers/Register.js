@@ -7,7 +7,10 @@ exports.register = async (req, res) => {
     try {
         //Validate the data before create
         const {error} = registerValidation(req.body);
-        if(error) return res.status(400).send(error.details[0].message);
+        if(error) return res.json({
+            status: 400,
+            message: error.details[0].message
+        });
 
         //Checking if the user is already in database
         const emailExist = await User.findOne({where: {email: req.body.email}});
