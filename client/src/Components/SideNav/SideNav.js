@@ -35,7 +35,7 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/"
                     >
-                      <i class="fas fa-home"></i>
+                      <i className="fas fa-home"></i>
                       <span>Home</span>
                     </NavLink>
                    <NavLink
@@ -44,7 +44,7 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/songs"
                     >
-                      <i class="fas fa-music"></i>
+                      <i className="fas fa-music"></i>
                       <span>Songs</span>
                     </NavLink>
                    <NavLink
@@ -53,7 +53,7 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/album"
                     >
-                      <i class="fas fa-compact-disc"></i>
+                      <i className="fas fa-compact-disc"></i>
                       <span>Album</span>
                     </NavLink>
                    <NavLink
@@ -62,7 +62,7 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/artist"
                     >
-                      <i class="far fa-address-book"></i>
+                      <i className="far fa-address-book"></i>
                       <span>Artist</span>
                     </NavLink>
                    {this.props.status.auth && <NavLink
@@ -71,7 +71,7 @@ export default connect(getData, getFunction)(class SideNav extends Component {
                     className="navbarLink"
                     to="/favourite"
                     >
-                      <i class="fas fa-heart"></i>
+                      <i className="fas fa-heart"></i>
                       <span>Favourite</span>
                     </NavLink>}
                      

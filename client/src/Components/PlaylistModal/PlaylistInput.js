@@ -11,7 +11,9 @@ let getData = (store) => {
 
 let getFunction = (dispatch) => {
     return {
-        playlistData: dispatch
+        playlistData: dispatch,
+        errorMessage: dispatch,
+        hideMessage: dispatch
     }
 }
 
@@ -28,12 +30,30 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
     }
 
     handleButton = () => {
+
+        if(this.state.playlistname === "" || this.state.playlistname.trim() == ""){
+            let action = {
+                type: "set_error_message",
+                payload: "Field is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+
+            return;
+        } 
+
         var token = getToken();
         const {playlistname} = this.state;
         const data = {
             playlistname
         };
-        if(token){ 
+        if(token){
         axios({
             method: 'POST', 
             url: 'https://server-musicme.herokuapp.com/playlists',
@@ -58,7 +78,7 @@ export default connect(getData, getFunction)(class PlaylistInput extends Compone
                     <h1>Create New Playlist</h1>
                 </div>
                 <div className="playlistInputBox">
-                    <input onChange = {(e) => {this.handleInput(e)}} type="text" value={this.state.input} placeholder="New Playlist" autofocus="autofocus"></input>
+                    <input onChange = {(e) => {this.handleInput(e)}} type="text" value={this.state.input} placeholder="New Playlist" autoFocus="autofocus"></input>
                 </div>
                 <div className="playlistInputButton">
                     <button onClick = {() => {this.handleButton()}} >Create</button>

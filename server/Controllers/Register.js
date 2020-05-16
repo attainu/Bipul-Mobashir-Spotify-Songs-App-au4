@@ -11,11 +11,17 @@ exports.register = async (req, res) => {
 
         //Checking if the user is already in database
         const emailExist = await User.findOne({where: {email: req.body.email}});
-        if(emailExist) return res.status(400).send('Email already exists!');
+        if(emailExist) return res.json({
+            status: 400,
+            message: 'Email already exists!'
+        })
 
         //Checking if the username is already taken or not
         const usernameExist = await User.findOne({where: {username: req.body.username}});
-        if(usernameExist) return res.status(400).send('Username already taken!');
+        if(usernameExist) return res.json({
+            status: 400,
+            message: 'Username already taken!'
+        })
 
         //Hash password
         const salt = await bcrypt.genSalt(10);

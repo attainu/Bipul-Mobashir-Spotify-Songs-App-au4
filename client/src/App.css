@@ -9,6 +9,16 @@ body{
   padding: 0;
 }
 
+body::-webkit-scrollbar {
+  background: #000000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #5a5a5a;
+  -webkit-box-shadow: inset 0px 0px 5px 20px rgba(0, 0, 0, 0.6);
+
+}
+
 div{
   color: rgb(255, 255, 255);
 }
@@ -85,7 +95,7 @@ header{
 
   display: flex;
   flex-direction: column;
-  z-index: 2;
+  z-index: 4;
   align-items: flex-start;
 
 }
@@ -321,6 +331,10 @@ cursor: pointer;
   flex: 1;
 
 }
+.listTitle{
+  font-weight: 500;
+  font-size: 1vw;
+}
 .listFooter{
   margin-left: 0%;
   width: 100px;
@@ -440,6 +454,32 @@ cursor: pointer;
   animation-name: open;
   animation-duration: 0.5s;
 }
+
+.errorModalPopup{
+  margin: 10px 18px 0px;
+  width: 21vw;
+  justify-content: center;
+  background: #E87C03;
+  flex-direction: column;
+  border-radius: 5px;
+  position: absolute;
+  /* left: 37%; */
+  z-index: 2;
+  animation-name: open;
+  animation-duration: 0.5s;
+  display: flex;
+  padding: 14px 0 14px 0;
+  transform: translateX(-6%) translateY(500%);
+}
+
+.errorMessage{
+  letter-spacing: 1px;
+  font-size: 0.9vw;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+}
+
 .login{
   display: flex;
   flex-direction: column;
@@ -776,7 +816,7 @@ cursor: pointer;
 }
 
 .cardDialog{
-  z-index: 3;
+  z-index: 2;
   position: absolute;
   background-color: #282828;
   height: 170px;
@@ -1233,4 +1273,5 @@ cursor: pointer;
 .radioPlayButton {
   position: relative;
 }
+
 

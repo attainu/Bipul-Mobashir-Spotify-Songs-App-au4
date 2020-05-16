@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 let getData = (store)=>{
+    console.log(store.errorHandler)
     return {
         status:store.auth
     }
@@ -9,7 +10,9 @@ let getData = (store)=>{
 let getFunction = (dispatch)=>{
     return{
         tab:dispatch,
-        setLogin: dispatch
+        setLogin: dispatch,
+        errorMessage: dispatch,
+        hideMessage: dispatch,
     }
 }
 export default connect(getData,getFunction)(class Login extends Component {
@@ -47,6 +50,55 @@ export default connect(getData,getFunction)(class Login extends Component {
     }
     
     loginHandler = () =>{
+        
+        if(this.state.email === "" || this.state.email.trim() == ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Email is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+        if(this.state.password === "" || this.state.password.trim() == ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Password is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+        
+        if(this.state.email === "" && this.state.password === ""){
+            let action = {
+                type:"set_error_message",
+                payload: "Field is required!"
+            }
+            this.props.errorMessage(action);
+
+            setTimeout(() => {
+                let action = {
+                    type: "set_hide_error_message",
+                }
+                this.props.hideMessage(action)
+            }, 2000);
+        }
+
+
+        
         const { email, password } = this.state;
         
         const user = {
@@ -55,7 +107,7 @@ export default connect(getData,getFunction)(class Login extends Component {
         };
         axios({
             method: 'POST',
-            url: 'https://server-musicme.herokuapp.com/user/login',
+            url: 'http://localhost:5555/user/login',
             data: user
         })
         .then((response) => {
@@ -70,6 +122,21 @@ export default connect(getData,getFunction)(class Login extends Component {
                 }
                 this.props.setLogin(action);
             }
+            if(response.data.status === 400){
+                let action = {
+                    type: "set_error_message",
+                    payload: response.data.message
+                }
+                this.props.errorMessage(action)
+
+                setTimeout(() => {
+                    let action = {
+                        type: "set_hide_error_message",
+                    }
+                    this.props.hideMessage(action)
+                }, 2000);
+            }
+            
         })
         
         .catch((response) => {
@@ -104,8 +171,7 @@ export default connect(getData,getFunction)(class Login extends Component {
             <div className="authButton">
             <button onClick={() => {this.loginHandler()}}>Login</button>
             </div>
-            
-            </div> }
+            </div>}
             </Fragment>
             
             )

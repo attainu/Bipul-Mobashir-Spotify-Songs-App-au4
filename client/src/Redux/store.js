@@ -20,6 +20,7 @@ import allEnglish from './allEnglish';
 import allTopPicks from './allTopPicks';
 import album from './album';
 import albumData from './albumData';
+import errorHandler from './errorHandler';
 
 const rootReducers=combineReducers({
     popular:trending,
@@ -41,7 +42,8 @@ const rootReducers=combineReducers({
     allEnglish:allEnglish,
     allTopPicks:allTopPicks,
     album: album,
-    albumData: albumData
+    albumData: albumData,
+    errorHandler: errorHandler
 
 });
 
