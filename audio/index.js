@@ -41,7 +41,6 @@ app.get("/", (req, res) => {
 // app.use((req,res,next)=>{console.log("HIT>>",req.query.id); return next()})
 
 app.get('/song', async (req, res) =>
-  
   ytdl
     .getInfo(req.query.id)
     .then(info => {

@@ -457,7 +457,7 @@ cursor: pointer;
 
 .errorModalPopup{
   margin: 10px 18px 0px;
-  width: 21vw;
+  max-width: 30vw;
   justify-content: center;
   background: #E87C03;
   flex-direction: column;
@@ -478,6 +478,7 @@ cursor: pointer;
   display: flex;
   justify-content: center;
   font-weight: 700;
+  padding: 0 6px 0 6px;
 }
 
 .login{

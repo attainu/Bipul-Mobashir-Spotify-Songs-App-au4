@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
 let getData = (store)=>{
-    console.log(store.errorHandler)
     return {
         status:store.auth
     }
@@ -51,54 +50,6 @@ export default connect(getData,getFunction)(class Login extends Component {
     
     loginHandler = () =>{
         
-        if(this.state.email === "" || this.state.email.trim() == ""){
-            let action = {
-                type:"set_error_message",
-                payload: "Email is required!"
-            }
-            this.props.errorMessage(action);
-
-            setTimeout(() => {
-                let action = {
-                    type: "set_hide_error_message",
-                }
-                this.props.hideMessage(action)
-            }, 2000);
-        }
-
-        if(this.state.password === "" || this.state.password.trim() == ""){
-            let action = {
-                type:"set_error_message",
-                payload: "Password is required!"
-            }
-            this.props.errorMessage(action);
-
-            setTimeout(() => {
-                let action = {
-                    type: "set_hide_error_message",
-                }
-                this.props.hideMessage(action)
-            }, 2000);
-        }
-
-        
-        if(this.state.email === "" && this.state.password === ""){
-            let action = {
-                type:"set_error_message",
-                payload: "Field is required!"
-            }
-            this.props.errorMessage(action);
-
-            setTimeout(() => {
-                let action = {
-                    type: "set_hide_error_message",
-                }
-                this.props.hideMessage(action)
-            }, 2000);
-        }
-
-
-        
         const { email, password } = this.state;
         
         const user = {
@@ -107,7 +58,7 @@ export default connect(getData,getFunction)(class Login extends Component {
         };
         axios({
             method: 'POST',
-            url: 'http://localhost:5555/user/login',
+            url: 'https://server-musicme.herokuapp.com/user/login',
             data: user
         })
         .then((response) => {
@@ -163,8 +114,8 @@ export default connect(getData,getFunction)(class Login extends Component {
             <div onClick={this.handleTab} className="signUpTab">SignUp</div>
             </div>
             <div className="authBody">
-            <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
-            <input onChange = {(e) => {this.handlePasswordChange(e)}} type={this.state.type} value={this.state.password} placeholder="Enter Password"></input>
+            <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Email"></input>
+            <input onChange = {(e) => {this.handlePasswordChange(e)}} type={this.state.type} value={this.state.password} placeholder="Password"></input>
             {this.state.status && <i className="far fa-eye-slash" onClick = {() => {this.handleShowPassword()}}></i>}
             {!this.state.status && <i className="far fa-eye" onClick = {() => {this.handleHidePassword()}}></i>}
             </div>

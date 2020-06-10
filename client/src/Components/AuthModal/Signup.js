@@ -47,21 +47,6 @@ export default connect(getData,getFunction)(class SignUp extends Component {
     
     signupHandler = () => {
 
-        if(this.state.name === "" || this.state.name.trim() == "" || this.state.username === "" || this.state.username.trim() == "" || this.state.email === "" || this.state.email.trim() == "" || this.state.password === "" || this.state.password.trim() == ""){
-            let action = {
-                type:"set_error_message",
-                payload: "Field is required!"
-            }
-            this.props.errorMessage(action);
-
-            setTimeout(() => {
-                let action = {
-                    type: "set_hide_error_message",
-                }
-                this.props.hideMessage(action)
-            }, 2000);
-        }
-
         const { name, username, email, password } = this.state;
         
         const user = {
@@ -72,7 +57,7 @@ export default connect(getData,getFunction)(class SignUp extends Component {
         };
         axios({
             method: 'POST',
-            url: 'http://localhost:5555/user/register',
+            url: 'https://server-musicme.herokuapp.com/user/register',
             data: user
         })
         .then((response) => {
@@ -129,10 +114,10 @@ export default connect(getData,getFunction)(class SignUp extends Component {
             </div>
             
             <div className="authBody">
-            <input onChange = {(e) => {this.handleNameChange(e)}} type="text" value={this.state.name} placeholder="Enter Name"></input>
-            <input onChange = {(e) => {this.handleUsernameChange(e)}} type="text" value={this.state.username} placeholder="Enter Username"></input>
-            <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Enter Email"></input>
-            <input onChange = {(e) => {this.handlePasswordChange(e)}} type="password" value={this.state.password} placeholder="Enter Password"></input>
+            <input onChange = {(e) => {this.handleNameChange(e)}} type="text" value={this.state.name} placeholder="Name"></input>
+            <input onChange = {(e) => {this.handleUsernameChange(e)}} type="text" value={this.state.username} placeholder="Username"></input>
+            <input onChange = {(e) => {this.handleEmailChange(e)}} type="email" value={this.state.email} placeholder="Email"></input>
+            <input onChange = {(e) => {this.handlePasswordChange(e)}} type="password" value={this.state.password} placeholder="Password"></input>
             </div>
             <div className="authButton">
             <button onClick={() => {this.signupHandler()}}>Sign Up</button>

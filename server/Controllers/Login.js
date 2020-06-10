@@ -8,7 +8,10 @@ exports.login = async (req, res) => {
     try {
         //Validate the data
         const {error} = loginValidation(req.body);
-        if(error) return res.status(400).send(error.details[0].message);
+        if(error) return res.json({
+            status: 400,
+            message: error.details[0].message
+        });
 
         //Checking if the user exist or not in database
         const user = await User.findOne({where: {email: req.body.email}});

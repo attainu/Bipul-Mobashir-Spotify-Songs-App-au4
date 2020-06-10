@@ -13,6 +13,6 @@
     "cors-anywhere": "^0.4.1",
     "express": "^4.17.1",
     "express-rate-limit": "^5.1.1",
-    "ytdl-core": "^2.0.1"
+    "ytdl-core": "^2.1.5"
   }
 }
