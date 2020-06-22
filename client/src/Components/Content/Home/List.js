@@ -46,7 +46,7 @@ export default connect(getData,getFunction)(class List extends Component {
             <div  className="itemList" onClick={()=>{this.playSong(this.props.id,this.props.thumbnail,this.props.number)}}>
                 {/* <img className="itemListImage" src={this.props.thumbnail}/> */}
                 <div className="radioPlayButton">
-                    { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" class="radio-pause-button" >
+                    { this.props.currentId && this.props.songStatus && this.props.currentId === this.props.id ? <div id="play-video" className="radio-pause-button" >
                     <span></span>
                     <span></span>
                     
